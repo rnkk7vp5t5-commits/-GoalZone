@@ -1,436 +1,388 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoalZone | دنیای فوتبال</title>
 
-    <title>GoalZone - Football World</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+body {
+    background: #080d12;
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+}
 
-        body {
-            background: #080d12;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
+header {
+    background: #101820;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #00c875;
+}
 
-        header {
-            background: #101820;
-            padding: 20px;
-            border-bottom: 3px solid #00e676;
-        }
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #00e58b;
+}
 
-        nav {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+.logo span {
+    color: white;
+}
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #00e676;
-        }
+header p {
+    color: #aaa;
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+    background: #141e27;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        nav a:hover {
-            color: #00e676;
-        }
+nav a:hover {
+    color: #00e58b;
+}
 
-        .hero {
-            text-align: center;
-            padding: 90px 20px;
-            background: linear-gradient(
-                135deg,
-                #062b1a,
-                #080d12
-            );
-        }
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+}
 
-        .hero h1 {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
+.hero {
+    margin-top: 25px;
+    padding: 45px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #123c2d, #101820);
+    border-radius: 15px;
+}
 
-        .hero h1 span {
-            color: #00e676;
-        }
+.hero h1 {
+    font-size: 30px;
+    color: #00e58b;
+}
 
-        .hero p {
-            color: #bbbbbb;
-            font-size: 18px;
-        }
+.hero p {
+    color: #ddd;
+    margin-top: 10px;
+}
 
-        .button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 13px 25px;
-            background: #00e676;
-            color: #001b0d;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.search {
+    margin-top: 20px;
+}
 
-        section {
-            padding: 60px 20px;
-        }
+.search input {
+    width: 90%;
+    max-width: 400px;
+    padding: 13px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-        }
+section {
+    margin-top: 35px;
+}
 
-        .title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 35px;
-        }
+.section-title {
+    font-size: 23px;
+    color: #00e58b;
+    border-right: 4px solid #00e58b;
+    padding-right: 12px;
+    margin-bottom: 18px;
+}
 
-        .title span {
-            color: #00e676;
-        }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 15px;
+}
 
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(250px, 1fr)
-            );
-            gap: 20px;
-        }
+.card {
+    background: #141e27;
+    border: 1px solid #263541;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
 
-        .card {
-            background: #121c25;
-            border: 1px solid #263642;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
+.card h3 {
+    color: #00e58b;
+    margin-bottom: 10px;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #00e676;
-        }
+.score {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px;
+}
 
-        .card-image {
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 65px;
-            background: #1b2b36;
-        }
+.status {
+    color: #00e58b;
+    font-size: 13px;
+}
 
-        .card-content {
-            padding: 20px;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #141e27;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-        .card h3 {
-            color: #00e676;
-            margin-bottom: 12px;
-        }
+th, td {
+    padding: 12px 8px;
+    text-align: center;
+    border-bottom: 1px solid #293844;
+}
 
-        .card p {
-            color: #bbbbbb;
-            line-height: 1.6;
-        }
+th {
+    color: #00e58b;
+    background: #1b2b35;
+}
 
-        .match-box {
-            background: #121c25;
-            border: 1px solid #263642;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-        }
+.news {
+    background: #141e27;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
 
-        .match {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 22px;
-        }
+.news h3 {
+    color: #00e58b;
+}
 
-        .match span {
-            color: #00e676;
-            font-weight: bold;
-        }
+.news p {
+    color: #bbb;
+}
 
-        .league-list {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(180px, 1fr)
-            );
-            gap: 15px;
-        }
+.ad-box {
+    margin-top: 35px;
+    padding: 25px;
+    text-align: center;
+    border: 1px dashed #64727c;
+    border-radius: 10px;
+    color: #aaa;
+}
 
-        .league {
-            background: #121c25;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #263642;
-        }
+footer {
+    margin-top: 45px;
+    padding: 25px;
+    background: #101820;
+    text-align: center;
+    color: #aaa;
+}
 
-        .league h3 {
-            color: #00e676;
-        }
+footer strong {
+    color: #00e58b;
+}
 
-        footer {
-            background: #101820;
-            text-align: center;
-            padding: 30px;
-            color: #aaaaaa;
-            border-top: 2px solid #00e676;
-        }
+@media(max-width: 500px) {
+    .hero h1 {
+        font-size: 23px;
+    }
 
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 32px;
-            }
+    nav {
+        gap: 12px;
+        font-size: 14px;
+    }
 
-            nav {
-                justify-content: center;
-            }
-
-            nav ul {
-                justify-content: center;
-            }
-        }
-    </style>
+    th, td {
+        padding: 9px 4px;
+        font-size: 13px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <nav>
+<header>
+    <div class="logo">GOAL<span>ZONE</span> ⚽</div>
+    <p>همه چیز درباره دنیای فوتبال</p>
+</header>
 
-            <div class="logo">
-                ⚽ GoalZone
-            </div>
+<nav>
+    <a href="#home">خانه</a>
+    <a href="#matches">نتایج</a>
+    <a href="#upcoming">بازی‌ها</a>
+    <a href="#table">جدول لیگ</a>
+    <a href="#news">اخبار</a>
+</nav>
 
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#matches">Matches</a></li>
-                <li><a href="#leagues">Leagues</a></li>
-            </ul>
+<div class="container">
 
-        </nav>
-    </header>
+<section class="hero" id="home">
+    <h1>به GoalZone خوش آمدید</h1>
+    <p>آخرین اخبار، نتایج و اطلاعات فوتبال را دنبال کنید.</p>
 
-    <section class="hero" id="home">
+    <div class="search">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="نام تیم را جست‌وجو کنید..."
+        >
+    </div>
+</section>
 
-        <h1>
-            Welcome to <span>GoalZone</span>
-        </h1>
+<section id="matches">
+    <h2 class="section-title">⚽ نتایج مسابقات</h2>
 
-        <p>
-            Your Home for Football News,
-            Matches and the Beautiful Game.
-        </p>
+    <div class="cards" id="matchCards">
 
-        <a href="#news" class="button">
-            Explore Football
-        </a>
-
-    </section>
-
-    <section id="news">
-
-        <div class="container">
-
-            <h2 class="title">
-                Football <span>News</span>
-            </h2>
-
-            <div class="news-grid">
-
-                <div class="card">
-
-                    <div class="card-image">
-                        ⚪
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Real Madrid</h3>
-
-                        <p>
-                            Latest news, players,
-                            matches and updates
-                            from Real Madrid.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-image">
-                        🔵🔴
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Barcelona</h3>
-
-                        <p>
-                            Discover Barcelona news,
-                            match updates and
-                            football stories.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-image">
-                        🏆
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Champions League</h3>
-
-                        <p>
-                            Follow European football
-                            and the biggest
-                            club competition.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="card">
+            <h3>Real Madrid</h3>
+            <div class="score">2 - 1</div>
+            <p>Barcelona</p>
+            <span class="status">نتیجه نمونه</span>
         </div>
 
-    </section>
-
-    <section id="matches">
-
-        <div class="container">
-
-            <h2 class="title">
-                Featured <span>Match</span>
-            </h2>
-
-            <div class="match-box">
-
-                <div class="match">
-
-                    <div>
-                        ⚪ Real Madrid
-                    </div>
-
-                    <span>VS</span>
-
-                    <div>
-                        🔴 Arsenal
-                    </div>
-
-                </div>
-
-                <p style="margin-top: 20px; color: #aaaaaa;">
-                    Match information coming soon.
-                </p>
-
-            </div>
-
+        <div class="card">
+            <h3>Manchester City</h3>
+            <div class="score">3 - 2</div>
+            <p>Arsenal</p>
+            <span class="status">نتیجه نمونه</span>
         </div>
 
-    </section>
-
-    <section id="leagues">
-
-        <div class="container">
-
-            <h2 class="title">
-                Popular <span>Leagues</span>
-            </h2>
-
-            <div class="league-list">
-
-                <div class="league">
-                    <h3>Premier League</h3>
-                    <p>England</p>
-                </div>
-
-                <div class="league">
-                    <h3>La Liga</h3>
-                    <p>Spain</p>
-                </div>
-
-                <div class="league">
-                    <h3>Bundesliga</h3>
-                    <p>Germany</p>
-                </div>
-
-                <div class="league">
-                    <h3>Serie A</h3>
-                    <p>Italy</p>
-                </div>
-
-                <div class="league">
-                    <h3>Ligue 1</h3>
-                    <p>France</p>
-                </div>
-
-                <div class="league">
-                    <h3>Champions League</h3>
-                    <p>Europe</p>
-                </div>
-
-            </div>
-
+        <div class="card">
+            <h3>Bayern Munich</h3>
+            <div class="score">2 - 0</div>
+            <p>Dortmund</p>
+            <span class="status">نتیجه نمونه</span>
         </div>
 
-    </section>
+    </div>
+</section>
 
-    <footer>
+<section id="upcoming">
+    <h2 class="section-title">📅 مسابقات آینده</h2>
 
-        <h2>⚽ GoalZone</h2>
+    <div class="cards">
 
-        <p>
-            Your Football World.
-        </p>
+        <div class="card">
+            <h3>Real Madrid</h3>
+            <p>در برابر Arsenal</p>
+            <span class="status">زمان مسابقه: به‌زودی</span>
+        </div>
 
-        <p style="margin-top: 15px;">
-            © 2026 GoalZone. All Rights Reserved.
-        </p>
+        <div class="card">
+            <h3>Barcelona</h3>
+            <p>در برابر Manchester City</p>
+            <span class="status">زمان مسابقه: به‌زودی</span>
+        </div>
 
-    </footer>
+    </div>
+</section>
+
+<section id="table">
+    <h2 class="section-title">🏆 جدول لیگ نمونه</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>رتبه</th>
+                <th>تیم</th>
+                <th>بازی</th>
+                <th>امتیاز</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Real Madrid</td>
+                <td>10</td>
+                <td>25</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Barcelona</td>
+                <td>10</td>
+                <td>23</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Atletico Madrid</td>
+                <td>10</td>
+                <td>20</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>Sevilla</td>
+                <td>10</td>
+                <td>17</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="news">
+    <h2 class="section-title">📰 اخبار فوتبال</h2>
+
+    <div class="news">
+        <h3>اخبار رئال مادرید</h3>
+        <p>در این بخش خبرهای جدید مربوط به رئال مادرید منتشر خواهد شد.</p>
+    </div>
+
+    <div class="news">
+        <h3>اخبار لیگ قهرمانان اروپا</h3>
+        <p>در این بخش خبرهای مربوط به مسابقات اروپایی قرار می‌گیرد.</p>
+    </div>
+
+    <div class="news">
+        <h3>اخبار نقل و انتقالات</h3>
+        <p>آخرین خبرهای نقل و انتقالات فوتبال را در این قسمت دنبال کنید.</p>
+    </div>
+</section>
+
+<div class="ad-box">
+    جایگاه تبلیغات
+    <br>
+    در آینده تبلیغات سایت در این قسمت نمایش داده می‌شود.
+</div>
+
+</div>
+
+<footer>
+    <div class="logo">GOALZONE ⚽</div>
+    <p>ساخته شده برای علاقه‌مندان فوتبال</p>
+    <p>© 2026 GoalZone</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", function() {
+    const value = this.value.toLowerCase();
+
+    document.querySelectorAll(".card").forEach(function(card) {
+        card.style.display =
+            card.innerText.toLowerCase().includes(value)
+            ? "block"
+            : "none";
+    });
+});
+</script>
 
 </body>
-
 </html>
