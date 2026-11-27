@@ -6,208 +6,78 @@
 <title>GoalZone | دنیای فوتبال</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+ margin:0;background:#0b1020;color:#fff;
+ font-family:Arial,sans-serif;
 }
-
-body {
-    background: #080d12;
-    color: white;
-    font-family: Arial, sans-serif;
-    line-height: 1.8;
+header{
+ background:#111a30;padding:20px;
+ display:flex;justify-content:space-between;
+ align-items:center;flex-wrap:wrap;gap:15px;
+ border-bottom:1px solid #263451;
 }
-
-header {
-    background: #101820;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid #00c875;
+.logo{font-size:27px;font-weight:bold;color:#35e69a}
+.logo span{color:white}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:#ddd;text-decoration:none;font-size:14px}
+nav a:hover{color:#35e69a}
+.container{max-width:1100px;margin:auto;padding:20px}
+.hero{
+ background:linear-gradient(120deg,#173e35,#152442);
+ padding:30px;border-radius:16px;margin-top:20px;
 }
-
-.logo {
-    font-size: 32px;
-    font-weight: bold;
-    color: #00e58b;
+.hero h1{font-size:30px;margin:0 0 10px}
+.hero p{color:#c6d5d1}
+.search{
+ width:100%;padding:16px;border:1px solid #344463;
+ border-radius:12px;background:#151f35;color:white;
+ font-size:16px;margin:20px 0;
+ outline:none;
 }
-
-.logo span {
-    color: white;
+.search:focus{border-color:#35e69a}
+.section-title{
+ display:flex;justify-content:space-between;
+ align-items:center;margin:30px 0 15px;
 }
-
-header p {
-    color: #aaa;
+.section-title h2{font-size:21px}
+.tag{color:#35e69a;font-size:13px}
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:15px;
 }
-
-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 15px;
-    background: #141e27;
+.card{
+ background:#151f35;padding:18px;
+ border-radius:14px;border:1px solid #25334e;
 }
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+.match{display:flex;justify-content:space-between;align-items:center}
+.team{text-align:center;width:40%;font-size:14px}
+.team b{display:block;margin-top:8px}
+.crest{
+ width:43px;height:43px;border-radius:50%;
+ background:#263c59;display:flex;
+ align-items:center;justify-content:center;
+ margin:auto;font-size:22px;
 }
-
-nav a:hover {
-    color: #00e58b;
+.score{font-size:23px;font-weight:bold;color:#35e69a}
+.status{font-size:12px;color:#ff6666;margin-top:12px}
+.btn{
+ display:inline-block;background:#35e69a;color:#07130e;
+ padding:10px 15px;border-radius:8px;
+ text-decoration:none;font-weight:bold;margin-top:10px;
 }
-
-.container {
-    width: 92%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.hero {
-    margin-top: 25px;
-    padding: 45px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #123c2d, #101820);
-    border-radius: 15px;
-}
-
-.hero h1 {
-    font-size: 30px;
-    color: #00e58b;
-}
-
-.hero p {
-    color: #ddd;
-    margin-top: 10px;
-}
-
-.search {
-    margin-top: 20px;
-}
-
-.search input {
-    width: 90%;
-    max-width: 400px;
-    padding: 13px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-}
-
-section {
-    margin-top: 35px;
-}
-
-.section-title {
-    font-size: 23px;
-    color: #00e58b;
-    border-right: 4px solid #00e58b;
-    padding-right: 12px;
-    margin-bottom: 18px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 15px;
-}
-
-.card {
-    background: #141e27;
-    border: 1px solid #263541;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-}
-
-.card h3 {
-    color: #00e58b;
-    margin-bottom: 10px;
-}
-
-.score {
-    font-size: 25px;
-    font-weight: bold;
-    margin: 10px;
-}
-
-.status {
-    color: #00e58b;
-    font-size: 13px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #141e27;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 12px 8px;
-    text-align: center;
-    border-bottom: 1px solid #293844;
-}
-
-th {
-    color: #00e58b;
-    background: #1b2b35;
-}
-
-.news {
-    background: #141e27;
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-}
-
-.news h3 {
-    color: #00e58b;
-}
-
-.news p {
-    color: #bbb;
-}
-
-.ad-box {
-    margin-top: 35px;
-    padding: 25px;
-    text-align: center;
-    border: 1px dashed #64727c;
-    border-radius: 10px;
-    color: #aaa;
-}
-
-footer {
-    margin-top: 45px;
-    padding: 25px;
-    background: #101820;
-    text-align: center;
-    color: #aaa;
-}
-
-footer strong {
-    color: #00e58b;
-}
-
-@media(max-width: 500px) {
-    .hero h1 {
-        font-size: 23px;
-    }
-
-    nav {
-        gap: 12px;
-        font-size: 14px;
-    }
-
-    th, td {
-        padding: 9px 4px;
-        font-size: 13px;
-    }
+table{width:100%;border-collapse:collapse;background:#151f35;border-radius:12px;overflow:hidden}
+th,td{padding:13px;text-align:center;border-bottom:1px solid #293650;font-size:13px}
+th{color:#35e69a}
+.news h3{font-size:16px}
+.news p{font-size:13px;color:#b8c2d5;line-height:1.8}
+footer{text-align:center;padding:30px;color:#8290a8;margin-top:35px}
+.item{cursor:pointer}
+.item:hover{border-color:#35e69a}
+.hidden{display:none}
+@media(max-width:500px){
+ .hero h1{font-size:23px}
+ nav{gap:12px}
 }
 </style>
 </head>
@@ -215,173 +85,142 @@ footer strong {
 <body>
 
 <header>
-    <div class="logo">GOAL<span>ZONE</span> ⚽</div>
-    <p>همه چیز درباره دنیای فوتبال</p>
+ <div class="logo">GOAL<span>ZONE</span> ⚽</div>
+ <nav>
+  <a href="#home">خانه</a>
+  <a href="#matches">مسابقات</a>
+  <a href="#leagues">لیگ‌ها</a>
+  <a href="#table">جدول</a>
+  <a href="#news">اخبار</a>
+ </nav>
 </header>
 
-<nav>
-    <a href="#home">خانه</a>
-    <a href="#matches">نتایج</a>
-    <a href="#upcoming">بازی‌ها</a>
-    <a href="#table">جدول لیگ</a>
-    <a href="#news">اخبار</a>
-</nav>
-
-<div class="container">
+<main class="container">
 
 <section class="hero" id="home">
-    <h1>به GoalZone خوش آمدید</h1>
-    <p>آخرین اخبار، نتایج و اطلاعات فوتبال را دنبال کنید.</p>
-
-    <div class="search">
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="نام تیم را جست‌وجو کنید..."
-        >
-    </div>
+ <h1>تمام دنیای فوتبال در یک جا</h1>
+ <p>نتایج، مسابقات، تیم‌ها، لیگ‌ها و تازه‌ترین اخبار فوتبال</p>
+ <a href="#matches" class="btn">مشاهده مسابقات</a>
 </section>
+
+<input class="search" id="search"
+ placeholder="🔍 جستجوی تیم، بازیکن یا لیگ..."
+ oninput="searchItems()">
+
+<div id="searchResults" class="grid"></div>
 
 <section id="matches">
-    <h2 class="section-title">⚽ نتایج مسابقات</h2>
+ <div class="section-title">
+  <h2>⚽ مسابقات فوتبال</h2>
+  <span class="tag">نمونه آزمایشی</span>
+ </div>
 
-    <div class="cards" id="matchCards">
+ <div class="grid" id="matchList">
 
-        <div class="card">
-            <h3>Real Madrid</h3>
-            <div class="score">2 - 1</div>
-            <p>Barcelona</p>
-            <span class="status">نتیجه نمونه</span>
-        </div>
+  <div class="card item" data-search="real madrid رئال مادرید بارسلونا barcelona">
+   <div class="match">
+    <div class="team"><div class="crest">⚪</div><b>رئال مادرید</b></div>
+    <div class="score">2 - 1</div>
+    <div class="team"><div class="crest">🔵</div><b>بارسلونا</b></div>
+   </div>
+   <div class="status">نتیجه نمونه</div>
+  </div>
 
-        <div class="card">
-            <h3>Manchester City</h3>
-            <div class="score">3 - 2</div>
-            <p>Arsenal</p>
-            <span class="status">نتیجه نمونه</span>
-        </div>
+  <div class="card item" data-search="manchester city منچستر سیتی arsenal آرسنال">
+   <div class="match">
+    <div class="team"><div class="crest">🔷</div><b>منچستر سیتی</b></div>
+    <div class="score">1 - 1</div>
+    <div class="team"><div class="crest">🔴</div><b>آرسنال</b></div>
+   </div>
+   <div class="status">نتیجه نمونه</div>
+  </div>
 
-        <div class="card">
-            <h3>Bayern Munich</h3>
-            <div class="score">2 - 0</div>
-            <p>Dortmund</p>
-            <span class="status">نتیجه نمونه</span>
-        </div>
+  <div class="card item" data-search="bayern مونیخ دورتموند dortmund">
+   <div class="match">
+    <div class="team"><div class="crest">🔴</div><b>بایرن مونیخ</b></div>
+    <div class="score">3 - 0</div>
+    <div class="team"><div class="crest">🟡</div><b>دورتموند</b></div>
+   </div>
+   <div class="status">نتیجه نمونه</div>
+  </div>
 
-    </div>
+ </div>
 </section>
 
-<section id="upcoming">
-    <h2 class="section-title">📅 مسابقات آینده</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Real Madrid</h3>
-            <p>در برابر Arsenal</p>
-            <span class="status">زمان مسابقه: به‌زودی</span>
-        </div>
-
-        <div class="card">
-            <h3>Barcelona</h3>
-            <p>در برابر Manchester City</p>
-            <span class="status">زمان مسابقه: به‌زودی</span>
-        </div>
-
-    </div>
+<section id="leagues">
+ <div class="section-title"><h2>🏆 لیگ‌های مشهور</h2></div>
+ <div class="grid">
+  <div class="card item" data-search="premier league لیگ برتر انگلیس">🏴 لیگ برتر انگلیس</div>
+  <div class="card item" data-search="la liga لالیگا اسپانیا">🇪🇸 لالیگا</div>
+  <div class="card item" data-search="bundesliga بوندسلیگا">🇩🇪 بوندسلیگا</div>
+  <div class="card item" data-search="serie a سری آ ایتالیا">🇮🇹 سری A</div>
+  <div class="card item" data-search="champions league لیگ قهرمانان">⭐ لیگ قهرمانان اروپا</div>
+  <div class="card item" data-search="ligue 1 لیگ فرانسه">🇫🇷 لیگ فرانسه</div>
+ </div>
 </section>
 
 <section id="table">
-    <h2 class="section-title">🏆 جدول لیگ نمونه</h2>
-
-    <table>
-        <thead>
-            <tr>
-                <th>رتبه</th>
-                <th>تیم</th>
-                <th>بازی</th>
-                <th>امتیاز</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Real Madrid</td>
-                <td>10</td>
-                <td>25</td>
-            </tr>
-
-            <tr>
-                <td>2</td>
-                <td>Barcelona</td>
-                <td>10</td>
-                <td>23</td>
-            </tr>
-
-            <tr>
-                <td>3</td>
-                <td>Atletico Madrid</td>
-                <td>10</td>
-                <td>20</td>
-            </tr>
-
-            <tr>
-                <td>4</td>
-                <td>Sevilla</td>
-                <td>10</td>
-                <td>17</td>
-            </tr>
-        </tbody>
-    </table>
+ <div class="section-title"><h2>📊 جدول لالیگا</h2></div>
+ <table>
+  <thead>
+   <tr><th>#</th><th>تیم</th><th>بازی</th><th>امتیاز</th></tr>
+  </thead>
+  <tbody>
+   <tr><td>1</td><td>رئال مادرید</td><td>نمونه</td><td>نمونه</td></tr>
+   <tr><td>2</td><td>بارسلونا</td><td>نمونه</td><td>نمونه</td></tr>
+   <tr><td>3</td><td>اتلتیکو مادرید</td><td>نمونه</td><td>نمونه</td></tr>
+   <tr><td>4</td><td>اتلتیک بیلبائو</td><td>نمونه</td><td>نمونه</td></tr>
+  </tbody>
+ </table>
 </section>
 
 <section id="news">
-    <h2 class="section-title">📰 اخبار فوتبال</h2>
-
-    <div class="news">
-        <h3>اخبار رئال مادرید</h3>
-        <p>در این بخش خبرهای جدید مربوط به رئال مادرید منتشر خواهد شد.</p>
-    </div>
-
-    <div class="news">
-        <h3>اخبار لیگ قهرمانان اروپا</h3>
-        <p>در این بخش خبرهای مربوط به مسابقات اروپایی قرار می‌گیرد.</p>
-    </div>
-
-    <div class="news">
-        <h3>اخبار نقل و انتقالات</h3>
-        <p>آخرین خبرهای نقل و انتقالات فوتبال را در این قسمت دنبال کنید.</p>
-    </div>
+ <div class="section-title"><h2>📰 اخبار فوتبال</h2></div>
+ <div class="grid">
+  <div class="card news">
+   <h3>آخرین اخبار رئال مادرید</h3>
+   <p>بخش اخبار رئال مادرید در نسخه بعدی با اخبار واقعی تکمیل می‌شود.</p>
+  </div>
+  <div class="card news">
+   <h3>اخبار نقل‌وانتقالات</h3>
+   <p>خبرهای انتقال بازیکنان و قراردادهای جدید در این بخش قرار می‌گیرند.</p>
+  </div>
+  <div class="card news">
+   <h3>اخبار لیگ قهرمانان</h3>
+   <p>نتایج و خبرهای رقابت‌های اروپایی در این قسمت نمایش داده می‌شود.</p>
+  </div>
+ </div>
 </section>
 
-<div class="ad-box">
-    جایگاه تبلیغات
-    <br>
-    در آینده تبلیغات سایت در این قسمت نمایش داده می‌شود.
-</div>
-
-</div>
+</main>
 
 <footer>
-    <div class="logo">GOALZONE ⚽</div>
-    <p>ساخته شده برای علاقه‌مندان فوتبال</p>
-    <p>© 2026 GoalZone</p>
+GOALZONE © 2026 | دنیای فوتبال
 </footer>
 
 <script>
-const searchInput = document.getElementById("searchInput");
+function searchItems(){
+ const input=document.getElementById("search").value.toLowerCase().trim();
+ const results=document.getElementById("searchResults");
+ results.innerHTML="";
+ if(!input){return;}
 
-searchInput.addEventListener("input", function() {
-    const value = this.value.toLowerCase();
+ const items=document.querySelectorAll(".item");
+ let count=0;
 
-    document.querySelectorAll(".card").forEach(function(card) {
-        card.style.display =
-            card.innerText.toLowerCase().includes(value)
-            ? "block"
-            : "none";
-    });
-});
+ items.forEach(item=>{
+  const text=(item.innerText+" "+(item.dataset.search||"")).toLowerCase();
+  if(text.includes(input)){
+   const copy=item.cloneNode(true);
+   results.appendChild(copy);
+   count++;
+  }
+ });
+
+ if(count===0){
+  results.innerHTML='<div class="card">موردی پیدا نشد.</div>';
+ }
+}
 </script>
 
 </body>
