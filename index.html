@@ -8,43 +8,45 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#0b1220;color:#f1f5f9;font-family:Arial,Tahoma,sans-serif}
-header{background:#111c30;padding:18px 4%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;border-bottom:1px solid #26354d}
+header{background:#111c30;padding:16px 4%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:1px solid #26354d}
 .logo{font-size:27px;font-weight:bold;color:#35df91}
 .logo span{color:white}
 nav{display:flex;gap:7px;flex-wrap:wrap}
-button{cursor:pointer;border:0;border-radius:9px;padding:10px 13px;background:#1e2d45;color:white;font-size:14px}
-button:hover,.active{background:#087e55}
-.container{width:93%;max-width:1200px;margin:25px auto}
-.hero{background:linear-gradient(120deg,#075e46,#132b42);padding:28px;border-radius:18px;margin-bottom:24px}
-.hero h1{font-size:29px;margin:0 0 10px}
+button{cursor:pointer;border:0;border-radius:9px;padding:10px 13px;background:#1e2d45;color:white;font-size:14px;transition:0.2s}
+nav button:hover, nav button.active{background:#087e55}
+.fav-btn{background:#26354d;font-size:12px;padding:6px 10px;margin-top:8px}
+.fav-btn.saved{background:#d97706;color:white}
+.container{width:93%;max-width:1200px;margin:24px auto}
+.hero{background:linear-gradient(120deg,#075e46,#132b42);padding:25px;border-radius:18px;margin-bottom:20px}
+.hero h1{font-size:28px;margin:0 0 10px}
 .hero p{color:#d1fae5}
-.search{width:100%;padding:15px;border-radius:12px;border:1px solid #34445d;background:#111c30;color:white;font-size:16px;margin:15px 0}
-.section-title{display:flex;justify-content:space-between;align-items:center;margin:25px 0 15px;gap:10px}
+.search{width:100%;padding:14px;border-radius:12px;border:1px solid #34445d;background:#111c30;color:white;font-size:16px;margin:12px 0}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:22px 0 13px;gap:10px}
 .section-title h2{font-size:21px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px}
-.card{background:#121e31;border:1px solid #26354d;border-radius:14px;padding:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:#121e31;border:1px solid #26354d;border-radius:14px;padding:16px}
 .match-top{display:flex;justify-content:space-between;color:#9fb0c7;font-size:13px;gap:8px}
-.teams{display:flex;align-items:center;justify-content:space-around;gap:8px;text-align:center;margin:20px 0}
+.teams{display:flex;align-items:center;justify-content:space-around;gap:8px;text-align:center;margin:18px 0}
 .team{flex:1;font-size:14px;overflow-wrap:anywhere}
-.crest{width:58px;height:58px;object-fit:contain;display:block;margin:0 auto 8px}
-.logo-fallback{width:58px;height:58px;border-radius:50%;background:#26354d;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:13px;font-weight:bold}
+.crest{width:52px;height:52px;object-fit:contain;display:block;margin:0 auto 8px}
+.logo-fallback{width:52px;height:52px;border-radius:50%;background:#26354d;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:12px;font-weight:bold}
 .score{font-size:22px;font-weight:bold;white-space:nowrap}
 .badge{display:inline-block;padding:5px 9px;border-radius:7px;background:#20364a;color:#65e8ad;font-size:12px}
 .muted{color:#9fb0c7;font-size:13px}
 .status-live{color:#ff7777;font-weight:bold}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{padding:12px 7px;text-align:center;border-bottom:1px solid #26354d}
-th{color:#65e8ad}
-.news-img{height:100px;border-radius:10px;background:#1e3850;display:flex;align-items:center;justify-content:center;font-size:35px;margin-bottom:12px}
 .hidden{display:none!important}
-.ad{background:#101a2b;border:1px dashed #53647b;padding:20px;text-align:center;border-radius:12px;color:#8295ad;margin:25px 0}
-footer{text-align:center;padding:30px;color:#8da0b9;border-top:1px solid #26354d;margin-top:40px}
-#apiMessage{padding:13px;border-radius:10px;margin:12px 0;background:#17283b;color:#b9c9dc;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:11px 7px;text-align:center;border-bottom:1px solid #26354d}
+th{color:#65e8ad}
+.news-img{height:90px;border-radius:10px;background:#1e3850;display:flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:10px}
+.ad{background:#101a2b;border:1px dashed #53647b;padding:18px;text-align:center;border-radius:12px;color:#8295ad;margin:22px 0}
+footer{text-align:center;padding:28px;color:#8da0b9;border-top:1px solid #26354d;margin-top:35px}
+#apiMessage,#liveMessage{padding:12px;border-radius:10px;margin:10px 0;background:#17283b;color:#b9c9dc;font-size:14px}
 @media(max-width:600px){
- header{justify-content:center}
- nav{justify-content:center}
- .hero h1{font-size:24px}
- .container{width:94%}
+header{justify-content:center}
+nav{justify-content:center}
+.hero h1{font-size:23px}
+.container{width:94%}
 }
 </style>
 </head>
@@ -53,9 +55,11 @@ footer{text-align:center;padding:30px;color:#8da0b9;border-top:1px solid #26354d
 
 <header>
  <div class="logo">⚽ Goal<span>Zone</span></div>
+
  <nav>
   <button class="active" onclick="showPage('home',this)">خانه</button>
   <button onclick="showPage('matches',this)">مسابقات</button>
+  <button onclick="showPage('live',this)">🔴 زنده</button>
   <button onclick="showPage('leagues',this)">لیگ‌ها</button>
   <button onclick="showPage('table',this)">جدول</button>
   <button onclick="showPage('teams',this)">تیم‌ها</button>
@@ -68,10 +72,12 @@ footer{text-align:center;padding:30px;color:#8da0b9;border-top:1px solid #26354d
 
 <section class="hero">
  <h1>به دنیای فوتبال خوش آمدید</h1>
- <p>همه‌چیز درباره فوتبال، تیم‌ها، لیگ‌ها و مسابقات</p>
+ <p>نتایج، مسابقات زنده، تیم‌ها و لیگ‌های فوتبال</p>
+
  <input id="search" class="search"
  placeholder="نام تیم، لیگ یا مسابقه را جست‌وجو کنید..."
  oninput="searchSite()">
+
  <div class="muted">⚽ اطلاعات مسابقات از سرویس فوتبال دریافت می‌شود.</div>
 </section>
 
@@ -80,21 +86,32 @@ footer{text-align:center;padding:30px;color:#8da0b9;border-top:1px solid #26354d
 <section id="home" class="page">
  <div class="section-title">
   <h2>⚽ مسابقات امروز</h2>
-  <span class="badge">اطلاعات واقعی</span>
+  <span class="badge">API Football</span>
  </div>
+
  <div id="apiMessage">در حال دریافت مسابقات...</div>
  <div class="grid" id="homeMatches"></div>
 
  <div class="section-title"><h2>🏆 لیگ‌های مشهور</h2></div>
  <div class="grid" id="homeLeagues"></div>
 
- <div class="section-title"><h2>📰 آخرین اخبار</h2></div>
+ <div class="section-title"><h2>📰 اخبار فوتبال</h2></div>
  <div class="grid" id="homeNews"></div>
 </section>
 
 <section id="matches" class="page hidden">
  <div class="section-title"><h2>تمام مسابقات امروز</h2></div>
  <div class="grid" id="allMatches"></div>
+</section>
+
+<section id="live" class="page hidden">
+ <div class="section-title">
+  <h2>🔴 مسابقات زنده</h2>
+  <span class="badge">LIVE</span>
+ </div>
+
+ <div id="liveMessage">در حال دریافت مسابقات زنده...</div>
+ <div class="grid" id="liveMatches"></div>
 </section>
 
 <section id="leagues" class="page hidden">
@@ -104,19 +121,20 @@ footer{text-align:center;padding:30px;color:#8da0b9;border-top:1px solid #26354d
 
 <section id="table" class="page hidden">
  <div class="section-title"><h2>جدول لیگ نمونه</h2></div>
+
  <div class="card">
   <h3>لالیگا اسپانیا</h3>
-  <p class="muted">این جدول هنوز نمونه است.</p>
+  <p class="muted">جدول واقعی در نسخهٔ بعدی وصل می‌شود.</p>
+
   <div style="overflow-x:auto">
    <table>
     <thead>
      <tr><th>#</th><th>تیم</th><th>بازی</th><th>امتیاز</th></tr>
     </thead>
     <tbody>
-     <tr><td>1</td><td>Real Madrid</td><td>0</td><td>0</td></tr>
-     <tr><td>2</td><td>Barcelona</td><td>0</td><td>0</td></tr>
-     <tr><td>3</td><td>Atletico Madrid</td><td>0</td><td>0</td></tr>
-     <tr><td>4</td><td>Sevilla</td><td>0</td><td>0</td></tr>
+     <tr><td>1</td><td>Real Madrid</td><td>—</td><td>—</td></tr>
+     <tr><td>2</td><td>Barcelona</td><td>—</td><td>—</td></tr>
+     <tr><td>3</td><td>Atletico Madrid</td><td>—</td><td>—</td></tr>
     </tbody>
    </table>
   </div>
@@ -131,7 +149,7 @@ footer{text-align:center;padding:30px;color:#8da0b9;border-top:1px solid #26354d
 <section id="news" class="page hidden">
  <div class="section-title"><h2>اخبار فوتبال</h2></div>
  <div class="grid" id="allNews"></div>
- <p class="muted">اخبار این بخش هنوز نمونه هستند.</p>
+ <p class="muted">این خبرها نمونه‌اند و هنوز به منبع خبری وصل نشده‌اند.</p>
 </section>
 
 <section id="favorites" class="page hidden">
@@ -144,310 +162,98 @@ footer{text-align:center;padding:30px;color:#8da0b9;border-top:1px solid #26354d
 <footer>GoalZone © 2026 | دنیای فوتبال در یک جا</footer>
 
 <script>
-const API_URL="https://shy-rain-e3fc.hassanhussaine692.workers.dev";
-const CACHE_TIME=10*60*1000;
+const API_URL = "https://workers.dev";
 
-const teams=[
- {name:"Real Madrid",league:"La Liga",id:86,short:"RMA"},
- {name:"Barcelona",league:"La Liga",id:83,short:"BAR"},
- {name:"Manchester City",league:"Premier League",id:382,short:"MCI"},
- {name:"Arsenal",league:"Premier League",id:359,short:"ARS"},
- {name:"Bayern Munich",league:"Bundesliga",id:132,short:"BAY"},
- {name:"Borussia Dortmund",league:"Bundesliga",id:124,short:"BVB"}
+const teams = [
+ {name:"Real Madrid", league:"La Liga", id:86, short:"RMA"},
+ {name:"Barcelona", league:"La Liga", id:83, short:"BAR"},
+ {name:"Manchester City", league:"Premier League", id:382, short:"MCI"},
+ {name:"Arsenal", league:"Premier League", id:359, short:"ARS"},
+ {name:"Bayern Munich", league:"Bundesliga", id:132, short:"BAY"},
+ {name:"Borussia Dortmund", league:"Bundesliga", id:124, short:"BVB"}
 ];
 
-const leagues=[
- {name:"Premier League",country:"انگلستان",icon:"🏴"},
- {name:"La Liga",country:"اسپانیا",icon:"🇪🇸"},
- {name:"Bundesliga",country:"آلمان",icon:"🇩🇪"},
- {name:"Serie A",country:"ایتالیا",icon:"🇮🇹"},
- {name:"Ligue 1",country:"فرانسه",icon:"🇫🇷"},
- {name:"Champions League",country:"اروپا",icon:"🏆"}
+const leagues = [
+ {name:"Premier League", country:"انگلستان", icon:"🏴󠁧󠁢󠁥󠁮󠁧󠁿"},
+ {name:"La Liga", country:"اسپانیا", icon:"🇪🇸"},
+ {name:"Bundesliga", country:"آلمان", icon:"🇩🇪"},
+ {name:"Serie A", country:"ایتالیا", icon:"🇮🇹"},
+ {name:"Ligue 1", country:"فرانسه", icon:"🇫🇷"},
+ {name:"Champions League", country:"اروپا", icon:"🏆"}
 ];
 
-const news=[
- "آخرین اخبار فوتبال اروپا",
- "بررسی وضعیت تیم‌های بزرگ",
- "نگاهی به مسابقات مهم فوتبال",
- "اخبار نقل‌وانتقالات فوتبال"
+const newsList = [
+ {title:"آماده‌سازی تیم‌ها برای هفته حساس لیگ قهرمانان", desc:"بررسی آخرین وضعیت مصدومان و ترکیب احتمالی تیم‌های بزرگ اروپا.", icon:"⚽"},
+ {title:"رقابت نزدیک در صدر جدول لالیگا", desc:"رئال مادرید و بارسلونا برای کسب قهرمانی فصل نبرد نزدیکی دارند.", icon:"🏆"},
+ {title:"رکوردشکنی مهاجمان در لیگ برتر انگلیس", desc:"آمار گلزنی در فصل جاری نسبت به سال‌های گذشته افزایش چشمگیری داشته است.", icon:"🔥"}
 ];
 
-let liveMatches=[];
+let savedFavorites = JSON.parse(localStorage.getItem("gz_favs")) || [];
 
-function escapeHTML(value){
- return String(value??"").replace(/[&<>"']/g,c=>({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
+// تغییر صفحات منو
+function showPage(pageId, btn) {
+ document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
+ document.getElementById(pageId).classList.remove("hidden");
+
+ if (btn) {
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+ }
+ if (pageId === "favorites") renderFavorites();
 }
 
-function logo(t){
- return `<img class="crest"
- src="https://a.espncdn.com/i/teamlogos/soccer/500/${t.id}.png"
- alt="${escapeHTML(t.name)}"
- onerror="this.outerHTML='<div class=&quot;logo-fallback&quot;>${escapeHTML(t.short)}</div>'">`;
+// نمایش لیگ‌ها
+function renderLeagues() {
+ const html = leagues.map(l => `
+  <div class="card searchable" data-text="${l.name} ${l.country}">
+   <div style="font-size:32px;margin-bottom:8px">${l.icon}</div>
+   <h3 style="margin:0 0 6px">${l.name}</h3>
+   <div class="muted">${l.country}</div>
+  </div>
+ `).join("");
+ document.getElementById("homeLeagues").innerHTML = html;
+ document.getElementById("allLeagues").innerHTML = html;
 }
 
-function realMatchCard(m){
- const home=m.teams?.home||{};
- const away=m.teams?.away||{};
- const league=m.league?.name||"فوتبال";
- const status=m.fixture?.status||{};
- const short=status.short||"";
-
- const isLive=["1H","2H","HT","ET","BT","P","LIVE"].includes(short);
- const finished=["FT","AET","PEN"].includes(short);
-
- const gh=m.goals?.home;
- const ga=m.goals?.away;
-
- const score=gh!==null&&gh!==undefined&&ga!==null&&ga!==undefined
- ?`${gh} : ${ga}`:"— : —";
-
- const date=m.fixture?.date
- ?new Date(m.fixture.date).toLocaleString("fa-AF",{dateStyle:"short",timeStyle:"short"})
- :"زمان نامشخص";
-
- const state=isLive?"🔴 زنده":finished?"پایان یافته":status.long||"برنامه‌ریزی شده";
-
- const homeLogo=home.logo
- ?`<img class="crest" src="${escapeHTML(home.logo)}" alt="${escapeHTML(home.name)}" onerror="this.style.display='none'">`
- :`<div class="logo-fallback">${escapeHTML((home.name||"").slice(0,3))}</div>`;
-
- const awayLogo=away.logo
- ?`<img class="crest" src="${escapeHTML(away.logo)}" alt="${escapeHTML(away.name)}" onerror="this.style.display='none'">`
- :`<div class="logo-fallback">${escapeHTML((away.name||"").slice(0,3))}</div>`;
-
- return `<div class="card searchable"
- data-search="${escapeHTML((home.name||"")+" "+(away.name||"")+" "+league)}">
- <div class="match-top">
-  <span>${escapeHTML(league)}</span>
-  <span class="${isLive?'status-live':'badge'}">${escapeHTML(state)}</span>
- </div>
- <div class="teams">
-  <div class="team">${homeLogo}${escapeHTML(home.name||"تیم میزبان")}</div>
-  <div class="score">${score}</div>
-  <div class="team">${awayLogo}${escapeHTML(away.name||"تیم مهمان")}</div>
- </div>
- <div class="muted" style="text-align:center">${escapeHTML(date)}</div>
- </div>`;
+// نمایش تیم‌ها
+function renderTeams() {
+ const html = teams.map(t => {
+  const isFav = savedFavorites.includes(t.id);
+  return `
+   <div class="card searchable" style="text-align:center" data-text="${t.name} ${t.league}">
+    <div class="logo-fallback">${t.short}</div>
+    <h3 style="margin:6px 0">${t.name}</h3>
+    <div class="muted">${t.league}</div>
+    <button class="fav-btn ${isFav ? 'saved' : ''}" onclick="toggleFav(${t.id})">
+     ${isFav ? '⭐ حذف از علاقه‌مندی' : '☆ افزودن به علاقه‌مندی'}
+    </button>
+   </div>
+  `;
+ }).join("");
+ document.getElementById("allTeams").innerHTML = html;
 }
 
-function teamCard(t){
- return `<div class="card searchable" data-search="${escapeHTML(t.name+" "+t.league)}">
- ${logo(t)}
- <h3 style="text-align:center">${escapeHTML(t.name)}</h3>
- <p class="muted" style="text-align:center">${escapeHTML(t.league)}</p>
- <button onclick="toggleFavorite('${t.name}')">⭐ علاقه‌مندی</button>
- </div>`;
-}
-
-function leagueCard(l){
- return `<div class="card searchable" data-search="${escapeHTML(l.name+" "+l.country)}">
- <div style="font-size:35px">${l.icon}</div>
- <h3>${escapeHTML(l.name)}</h3>
- <p class="muted">${escapeHTML(l.country)}</p>
- </div>`;
-}
-
-function newsCard(n){
- return `<div class="card searchable" data-search="${escapeHTML(n)}">
- <div class="news-img">📰</div>
- <h3>${escapeHTML(n)}</h3>
- <p class="muted">محتوای نمونه GoalZone</p>
- </div>`;
-}
-
-function renderMatches(){
- const html=liveMatches.map(realMatchCard).join("");
-
- document.getElementById("homeMatches").innerHTML=
- liveMatches.length
- ?liveMatches.slice(0,6).map(realMatchCard).join("")
- :'<div class="card">برای امروز مسابقه‌ای پیدا نشد.</div>';
-
- document.getElementById("allMatches").innerHTML=
- html||'<div class="card">برای امروز مسابقه‌ای پیدا نشد.</div>';
-}
-
-function render(){
- renderMatches();
-
- document.getElementById("homeLeagues").innerHTML=
- leagues.slice(0,3).map(leagueCard).join("");
-
- document.getElementById("allLeagues").innerHTML=
- leagues.map(leagueCard).join("");
-
- document.getElementById("allTeams").innerHTML=
- teams.map(teamCard).join("");
-
- document.getElementById("homeNews").innerHTML=
- news.slice(0,3).map(newsCard).join("");
-
- document.getElementById("allNews").innerHTML=
- news.map(newsCard).join("");
-
+// مدیریت علاقه‌مندی‌ها
+function toggleFav(id) {
+ if (savedFavorites.includes(id)) {
+  savedFavorites = savedFavorites.filter(item => item !== id);
+ } else {
+  savedFavorites.push(id);
+ }
+ localStorage.setItem("gz_favs", JSON.stringify(savedFavorites));
+ renderTeams();
  renderFavorites();
 }
 
-function getToday(){
- const now=new Date();
-
- return [
-  now.getFullYear(),
-  String(now.getMonth()+1).padStart(2,"0"),
-  String(now.getDate()).padStart(2,"0")
- ].join("-");
-}
-
-function getCachedMatches(date){
- try{
-  const saved=localStorage.getItem("goalzone_matches_"+date);
-  if(!saved)return null;
-
-  const item=JSON.parse(saved);
-
-  if(!item.time||Date.now()-item.time>CACHE_TIME)return null;
-  if(!Array.isArray(item.matches))return null;
-
-  return item.matches;
-
- }catch(e){
-  return null;
- }
-}
-
-function saveCachedMatches(date,matches){
- try{
-  localStorage.setItem("goalzone_matches_"+date,JSON.stringify({
-   time:Date.now(),
-   matches:matches
-  }));
- }catch(e){}
-}
-
-async function loadMatches(){
- const message=document.getElementById("apiMessage");
- const date=getToday();
-
- const cached=getCachedMatches(date);
-
- if(cached!==null){
-  liveMatches=cached;
-  renderMatches();
-
-  message.textContent=`✅ ${liveMatches.length} مسابقه از اطلاعات ذخیره‌شده دریافت شد.`;
+function renderFavorites() {
+ const favTeams = teams.filter(t => savedFavorites.includes(t.id));
+ const container = document.getElementById("favoriteList");
+ if (favTeams.length === 0) {
+  container.innerHTML = `<div class="card muted">هنوز هیچ تیمی به علاقه‌مندی‌ها اضافه نشده است. از بخش «تیم‌ها» انتخاب کنید.</div>`;
   return;
  }
-
- message.textContent="در حال دریافت مسابقات امروز...";
-
- const controller=new AbortController();
- const timeout=setTimeout(()=>controller.abort(),20000);
-
- try{
-  const response=await fetch(
-   `${API_URL}/fixtures?date=${date}`,
-   {method:"GET",signal:controller.signal}
-  );
-
-  const data=await response.json();
-
-  if(!response.ok){
-   throw new Error(data.message||data.error||"خطای سرور: "+response.status);
-  }
-
-  if(data.errors&&Object.keys(data.errors).length){
-   throw new Error(JSON.stringify(data.errors));
-  }
-
-  if(!Array.isArray(data.response)){
-   throw new Error("اطلاعات دریافتی معتبر نیست.");
-  }
-
-  liveMatches=data.response;
-
-  saveCachedMatches(date,liveMatches);
-  renderMatches();
-
-  message.textContent=liveMatches.length
-   ?`✅ ${liveMatches.length} مسابقه برای امروز دریافت شد.`
-   :"برای امروز مسابقه‌ای ثبت نشده است.";
-
- }catch(error){
-
-  const errorText=error.name==="AbortError"
-   ?"زمان پاسخ‌گویی سرور تمام شد."
-   :error.message;
-
-  message.textContent="❌ دریافت مسابقات ناموفق بود: "+errorText;
-
-  document.getElementById("homeMatches").innerHTML=
-   '<div class="card">اطلاعات مسابقات فعلاً در دسترس نیست. بعداً دوباره امتحان کنید.</div>';
-
-  document.getElementById("allMatches").innerHTML=
-   '<div class="card">اطلاعات مسابقات فعلاً در دسترس نیست.</div>';
-
- }finally{
-  clearTimeout(timeout);
- }
-}
-
-function showPage(id,btn){
- document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));
- document.getElementById(id).classList.remove("hidden");
-
- document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
- btn.classList.add("active");
-
- window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function searchSite(){
- const q=document.getElementById("search").value.toLowerCase().trim();
-
- document.querySelectorAll(".searchable").forEach(card=>{
-  card.classList.toggle(
-   "hidden",
-   !card.dataset.search.toLowerCase().includes(q)
-  );
- });
-}
-
-function getFavorites(){
- try{
-  const value=JSON.parse(localStorage.getItem("goalzone_favorites")||"[]");
-  return Array.isArray(value)?value:[];
- }catch(e){
-  return [];
- }
-}
-
-function toggleFavorite(name){
- let f=getFavorites();
-
- if(f.includes(name)){
-  f=f.filter(x=>x!==name);
- }else{
-  f.push(name);
- }
-
- localStorage.setItem("goalzone_favorites",JSON.stringify(f));
- renderFavorites();
-}
-
-function renderFavorites(){
- const selected=teams.filter(t=>getFavorites().includes(t.name));
-
- document.getElementById("favoriteList").innerHTML=
- selected.length
- ?selected.map(teamCard).join()
- :'<div class="card">هنوز تیمی اضافه نکرده‌اید.</div>';
-}
-
-render();
-loadMatches();
-</script>
-
-</body>
-</html>
+ container.innerHTML = favTeams.map(t => `
+  <div class="card" style="text-align:center">
+   <div class="logo-fallback">${t.short}</div>
+   <h3 style="margin:6px 0">${t.name}</h3>
+   <div class="muted">${t.league}</div>
