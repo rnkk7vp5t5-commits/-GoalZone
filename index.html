@@ -6,47 +6,272 @@
 <title>GoalZone | دنیای فوتبال</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#0b1220;color:#f1f5f9;font-family:Arial,Tahoma,sans-serif}
-header{background:#111c30;padding:16px 4%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:1px solid #26354d}
-.logo{font-size:27px;font-weight:bold;color:#35df91}
-.logo span{color:white}
-nav{display:flex;gap:7px;flex-wrap:wrap}
-button{cursor:pointer;border:0;border-radius:9px;padding:10px 13px;background:#1e2d45;color:white;font-size:14px;transition:0.2s}
-nav button:hover, nav button.active{background:#087e55}
-.fav-btn{background:#26354d;font-size:12px;padding:6px 10px;margin-top:8px}
-.fav-btn.saved{background:#d97706;color:white}
-.container{width:93%;max-width:1200px;margin:24px auto}
-.hero{background:linear-gradient(120deg,#075e46,#132b42);padding:25px;border-radius:18px;margin-bottom:20px}
-.hero h1{font-size:28px;margin:0 0 10px}
-.hero p{color:#d1fae5}
-.search{width:100%;padding:14px;border-radius:12px;border:1px solid #34445d;background:#111c30;color:white;font-size:16px;margin:12px 0}
-.section-title{display:flex;justify-content:space-between;align-items:center;margin:22px 0 13px;gap:10px}
-.section-title h2{font-size:21px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.card{background:#121e31;border:1px solid #26354d;border-radius:14px;padding:16px}
-.match-top{display:flex;justify-content:space-between;color:#9fb0c7;font-size:13px;gap:8px}
-.teams{display:flex;align-items:center;justify-content:space-around;gap:8px;text-align:center;margin:18px 0}
-.team{flex:1;font-size:14px;overflow-wrap:anywhere}
-.crest{width:52px;height:52px;object-fit:contain;display:block;margin:0 auto 8px}
-.logo-fallback{width:52px;height:52px;border-radius:50%;background:#26354d;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:12px;font-weight:bold}
-.score{font-size:22px;font-weight:bold;white-space:nowrap}
-.badge{display:inline-block;padding:5px 9px;border-radius:7px;background:#20364a;color:#65e8ad;font-size:12px}
-.muted{color:#9fb0c7;font-size:13px}
-.status-live{color:#ff7777;font-weight:bold}
-.hidden{display:none!important}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{padding:11px 7px;text-align:center;border-bottom:1px solid #26354d}
-th{color:#65e8ad}
-.news-img{height:90px;border-radius:10px;background:#1e3850;display:flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:10px}
-.ad{background:#101a2b;border:1px dashed #53647b;padding:18px;text-align:center;border-radius:12px;color:#8295ad;margin:22px 0}
-footer{text-align:center;padding:28px;color:#8da0b9;border-top:1px solid #26354d;margin-top:35px}
-#apiMessage,#liveMessage{padding:12px;border-radius:10px;margin:10px 0;background:#17283b;color:#b9c9dc;font-size:14px}
-@media(max-width:600px){
-header{justify-content:center}
-nav{justify-content:center}
-.hero h1{font-size:23px}
-.container{width:94%}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b1220;
+  color: #f1f5f9;
+  font-family: Arial, Tahoma, sans-serif;
+}
+
+header {
+  background: #111c30;
+  padding: 16px 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid #26354d;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+  color: #35df91;
+}
+
+.logo span {
+  color: white;
+}
+
+nav {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 13px;
+  background: #1e2d45;
+  color: white;
+  font-size: 14px;
+}
+
+nav button:hover,
+nav button.active {
+  background: #087e55;
+}
+
+.container {
+  width: 93%;
+  max-width: 1200px;
+  margin: 24px auto;
+}
+
+.hero {
+  background: linear-gradient(120deg, #075e46, #132b42);
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 28px;
+  margin: 0 0 10px;
+}
+
+.hero p {
+  color: #d1fae5;
+}
+
+.search {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #34445d;
+  background: #111c30;
+  color: white;
+  font-size: 16px;
+  margin: 12px 0;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 22px 0 13px;
+  gap: 10px;
+}
+
+.section-title h2 {
+  font-size: 21px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: #121e31;
+  border: 1px solid #26354d;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.match-top {
+  display: flex;
+  justify-content: space-between;
+  color: #9fb0c7;
+  font-size: 13px;
+  gap: 8px;
+}
+
+.teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  text-align: center;
+  margin: 18px 0;
+}
+
+.team {
+  flex: 1;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.crest {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.score {
+  font-size: 22px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: #20364a;
+  color: #65e8ad;
+  font-size: 12px;
+}
+
+.muted {
+  color: #9fb0c7;
+  font-size: 13px;
+}
+
+.status-live {
+  color: #ff7777;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.fav-btn {
+  background: #26354d;
+  font-size: 12px;
+  padding: 7px 10px;
+  margin-top: 8px;
+}
+
+.fav-btn.saved {
+  background: #d97706;
+}
+
+.logo-fallback {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #26354d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.news-img {
+  height: 90px;
+  border-radius: 10px;
+  background: #1e3850;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.message {
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+  background: #17283b;
+  color: #b9c9dc;
+  font-size: 14px;
+}
+
+.ad {
+  background: #101a2b;
+  border: 1px dashed #53647b;
+  padding: 18px;
+  text-align: center;
+  border-radius: 12px;
+  color: #8295ad;
+  margin: 22px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 28px;
+  color: #8da0b9;
+  border-top: 1px solid #26354d;
+  margin-top: 35px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+th,
+td {
+  padding: 11px 7px;
+  text-align: center;
+  border-bottom: 1px solid #26354d;
+}
+
+th {
+  color: #65e8ad;
+}
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 23px;
+  }
+
+  .container {
+    width: 94%;
+  }
 }
 </style>
 </head>
@@ -54,206 +279,617 @@ nav{justify-content:center}
 <body>
 
 <header>
- <div class="logo">⚽ Goal<span>Zone</span></div>
+  <div class="logo">⚽ Goal<span>Zone</span></div>
 
- <nav>
-  <button class="active" onclick="showPage('home',this)">خانه</button>
-  <button onclick="showPage('matches',this)">مسابقات</button>
-  <button onclick="showPage('live',this)">🔴 زنده</button>
-  <button onclick="showPage('leagues',this)">لیگ‌ها</button>
-  <button onclick="showPage('table',this)">جدول</button>
-  <button onclick="showPage('teams',this)">تیم‌ها</button>
-  <button onclick="showPage('news',this)">اخبار</button>
-  <button onclick="showPage('favorites',this)">⭐ علاقه‌مندی‌ها</button>
- </nav>
+  <nav>
+    <button class="active" onclick="showPage('home', this)">خانه</button>
+    <button onclick="showPage('matches', this)">مسابقات</button>
+    <button onclick="showPage('live', this)">🔴 زنده</button>
+    <button onclick="showPage('leagues', this)">لیگ‌ها</button>
+    <button onclick="showPage('table', this)">جدول</button>
+    <button onclick="showPage('teams', this)">تیم‌ها</button>
+    <button onclick="showPage('news', this)">اخبار</button>
+    <button onclick="showPage('favorites', this)">⭐ علاقه‌مندی‌ها</button>
+  </nav>
 </header>
 
 <main class="container">
 
-<section class="hero">
- <h1>به دنیای فوتبال خوش آمدید</h1>
- <p>نتایج، مسابقات زنده، تیم‌ها و لیگ‌های فوتبال</p>
+  <section class="hero">
+    <h1>به دنیای فوتبال خوش آمدید</h1>
+    <p>نتایج، مسابقات زنده، تیم‌ها و لیگ‌های فوتبال</p>
 
- <input id="search" class="search"
- placeholder="نام تیم، لیگ یا مسابقه را جست‌وجو کنید..."
- oninput="searchSite()">
+    <input
+      id="search"
+      class="search"
+      placeholder="نام تیم، لیگ یا مسابقه را جست‌وجو کنید..."
+      oninput="searchSite()"
+    >
 
- <div class="muted">⚽ اطلاعات مسابقات از سرویس فوتبال دریافت می‌شود.</div>
-</section>
+    <div class="muted">
+      ⚽ اطلاعات مسابقات از سرویس فوتبال دریافت می‌شود.
+    </div>
+  </section>
 
-<div class="ad">جایگاه تبلیغات GoalZone</div>
+  <div class="ad">جایگاه تبلیغات GoalZone</div>
 
-<section id="home" class="page">
- <div class="section-title">
-  <h2>⚽ مسابقات امروز</h2>
-  <span class="badge">API Football</span>
- </div>
+  <section id="home" class="page">
 
- <div id="apiMessage">در حال دریافت مسابقات...</div>
- <div class="grid" id="homeMatches"></div>
+    <div class="section-title">
+      <h2>⚽ مسابقات امروز</h2>
+      <span class="badge">API Football</span>
+    </div>
 
- <div class="section-title"><h2>🏆 لیگ‌های مشهور</h2></div>
- <div class="grid" id="homeLeagues"></div>
+    <div id="apiMessage" class="message">
+      در حال دریافت مسابقات...
+    </div>
 
- <div class="section-title"><h2>📰 اخبار فوتبال</h2></div>
- <div class="grid" id="homeNews"></div>
-</section>
+    <div class="grid" id="homeMatches"></div>
 
-<section id="matches" class="page hidden">
- <div class="section-title"><h2>تمام مسابقات امروز</h2></div>
- <div class="grid" id="allMatches"></div>
-</section>
+    <div class="section-title">
+      <h2>🏆 لیگ‌های مشهور</h2>
+    </div>
 
-<section id="live" class="page hidden">
- <div class="section-title">
-  <h2>🔴 مسابقات زنده</h2>
-  <span class="badge">LIVE</span>
- </div>
+    <div class="grid" id="homeLeagues"></div>
 
- <div id="liveMessage">در حال دریافت مسابقات زنده...</div>
- <div class="grid" id="liveMatches"></div>
-</section>
+    <div class="section-title">
+      <h2>📰 اخبار فوتبال</h2>
+    </div>
 
-<section id="leagues" class="page hidden">
- <div class="section-title"><h2>لیگ‌های فوتبال</h2></div>
- <div class="grid" id="allLeagues"></div>
-</section>
+    <div class="grid" id="homeNews"></div>
 
-<section id="table" class="page hidden">
- <div class="section-title"><h2>جدول لیگ نمونه</h2></div>
+  </section>
 
- <div class="card">
-  <h3>لالیگا اسپانیا</h3>
-  <p class="muted">جدول واقعی در نسخهٔ بعدی وصل می‌شود.</p>
+  <section id="matches" class="page hidden">
+    <div class="section-title">
+      <h2>تمام مسابقات امروز</h2>
+    </div>
 
-  <div style="overflow-x:auto">
-   <table>
-    <thead>
-     <tr><th>#</th><th>تیم</th><th>بازی</th><th>امتیاز</th></tr>
-    </thead>
-    <tbody>
-     <tr><td>1</td><td>Real Madrid</td><td>—</td><td>—</td></tr>
-     <tr><td>2</td><td>Barcelona</td><td>—</td><td>—</td></tr>
-     <tr><td>3</td><td>Atletico Madrid</td><td>—</td><td>—</td></tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</section>
+    <div class="grid" id="allMatches"></div>
+  </section>
 
-<section id="teams" class="page hidden">
- <div class="section-title"><h2>تیم‌های مشهور</h2></div>
- <div class="grid" id="allTeams"></div>
-</section>
+  <section id="live" class="page hidden">
 
-<section id="news" class="page hidden">
- <div class="section-title"><h2>اخبار فوتبال</h2></div>
- <div class="grid" id="allNews"></div>
- <p class="muted">این خبرها نمونه‌اند و هنوز به منبع خبری وصل نشده‌اند.</p>
-</section>
+    <div class="section-title">
+      <h2>🔴 مسابقات زنده</h2>
+      <span class="badge">LIVE</span>
+    </div>
 
-<section id="favorites" class="page hidden">
- <div class="section-title"><h2>⭐ تیم‌های مورد علاقه</h2></div>
- <div class="grid" id="favoriteList"></div>
-</section>
+    <div id="liveMessage" class="message">
+      در حال دریافت مسابقات زنده...
+    </div>
+
+    <div class="grid" id="liveMatches"></div>
+
+  </section>
+
+  <section id="leagues" class="page hidden">
+    <div class="section-title">
+      <h2>لیگ‌های فوتبال</h2>
+    </div>
+
+    <div class="grid" id="allLeagues"></div>
+  </section>
+
+  <section id="table" class="page hidden">
+
+    <div class="section-title">
+      <h2>جدول لیگ</h2>
+    </div>
+
+    <div class="card">
+      <h3>جدول امتیازات</h3>
+      <p class="muted">
+        جدول واقعی هنوز به API وصل نشده است.
+      </p>
+    </div>
+
+  </section>
+
+  <section id="teams" class="page hidden">
+
+    <div class="section-title">
+      <h2>تیم‌های مشهور</h2>
+    </div>
+
+    <div class="grid" id="allTeams"></div>
+
+  </section>
+
+  <section id="news" class="page hidden">
+
+    <div class="section-title">
+      <h2>اخبار فوتبال</h2>
+    </div>
+
+    <div class="grid" id="allNews"></div>
+
+    <p class="muted">
+      این خبرها نمونه‌اند و هنوز به منبع خبری وصل نشده‌اند.
+    </p>
+
+  </section>
+
+  <section id="favorites" class="page hidden">
+
+    <div class="section-title">
+      <h2>⭐ تیم‌های مورد علاقه</h2>
+    </div>
+
+    <div class="grid" id="favoriteList"></div>
+
+  </section>
 
 </main>
 
-<footer>GoalZone © 2026 | دنیای فوتبال در یک جا</footer>
+<footer>
+  GoalZone © 2026 | دنیای فوتبال در یک جا
+</footer>
 
 <script>
-const API_URL = "https://workers.dev";
 
+/* آدرس Worker اصلی سایت */
+const API_URL =
+  "https://shy-rain-e3fc.hassanhussaine692.workers.dev";
+
+/* تیم‌های مشهور */
 const teams = [
- {name:"Real Madrid", league:"La Liga", id:86, short:"RMA"},
- {name:"Barcelona", league:"La Liga", id:83, short:"BAR"},
- {name:"Manchester City", league:"Premier League", id:382, short:"MCI"},
- {name:"Arsenal", league:"Premier League", id:359, short:"ARS"},
- {name:"Bayern Munich", league:"Bundesliga", id:132, short:"BAY"},
- {name:"Borussia Dortmund", league:"Bundesliga", id:124, short:"BVB"}
+  {name:"Real Madrid", league:"La Liga", short:"RMA"},
+  {name:"Barcelona", league:"La Liga", short:"BAR"},
+  {name:"Manchester City", league:"Premier League", short:"MCI"},
+  {name:"Arsenal", league:"Premier League", short:"ARS"},
+  {name:"Bayern Munich", league:"Bundesliga", short:"BAY"},
+  {name:"Borussia Dortmund", league:"Bundesliga", short:"BVB"},
+  {name:"Manchester United", league:"Premier League", short:"MUN"},
+  {name:"Liverpool", league:"Premier League", short:"LIV"},
+  {name:"Chelsea", league:"Premier League", short:"CHE"},
+  {name:"Paris Saint-Germain", league:"Ligue 1", short:"PSG"}
 ];
 
+/* لیگ‌ها */
 const leagues = [
- {name:"Premier League", country:"انگلستان", icon:"🏴󠁧󠁢󠁥󠁮󠁧󠁿"},
- {name:"La Liga", country:"اسپانیا", icon:"🇪🇸"},
- {name:"Bundesliga", country:"آلمان", icon:"🇩🇪"},
- {name:"Serie A", country:"ایتالیا", icon:"🇮🇹"},
- {name:"Ligue 1", country:"فرانسه", icon:"🇫🇷"},
- {name:"Champions League", country:"اروپا", icon:"🏆"}
+  {name:"Premier League", country:"انگلستان", icon:"🏴"},
+  {name:"La Liga", country:"اسپانیا", icon:"🇪🇸"},
+  {name:"Bundesliga", country:"آلمان", icon:"🇩🇪"},
+  {name:"Serie A", country:"ایتالیا", icon:"🇮🇹"},
+  {name:"Ligue 1", country:"فرانسه", icon:"🇫🇷"},
+  {name:"Champions League", country:"اروپا", icon:"🏆"}
 ];
 
+/* اخبار نمونه */
 const newsList = [
- {title:"آماده‌سازی تیم‌ها برای هفته حساس لیگ قهرمانان", desc:"بررسی آخرین وضعیت مصدومان و ترکیب احتمالی تیم‌های بزرگ اروپا.", icon:"⚽"},
- {title:"رقابت نزدیک در صدر جدول لالیگا", desc:"رئال مادرید و بارسلونا برای کسب قهرمانی فصل نبرد نزدیکی دارند.", icon:"🏆"},
- {title:"رکوردشکنی مهاجمان در لیگ برتر انگلیس", desc:"آمار گلزنی در فصل جاری نسبت به سال‌های گذشته افزایش چشمگیری داشته است.", icon:"🔥"}
+  {
+    title:"آماده‌سازی تیم‌ها برای لیگ قهرمانان",
+    desc:"آخرین وضعیت تیم‌های بزرگ اروپا.",
+    icon:"⚽"
+  },
+  {
+    title:"رقابت نزدیک در صدر جدول لالیگا",
+    desc:"رقابت تیم‌های بزرگ اسپانیا ادامه دارد.",
+    icon:"🏆"
+  },
+  {
+    title:"رکوردشکنی مهاجمان فوتبال",
+    desc:"آمار گلزنی مهاجمان در فصل جاری.",
+    icon:"🔥"
+  }
 ];
 
-let savedFavorites = JSON.parse(localStorage.getItem("gz_favs")) || [];
+/* خواندن علاقه‌مندی‌ها بدون خراب‌شدن سایت */
+let savedFavorites = [];
 
-// تغییر صفحات منو
-function showPage(pageId, btn) {
- document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
- document.getElementById(pageId).classList.remove("hidden");
-
- if (btn) {
-  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
- }
- if (pageId === "favorites") renderFavorites();
+try {
+  savedFavorites =
+    JSON.parse(localStorage.getItem("gz_favs")) || [];
+} catch (error) {
+  savedFavorites = [];
 }
 
-// نمایش لیگ‌ها
+/* تغییر صفحات منو */
+function showPage(pageId, button) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.add("hidden");
+  });
+
+  const selectedPage = document.getElementById(pageId);
+
+  if (selectedPage) {
+    selectedPage.classList.remove("hidden");
+  }
+
+  if (button) {
+    document.querySelectorAll("nav button").forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+  }
+
+  if (pageId === "favorites") {
+    renderFavorites();
+  }
+}
+
+/* نمایش لیگ‌ها */
 function renderLeagues() {
- const html = leagues.map(l => `
-  <div class="card searchable" data-text="${l.name} ${l.country}">
-   <div style="font-size:32px;margin-bottom:8px">${l.icon}</div>
-   <h3 style="margin:0 0 6px">${l.name}</h3>
-   <div class="muted">${l.country}</div>
-  </div>
- `).join("");
- document.getElementById("homeLeagues").innerHTML = html;
- document.getElementById("allLeagues").innerHTML = html;
+  const html = leagues.map(league => `
+    <div class="card searchable"
+         data-text="${league.name} ${league.country}">
+
+      <div style="font-size:32px;margin-bottom:8px">
+        ${league.icon}
+      </div>
+
+      <h3>${league.name}</h3>
+      <div class="muted">${league.country}</div>
+
+    </div>
+  `).join("");
+
+  document.getElementById("homeLeagues").innerHTML = html;
+  document.getElementById("allLeagues").innerHTML = html;
 }
 
-// نمایش تیم‌ها
+/* نمایش تیم‌ها */
 function renderTeams() {
- const html = teams.map(t => {
-  const isFav = savedFavorites.includes(t.id);
-  return `
-   <div class="card searchable" style="text-align:center" data-text="${t.name} ${t.league}">
-    <div class="logo-fallback">${t.short}</div>
-    <h3 style="margin:6px 0">${t.name}</h3>
-    <div class="muted">${t.league}</div>
-    <button class="fav-btn ${isFav ? 'saved' : ''}" onclick="toggleFav(${t.id})">
-     ${isFav ? '⭐ حذف از علاقه‌مندی' : '☆ افزودن به علاقه‌مندی'}
-    </button>
-   </div>
-  `;
- }).join("");
- document.getElementById("allTeams").innerHTML = html;
+  const html = teams.map(team => {
+    const isFavorite = savedFavorites.includes(team.name);
+
+    return `
+      <div class="card searchable"
+           style="text-align:center"
+           data-text="${team.name} ${team.league}">
+
+        <div class="logo-fallback">${team.short}</div>
+
+        <h3>${team.name}</h3>
+        <div class="muted">${team.league}</div>
+
+        <button
+          class="fav-btn ${isFavorite ? "saved" : ""}"
+          onclick="toggleFav('${team.name}')">
+
+          ${isFavorite
+            ? "⭐ حذف از علاقه‌مندی"
+            : "☆ افزودن به علاقه‌مندی"}
+
+        </button>
+
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("allTeams").innerHTML = html;
 }
 
-// مدیریت علاقه‌مندی‌ها
-function toggleFav(id) {
- if (savedFavorites.includes(id)) {
-  savedFavorites = savedFavorites.filter(item => item !== id);
- } else {
-  savedFavorites.push(id);
- }
- localStorage.setItem("gz_favs", JSON.stringify(savedFavorites));
- renderTeams();
- renderFavorites();
+/* افزودن یا حذف علاقه‌مندی */
+function toggleFav(teamName) {
+  if (savedFavorites.includes(teamName)) {
+    savedFavorites = savedFavorites.filter(name => {
+      return name !== teamName;
+    });
+  } else {
+    savedFavorites.push(teamName);
+  }
+
+  try {
+    localStorage.setItem(
+      "gz_favs",
+      JSON.stringify(savedFavorites)
+    );
+  } catch (error) {
+    console.error("Favorites storage error:", error);
+  }
+
+  renderTeams();
+  renderFavorites();
 }
 
+/* نمایش علاقه‌مندی‌ها */
 function renderFavorites() {
- const favTeams = teams.filter(t => savedFavorites.includes(t.id));
- const container = document.getElementById("favoriteList");
- if (favTeams.length === 0) {
-  container.innerHTML = `<div class="card muted">هنوز هیچ تیمی به علاقه‌مندی‌ها اضافه نشده است. از بخش «تیم‌ها» انتخاب کنید.</div>`;
-  return;
- }
- container.innerHTML = favTeams.map(t => `
-  <div class="card" style="text-align:center">
-   <div class="logo-fallback">${t.short}</div>
-   <h3 style="margin:6px 0">${t.name}</h3>
-   <div class="muted">${t.league}</div>
+  const container = document.getElementById("favoriteList");
+
+  const favoriteTeams = teams.filter(team => {
+    return savedFavorites.includes(team.name);
+  });
+
+  if (favoriteTeams.length === 0) {
+    container.innerHTML = `
+      <div class="card muted">
+        هنوز تیمی اضافه نشده است.
+        از بخش تیم‌ها انتخاب کنید.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = favoriteTeams.map(team => `
+    <div class="card" style="text-align:center">
+
+      <div class="logo-fallback">${team.short}</div>
+
+      <h3>${team.name}</h3>
+      <div class="muted">${team.league}</div>
+
+      <button
+        class="fav-btn saved"
+        onclick="toggleFav('${team.name}')">
+        حذف از علاقه‌مندی
+      </button>
+
+    </div>
+  `).join("");
+}
+
+/* نمایش اخبار */
+function renderNews() {
+  const html = newsList.map(news => `
+    <div class="card searchable"
+         data-text="${news.title} ${news.desc}">
+
+      <div class="news-img">${news.icon}</div>
+
+      <h3>${news.title}</h3>
+      <p class="muted">${news.desc}</p>
+
+    </div>
+  `).join("");
+
+  document.getElementById("homeNews").innerHTML = html;
+  document.getElementById("allNews").innerHTML = html;
+}
+
+/* تاریخ امروز دستگاه */
+function getToday() {
+  const date = new Date();
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+/* درخواست به Worker با زمان محدود */
+async function fetchFootball(endpoint) {
+  const controller = new AbortController();
+
+  const timeout = setTimeout(() => {
+    controller.abort();
+  }, 15000);
+
+  try {
+    const response = await fetch(API_URL + endpoint, {
+      method: "GET",
+      signal: controller.signal
+    });
+
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+
+    return await response.json();
+
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+/* ساخت لوگوی تیم */
+function teamLogo(team) {
+  if (team && team.logo) {
+    return `
+      <img
+        class="crest"
+        src="${team.logo}"
+        alt="${team.name || "Team"}"
+        onerror="this.style.display='none'"
+      >
+    `;
+  }
+
+  const name = team && team.name ? team.name : "FC";
+
+  return `
+    <div class="logo-fallback">
+      ${name.substring(0, 3)}
+    </div>
+  `;
+}
+
+/* ساخت کارت مسابقه */
+function matchCard(match) {
+  const fixture = match.fixture || {};
+  const home = (match.teams && match.teams.home) || {};
+  const away = (match.teams && match.teams.away) || {};
+  const goals = match.goals || {};
+  const league = match.league || {};
+  const status = fixture.status || {};
+
+  const statusCode = status.short || "";
+
+  const liveCodes = [
+    "1H", "2H", "HT", "ET", "P",
+    "LIVE", "BT"
+  ];
+
+  const isLive = liveCodes.includes(statusCode);
+
+  let score = "—";
+
+  if (
+    goals.home !== null &&
+    goals.home !== undefined &&
+    goals.away !== null &&
+    goals.away !== undefined
+  ) {
+    score = `${goals.home} - ${goals.away}`;
+  }
+
+  let matchTime = "";
+
+  if (fixture.date) {
+    matchTime = new Date(fixture.date).toLocaleTimeString(
+      "en-GB",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "Asia/Kabul"
+      }
+    );
+  }
+
+  const statusText = isLive
+    ? "🔴 زنده"
+    : (status.long || matchTime || "برنامه‌ریزی‌شده");
+
+  return `
+    <div class="card searchable"
+         data-text="${home.name || ""} ${away.name || ""} ${league.name || ""}">
+
+      <div class="match-top">
+
+        <span>${league.name || "Football"}</span>
+
+        <span class="${isLive ? "status-live" : ""}">
+          ${statusText}
+        </span>
+
+      </div>
+
+      <div class="teams">
+
+        <div class="team">
+          ${teamLogo(home)}
+          ${home.name || "Home"}
+        </div>
+
+        <div class="score">${score}</div>
+
+        <div class="team">
+          ${teamLogo(away)}
+          ${away.name || "Away"}
+        </div>
+
+      </div>
+
+      <div class="muted" style="text-align:center">
+        ${league.country || ""}
+      </div>
+
+    </div>
+  `;
+}
+
+/* دریافت مسابقات امروز */
+async function loadFixtures() {
+  const message = document.getElementById("apiMessage");
+
+  message.textContent = "در حال دریافت مسابقات امروز...";
+
+  try {
+    const data = await fetchFootball(
+      "/fixtures?date=" + getToday()
+    );
+
+    const matches = Array.isArray(data.response)
+      ? data.response
+      : [];
+
+    if (matches.length === 0) {
+      message.textContent =
+        "برای امروز مسابقه‌ای پیدا نشد.";
+
+      document.getElementById("homeMatches").innerHTML = "";
+      document.getElementById("allMatches").innerHTML = "";
+
+      return;
+    }
+
+    const html = matches.map(matchCard).join("");
+
+    document.getElementById("homeMatches").innerHTML = html;
+    document.getElementById("allMatches").innerHTML = html;
+
+    message.textContent =
+      "مسابقات امروز دریافت شد. تعداد: " + matches.length;
+
+  } catch (error) {
+    console.error("Fixtures error:", error);
+
+    message.textContent =
+      "دریافت مسابقات ناموفق بود. صفحه را تازه کنید.";
+  }
+}
+
+/* دریافت مسابقات زنده */
+async function loadLive() {
+  const message = document.getElementById("liveMessage");
+
+  message.textContent = "در حال دریافت مسابقات زنده...";
+
+  try {
+    const data = await fetchFootball("/live");
+
+    const matches = Array.isArray(data.response)
+      ? data.response
+      : [];
+
+    if (matches.length === 0) {
+      message.textContent =
+        "در حال حاضر مسابقه زنده‌ای وجود ندارد.";
+
+      document.getElementById("liveMatches").innerHTML = "";
+
+      return;
+    }
+
+    document.getElementById("liveMatches").innerHTML =
+      matches.map(matchCard).join("");
+
+    message.textContent =
+      "مسابقات زنده دریافت شد. تعداد: " + matches.length;
+
+  } catch (error) {
+    console.error("Live error:", error);
+
+    message.textContent =
+      "دریافت مسابقات زنده ناموفق بود.";
+  }
+}
+
+/* جست‌وجوی بخش‌های سایت */
+function searchSite() {
+  const query = document.getElementById("search")
+    .value.trim().toLowerCase();
+
+  document.querySelectorAll(".searchable").forEach(item => {
+    const text = (
+      item.dataset.text || item.innerText || ""
+    ).toLowerCase();
+
+    item.style.display = text.includes(query) ? "" : "none";
+  });
+}
+
+/* راه‌اندازی سایت */
+function startSite() {
+  renderLeagues();
+  renderTeams();
+  renderNews();
+  renderFavorites();
+
+  loadFixtures();
+  loadLive();
+}
+
+/* شروع */
+startSite();
+
+/* تازه‌سازی مسابقات زنده هر یک دقیقه */
+setInterval(loadLive, 60000);
+
+</script>
+
+</body>
+</html>
