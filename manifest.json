@@ -1,0 +1,13 @@
+{
+  "name": "GoalZone | دنیای فوتبال",
+  "short_name": "GoalZone",
+  "description": "نتایج زنده، مسابقات و آمار فوتبال",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07111d",
+  "theme_color": "#07111d",
+  "lang": "fa",
+  "dir": "rtl"
+}
