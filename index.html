@@ -308,15 +308,70 @@ function findLineups(data){
  for(const c of candidates)if(Array.isArray(c)&&c.length)return c;
  return [];
 }
-function extractPlayers(node,out=[],seen=new Set()){
- if(!node||typeof node!=="object"||seen.has(node))return out;seen.add(node);
- if(Array.isArray(node)){node.forEach(x=>extractPlayers(x,out,seen));return out}
- const athlete=node.athlete||node.player||node;
- const name=athlete.displayName||athlete.fullName||athlete.name;
- const position=node.position?.displayName||node.position?.name||athlete.position?.displayName||athlete.position?.name||node.positionName||"";
- if(name&&name!=="undefined"&&name.length>1&&position)out.push({name,position,jersey:node.jersey||athlete.jersey||""});
- Object.keys(node).forEach(k=>{if(["links","logos","statistics","stats"].includes(k))return;extractPlayers(node[k],out,seen)});
- return out;
+
+function extractPlayers(node, out = [], seen = new Set(), inheritedPosition = "") {
+  if (!node || typeof node !== "object" || seen.has(node)) return out;
+  seen.add(node);
+
+  if (Array.isArray(node)) {
+    node.forEach(x => extractPlayers(x, out, seen, inheritedPosition));
+    return out;
+  }
+
+  const posObj = node.position || node.athlete?.position || node.player?.position;
+
+  const directPosition =
+    (typeof posObj === "string"
+      ? posObj
+      : posObj?.displayName || posObj?.name ||
+        posObj?.abbreviation || posObj?.shortName) ||
+    node.positionName || node.position_name || node.role || "";
+
+  const groupLabel =
+    node.displayName || node.name || node.label || node.abbreviation || "";
+
+  const inherited =
+    /goalkeeper|keeper|defender|back|midfielder|forward|striker|attack|wing/i.test(groupLabel)
+      ? groupLabel
+      : inheritedPosition;
+
+  const position = directPosition || inherited || "";
+  const athlete = node.athlete || node.player || node;
+
+  const name =
+    athlete.displayName || athlete.fullName || athlete.name ||
+    node.displayName || node.fullName;
+
+  if (
+    name &&
+    typeof name === "string" &&
+    name.length > 1 &&
+    name !== "undefined" &&
+    !/^(goalkeepers?|defenders?|midfielders?|forwards?|players|roster)$/i.test(name)
+  ) {
+    const isPlayer = !!(
+      athlete.id || node.id || node.jersey || athlete.jersey ||
+      node.statistics || node.stats || node.position ||
+      node.athlete || node.player
+    );
+
+    if (isPlayer) {
+      out.push({
+        name,
+        position,
+        jersey: node.jersey || athlete.jersey || ""
+      });
+    }
+  }
+
+  Object.keys(node).forEach(key => {
+    if (["links", "logos", "statistics", "stats", "team", "coach"].includes(key)) return;
+    extractPlayers(node[key], out, seen, position || inherited);
+  });
+
+  return out;
+}
+
 }
 function positionGroup(pos){
  const p=String(pos).toLowerCase();
