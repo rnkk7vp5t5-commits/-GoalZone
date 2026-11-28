@@ -7,33 +7,19 @@
 <meta name="theme-color" content="#071521">
 <title>GoalZone | دنیای فوتبال</title>
 <style>
-:root{
- --bg:#071521;--panel:#10283a;--panel2:#153449;
- --green:#35d6c3;--gold:#f2c46d;--text:#f4f7fb;
- --muted:#a9bac8;--line:#2c4a5d;--red:#ff5b67;
-}
+:root{--bg:#071521;--panel:#10283a;--panel2:#153449;--green:#35d6c3;--gold:#f2c46d;--text:#f4f7fb;--muted:#a9bac8;--line:#2c4a5d;--red:#ff5b67}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif}
 button,select{font:inherit}
 button{cursor:pointer}
-header{
- padding:15px 4%;background:#0b2031;border-bottom:1px solid var(--line);
- display:flex;align-items:center;justify-content:space-between;gap:12px;
- flex-wrap:wrap;position:sticky;top:0;z-index:10
-}
+header{padding:15px 4%;background:#0b2031;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
 .logo{font-size:27px;font-weight:900;color:var(--green)}
 .logo span{color:var(--gold)}
 nav{display:flex;gap:7px;flex-wrap:wrap}
-nav button,.btn{
- padding:10px 13px;border:1px solid var(--line);
- border-radius:9px;background:#142d42;color:white;font-size:13px
-}
+nav button,.btn{padding:10px 13px;border:1px solid var(--line);border-radius:9px;background:#142d42;color:white;font-size:13px}
 nav button.active,nav button:hover,.btn:hover{border-color:var(--green);color:var(--green)}
 .btn.primary{background:var(--green);color:#08231f;border:0;font-weight:bold}
-.hero{
- width:92%;max-width:1450px;margin:22px auto;border-radius:20px;
- overflow:hidden;position:relative;background:#102a40;border:1px solid var(--line)
-}
+.hero{width:92%;max-width:1450px;margin:22px auto;border-radius:20px;overflow:hidden;position:relative;background:#102a40;border:1px solid var(--line)}
 .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);height:390px}
 .hero-person{position:relative;overflow:hidden;min-width:0}
 .hero-person img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block}
@@ -55,7 +41,9 @@ select{background:#0b2031;color:white;border:1px solid var(--line);padding:10px;
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
 .match{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:13px;cursor:pointer;transition:.2s}
 .match:hover{border-color:var(--green);transform:translateY(-2px)}
+.match.important{border-color:#a78643}
 .match-top{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:12px;margin-bottom:12px}
+.important-label{color:var(--gold);font-weight:bold}
 .live-dot{color:var(--red);font-weight:bold}
 .teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;text-align:center}
 .team{font-size:13px;line-height:1.6}
@@ -67,7 +55,7 @@ select{background:#0b2031;color:white;border:1px solid var(--line);padding:10px;
 .table-wrap{overflow:auto}
 table{width:100%;border-collapse:collapse;min-width:560px}
 th,td{padding:11px 9px;border-bottom:1px solid var(--line);text-align:center;font-size:13px}
-th{color:var(--green);background:#10263a;position:sticky;top:0}
+th{color:var(--green);background:#10263a}
 td:first-child,th:first-child{text-align:right}
 .team-cell{display:flex;align-items:center;gap:8px;white-space:nowrap}
 .team-cell img{width:23px;height:23px;object-fit:contain}
@@ -82,22 +70,21 @@ td:first-child,th:first-child{text-align:right}
 .detail-score img{width:52px;height:52px;object-fit:contain;display:block;margin:auto auto 7px}
 .detail-score strong{font-size:27px}
 .detail-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.detail-panel{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px;line-height:2;font-size:13px}
+.detail-panel{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px;line-height:2;font-size:13px;margin:8px 0}
 .detail-panel h3{margin-top:0}
 .player-row{display:flex;justify-content:space-between;gap:8px;padding:7px 2px;border-bottom:1px solid var(--line)}
 .close{background:#71343b;border:0;color:white;padding:9px 14px;border-radius:8px}
 footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
 @media(max-width:650px){
- header{padding:12px 4%}nav{width:100%;overflow:auto;flex-wrap:nowrap}
- nav button{white-space:nowrap}.hero{width:94%}.hero-grid{height:290px}
- .hero-person b{font-size:9px;bottom:9px}.hero-copy{top:8px}
- .hero-copy p{font-size:11px}main{width:94%}.section{padding:13px}
- .detail-columns{grid-template-columns:1fr}.detail-box{padding:12px;margin:4px auto}
+header{padding:12px 4%}nav{width:100%;overflow:auto;flex-wrap:nowrap}
+nav button{white-space:nowrap}.hero{width:94%}.hero-grid{height:290px}
+.hero-person b{font-size:9px;bottom:9px}.hero-copy{top:8px}
+.hero-copy p{font-size:11px}main{width:94%}.section{padding:13px}
+.detail-columns{grid-template-columns:1fr}.detail-box{padding:12px;margin:4px auto}
 }
 </style>
 </head>
 <body>
-
 <header>
  <div class="logo">GOAL<span>ZONE</span> ⚽</div>
  <nav>
@@ -146,7 +133,7 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
    </div>
   </div>
   <div class="section">
-   <div class="section-head"><h2>برنامه بازی‌های امروز</h2><button class="btn" onclick="goPage('fixtures')">همه بازی‌ها</button></div>
+   <div class="section-head"><h2>بازی‌های مهم امروز</h2><button class="btn" onclick="goPage('fixtures')">همه بازی‌ها</button></div>
    <div id="homeMatches" class="message">در حال دریافت مسابقات...</div>
   </div>
  </section>
@@ -177,7 +164,7 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
   <div class="section">
    <div class="section-head">
     <h2>🏆 جدول لیگ و گل‌زنان</h2>
-    <select id="leagueSelect" aria-label="انتخاب لیگ"></select>
+    <select id="leagueSelect"></select>
    </div>
    <button class="btn primary" id="standingsBtn">نمایش جدول و گل‌زنان</button>
    <div id="leagueData" class="message" style="margin-top:15px">یک لیگ انتخاب کن.</div>
@@ -220,31 +207,44 @@ const API="https://site.api.espn.com/apis/site/v2/sports/soccer";
 const TABLE_API="https://site.api.espn.com/apis/v2/sports/soccer";
 
 const leagues=[
- {id:"eng.1",name:"لیگ برتر انگلیس"},
- {id:"eng.2",name:"چمپیونشیپ انگلیس"},
- {id:"esp.1",name:"لالیگا اسپانیا"},
- {id:"esp.2",name:"سگوندای اسپانیا"},
- {id:"ger.1",name:"بوندسلیگا آلمان"},
- {id:"ger.2",name:"بوندسلیگا ۲"},
- {id:"ita.1",name:"سری آ ایتالیا"},
- {id:"ita.2",name:"سری بی ایتالیا"},
- {id:"fra.1",name:"لوشامپیونه فرانسه"},
- {id:"fra.2",name:"لیگ ۲ فرانسه"},
- {id:"uefa.champions",name:"لیگ قهرمانان اروپا"},
- {id:"uefa.europa",name:"لیگ اروپا"},
- {id:"uefa.europa.conf",name:"لیگ کنفرانس اروپا"},
- {id:"ned.1",name:"اردیویسه هالند"},
- {id:"por.1",name:"لیگ پرتگال"},
- {id:"bel.1",name:"لیگ بلجیم"},
- {id:"tur.1",name:"سوپرلیگ ترکیه"},
- {id:"ksa.1",name:"لیگ عربستان"},
- {id:"usa.1",name:"MLS آمریکا"},
- {id:"bra.1",name:"سری آ برازیل"},
- {id:"arg.1",name:"لیگ آرژانتین"},
- {id:"jpn.1",name:"لیگ جاپان"},
- {id:"kor.1",name:"لیگ کوریای جنوبی"},
- {id:"aus.1",name:"لیگ استرالیا"},
- {id:"fifa.world",name:"جام جهانی"}
+{id:"eng.1",name:"لیگ برتر انگلیس"},
+{id:"eng.2",name:"چمپیونشیپ انگلیس"},
+{id:"esp.1",name:"لالیگا اسپانیا"},
+{id:"esp.2",name:"سگوندای اسپانیا"},
+{id:"ger.1",name:"بوندسلیگا آلمان"},
+{id:"ger.2",name:"بوندسلیگا ۲"},
+{id:"ita.1",name:"سری آ ایتالیا"},
+{id:"ita.2",name:"سری بی ایتالیا"},
+{id:"fra.1",name:"لوشامپیونه فرانسه"},
+{id:"fra.2",name:"لیگ ۲ فرانسه"},
+{id:"uefa.champions",name:"لیگ قهرمانان اروپا"},
+{id:"uefa.europa",name:"لیگ اروپا"},
+{id:"uefa.europa.conf",name:"لیگ کنفرانس اروپا"},
+{id:"ned.1",name:"اردیویسه هالند"},
+{id:"por.1",name:"لیگ پرتگال"},
+{id:"bel.1",name:"لیگ بلجیم"},
+{id:"tur.1",name:"سوپرلیگ ترکیه"},
+{id:"ksa.1",name:"لیگ عربستان"},
+{id:"usa.1",name:"MLS آمریکا"},
+{id:"bra.1",name:"سری آ برازیل"},
+{id:"arg.1",name:"لیگ آرژانتین"},
+{id:"jpn.1",name:"لیگ جاپان"},
+{id:"kor.1",name:"لیگ کوریای جنوبی"},
+{id:"aus.1",name:"لیگ استرالیا"},
+{id:"fifa.world",name:"جام جهانی"}
+];
+
+/* امتیاز اهمیت تیم‌ها برای مرتب‌سازی مسابقات */
+const BIG_TEAMS=[
+["real madrid",100],["realmadrid",100],["barcelona",99],["fc barcelona",99],
+["manchester city",96],["man city",96],["manchester united",95],["man united",95],
+["liverpool",95],["arsenal",94],["chelsea",93],["bayern",96],["paris saint-germain",94],
+["paris sg",94],["psg",94],["juventus",92],["inter milan",92],["internazionale",92],
+["ac milan",92],["atletico madrid",91],["borussia dortmund",90],["tottenham",88],
+["napoli",88],["roma",86],["ajax",85],["benfica",85],["porto",85],
+["bayer leverkusen",88],["leverkusen",88],["rb leipzig",85],["marseille",84],
+["galatasaray",85],["fenerbahce",84],["al hilal",86],["al nassr",85],
+["boca juniors",84],["river plate",84],["flamengo",84]
 ];
 
 const cache=new Map();
@@ -293,6 +293,26 @@ function statusText(e){
  if(t.state==="post")return t.shortDetail||"پایان‌یافته";
  return t.shortDetail||"آغاز نشده";
 }
+function importanceScore(e){
+ const names=competitors(e).map(c=>(c.team?.displayName||c.team?.name||"").toLowerCase());
+ let score=0;
+ for(const name of names){
+  for(const [key,value] of BIG_TEAMS){
+   if(name.includes(key)){score=Math.max(score,value);break}
+  }
+ }
+ const league=String(e.leagueId||"");
+ if(league==="uefa.champions")score+=12;
+ else if(["eng.1","esp.1","ger.1","ita.1","fra.1","uefa.europa"].includes(league))score+=5;
+ return score;
+}
+function sortEvents(events){
+ return events.sort((a,b)=>{
+  const ia=importanceScore(a),ib=importanceScore(b);
+  if(ia!==ib)return ib-ia;
+  return new Date(a.date)-new Date(b.date);
+ });
+}
 function matchCard(e){
  const h=teamOf(e,"home"),a=teamOf(e,"away");
  const live=e?.status?.type?.state==="in";
@@ -300,8 +320,9 @@ function matchCard(e){
  const hn=h?.team?.displayName||h?.team?.name||"تیم میزبان";
  const an=a?.team?.displayName||a?.team?.name||"تیم مهمان";
  const league=leagues.find(l=>l.id===e.leagueId)?.name||e.leagueName||"فوتبال";
- return `<article class="match" data-event="${esc(e.id)}" data-league="${esc(e.leagueId)}">
-  <div class="match-top"><span>${esc(league)}</span><span class="${live?"live-dot":""}">${esc(statusText(e))}</span></div>
+ const important=importanceScore(e)>=88;
+ return `<article class="match ${important?"important":""}" data-event="${esc(e.id)}" data-league="${esc(e.leagueId)}">
+  <div class="match-top"><span class="${important?"important-label":""}">${important?"⭐ بازی مهم · ":""}${esc(league)}</span><span class="${live?"live-dot":""}">${esc(statusText(e))}</span></div>
   <div class="teams">
    <div class="team">${logoOf(h)?`<img src="${esc(logoOf(h))}" alt="">`:""}${esc(hn)}</div>
    <div class="score">${done||live?`${esc(h.score??"-")} - ${esc(a.score??"-")}`:"VS"}</div>
@@ -328,7 +349,6 @@ async function fetchLeagueDay(l,date){
 async function fetchAllDay(offset){
  return (await mapLimit(leagues,5,l=>fetchLeagueDay(l,localDate(offset)))).flat();
 }
-function sortEvents(e){return e.sort((a,b)=>new Date(a.date)-new Date(b.date))}
 function message(id,text,error=false){
  document.getElementById(id).innerHTML=`<div class="message ${error?"error":""}">${esc(text)}</div>`;
 }
@@ -340,7 +360,7 @@ async function loadFixtures(){
   const events=sortEvents(await fetchAllDay(dayOffset));allEvents=events;
   if(!events.length){message("fixturesData","برای این تاریخ مسابقه‌ای در لیگ‌های دریافت‌شده پیدا نشد.");return}
   box.innerHTML=`<div class="grid">${events.map(matchCard).join("")}</div>`;
-  if(dayOffset===0)document.getElementById("homeMatches").innerHTML=`<div class="grid">${events.slice(0,6).map(matchCard).join("")}</div>`;
+  if(dayOffset===0)document.getElementById("homeMatches").innerHTML=`<div class="grid">${events.slice(0,8).map(matchCard).join("")}</div>`;
  }catch(e){message("fixturesData","دریافت برنامه مسابقات موفق نشد. دوباره تلاش کن.",true)}
 }
 async function loadLive(){
@@ -361,17 +381,13 @@ function fillLeagues(){
 }
 function selectedLeague(id){return leagues.find(l=>l.id===id)||leagues[0]}
 
-/* جدول لیگ: خواندن چند ساختار متفاوت پاسخ ESPN */
+/* جدول لیگ */
 function collectEntries(node,out=[],seen=new Set()){
  if(!node||typeof node!=="object"||seen.has(node))return out;
  seen.add(node);
- if(Array.isArray(node)){
-  node.forEach(x=>collectEntries(x,out,seen));return out;
- }
+ if(Array.isArray(node)){node.forEach(x=>collectEntries(x,out,seen));return out}
  if(Array.isArray(node.entries))node.entries.forEach(e=>{if(e&&!out.includes(e))out.push(e)});
- ["standings","children","groups","group","tables","items"].forEach(k=>{
-  if(node[k])collectEntries(node[k],out,seen);
- });
+ ["standings","children","groups","group","tables","items"].forEach(k=>{if(node[k])collectEntries(node[k],out,seen)});
  if(node.team&&Array.isArray(node.stats)&&!out.includes(node))out.push(node);
  return out;
 }
@@ -397,22 +413,16 @@ async function loadStandings(){
   const rows=entries.map(entry=>{
    const s=statsMap(entry),t=entry.team||entry;
    return {
-    name:t.displayName||t.name||"",
-    logo:t.logos?.[0]?.href||t.logo||"",
+    name:t.displayName||t.name||"",logo:t.logos?.[0]?.href||t.logo||"",
     played:getStat(s,["gamesplayed","played","gp"]),
-    win:getStat(s,["wins","w"]),
-    draw:getStat(s,["ties","draws","d"]),
-    loss:getStat(s,["losses","l"]),
-    gf:getStat(s,["pointsfor","goalsfor","gf"]),
+    win:getStat(s,["wins","w"]),draw:getStat(s,["ties","draws","d"]),
+    loss:getStat(s,["losses","l"]),gf:getStat(s,["pointsfor","goalsfor","gf"]),
     ga:getStat(s,["pointsagainst","goalsagainst","ga"]),
     gd:getStat(s,["pointdifferential","goaldifference","gd"]),
     points:getStat(s,["points","pts"])
    };
   }).filter(r=>r.name);
-  if(!rows.length){
-   message("leagueData","جدول این لیگ از منبع ESPN دریافت نشد. ممکن است این رقابت جدول نداشته باشد.");
-   return;
-  }
+  if(!rows.length){message("leagueData","جدول این لیگ از منبع ESPN دریافت نشد. ممکن است این رقابت جدول نداشته باشد.");return}
   box.innerHTML=`<h3>${esc(league.name)} — جدول رده‌بندی</h3>
    <div class="table-wrap"><table>
    <thead><tr><th>تیم</th><th>بازی</th><th>برد</th><th>مساوی</th><th>باخت</th><th>گل زده</th><th>گل خورده</th><th>تفاضل</th><th>امتیاز</th></tr></thead>
@@ -423,18 +433,14 @@ async function loadStandings(){
    </tr>`).join("")}</tbody></table></div>
    <div id="inlineScorers" style="margin-top:25px"><div class="message">در حال دریافت گل‌زنان همین لیگ...</div></div>`;
   await loadScorersInto("inlineScorers",league);
- }catch(e){
-  message("leagueData","دریافت جدول این لیگ موفق نشد. لطفاً دوباره تلاش کن.",true);
- }
+ }catch(e){message("leagueData","دریافت جدول این لیگ موفق نشد. لطفاً دوباره تلاش کن.",true)}
 }
 
-/* گل‌زنان: بررسی دسته‌بندی‌ها و شکل‌های مختلف پاسخ */
+/* گل‌زنان */
 function collectGoalLeaders(node,inGoal=false,out=[],seen=new Set()){
  if(!node||typeof node!=="object"||seen.has(node))return out;
  seen.add(node);
- if(Array.isArray(node)){
-  node.forEach(x=>collectGoalLeaders(x,inGoal,out,seen));return out;
- }
+ if(Array.isArray(node)){node.forEach(x=>collectGoalLeaders(x,inGoal,out,seen));return out}
  const label=[node.name,node.displayName,node.shortDisplayName,node.abbreviation,node.type].filter(Boolean).join(" ").toLowerCase();
  const goal=inGoal||/goal|scor/.test(label);
  if(goal&&Array.isArray(node.leaders))node.leaders.forEach(x=>out.push(x));
@@ -487,9 +493,7 @@ async function loadScorersInto(targetId,league){
  });
  box.innerHTML=`<h3>🥇 برترین گل‌زنان ${esc(league.name)}</h3>
   <div class="table-wrap"><table><thead><tr><th>رتبه</th><th>بازیکن</th><th>تیم</th><th>گل</th></tr></thead>
-  <tbody>${unique.slice(0,30).map((p,i)=>`<tr>
-   <td>${esc(p.rank??i+1)}</td><td>${esc(p.name)}</td><td>${esc(p.team||"-")}</td><td><b>${esc(p.goals)}</b></td>
-  </tr>`).join("")}</tbody></table></div>`;
+  <tbody>${unique.slice(0,30).map((p,i)=>`<tr><td>${esc(p.rank??i+1)}</td><td>${esc(p.name)}</td><td>${esc(p.team||"-")}</td><td><b>${esc(p.goals)}</b></td></tr>`).join("")}</tbody></table></div>`;
 }
 async function loadScorers(){
  const league=selectedLeague(document.getElementById("scorerLeague").value);
@@ -498,7 +502,7 @@ async function loadScorers(){
  await loadScorersInto("scorerData",league);
 }
 
-/* ترکیب و جزئیات مسابقه */
+/* دریافت جزئیات، ترکیب و فهرست بازیکنان */
 function eventForDetail(id,leagueId){
  return allEvents.find(e=>String(e.id)===String(id)&&e.leagueId===leagueId);
 }
@@ -526,51 +530,65 @@ async function showMatchDetail(id,leagueId){
   const sides=comp.competitors||competitors(event||{});
   const h=sides.find(x=>x.homeAway==="home")||home;
   const a=sides.find(x=>x.homeAway==="away")||away;
+
   let lineupRows=[];
-  function addPlayers(value,meta={}){
-   if(!value)return;
-   if(Array.isArray(value)){value.forEach(p=>lineupRows.push({...p,...meta}));return}
-   if(typeof value==="object"){
-    const list=value.players||value.roster||value.athletes||value.entries||value.items;
-    if(Array.isArray(list)){
-     addPlayers(list,{
-      team_id:value.team?.id||value.teamId||value.id||meta.team_id,
-      home_away:value.homeAway||value.home_away||meta.home_away
-     });
-    }
-   }
+  function walkRoster(node,ctx={},seen=new Set()){
+   if(!node||typeof node!=="object"||seen.has(node))return;
+   seen.add(node);
+   if(Array.isArray(node)){node.forEach(x=>walkRoster(x,ctx,seen));return}
+   const teamObj=node.team&&typeof node.team==="object"?node.team:null;
+   const next={...ctx};
+   if(teamObj){next.team_id=String(teamObj.id||ctx.team_id||"");next.team_name=teamObj.displayName||teamObj.name||ctx.team_name||""}
+   if(node.teamId||node.team_id)next.team_id=String(node.teamId||node.team_id);
+   if(node.homeAway||node.home_away)next.home_away=String(node.homeAway||node.home_away).toLowerCase();
+   if(node.athlete&&typeof node.athlete==="object")lineupRows.push({...node,...next,athlete:node.athlete});
+   else if(node.player&&typeof node.player==="object")lineupRows.push({...node,...next,athlete:node.player});
+   else if((node.displayName||node.fullName)&&next.team_id&&(node.jersey||node.position))lineupRows.push({...node,...next,athlete:node});
+   Object.keys(node).forEach(k=>{
+    if(k==="athlete"||k==="player")return;
+    const value=node[k];
+    if(k.toLowerCase()==="home")walkRoster(value,{...next,home_away:"home"},seen);
+    else if(k.toLowerCase()==="away")walkRoster(value,{...next,home_away:"away"},seen);
+    else walkRoster(value,next,seen);
+   });
   }
-  if(Array.isArray(data.lineups))addPlayers(data.lineups);
-  else if(data.lineups&&typeof data.lineups==="object"){
-   addPlayers(data.lineups.home,{home_away:"home"});
-   addPlayers(data.lineups.away,{home_away:"away"});
-   addPlayers(data.lineups.players||data.lineups.teams);
-  }
-  if(Array.isArray(data.rosters))data.rosters.forEach(t=>addPlayers(t,{team_id:t.team?.id||t.teamId,home_away:t.homeAway||t.home_away}));
-  else addPlayers(data.rosters);
-  if(!lineupRows.length&&Array.isArray(data.boxscore?.players))data.boxscore.players.forEach(t=>addPlayers(t,{team_id:t.team?.id}));
+  walkRoster(data.lineups);
+  walkRoster(data.rosters);
+  walkRoster(data.boxscore?.players);
+  walkRoster(data.boxscore?.teams);
+
   const teamId=s=>String(s?.team?.id||s?.id||"");
   function sideOf(p){
    const id=String(p.team_id||p.team?.id||"");
    if(id&&id===teamId(h))return "home";
    if(id&&id===teamId(a))return "away";
    const side=String(p.home_away||p.homeAway||"").toLowerCase();
-   return side==="home"||side==="away"?side:"";
+   if(side==="home"||side==="away")return side;
+   const teamName=String(p.team_name||p.team?.displayName||p.team?.name||"").toLowerCase();
+   if(teamName&&teamName===(h?.team?.displayName||h?.team?.name||"").toLowerCase())return "home";
+   if(teamName&&teamName===(a?.team?.displayName||a?.team?.name||"").toLowerCase())return "away";
+   return "";
   }
-  const grouped={home:[],away:[]};
-  lineupRows.forEach(p=>{const side=sideOf(p);if(side)grouped[side].push(p)});
+  const grouped={home:[],away:[]},uniquePlayers=new Set();
+  lineupRows.forEach(p=>{
+   const side=sideOf(p),ath=p.athlete||{};
+   const key=side+":"+(ath.id||ath.displayName||ath.fullName||ath.name||"");
+   if(side&&!uniquePlayers.has(key)){uniquePlayers.add(key);grouped[side].push(p)}
+  });
   async function renderTeam(side,team){
    const name=team?.team?.displayName||team?.team?.name||"تیم";
    const players=grouped[side];
-   if(!players.length)return `<div class="detail-panel"><h3>${esc(name)}</h3><p>ترکیب رسمی این تیم هنوز از منبع مسابقه منتشر نشده است.</p></div>`;
+   if(!players.length)return `<div class="detail-panel"><h3>${esc(name)}</h3><p>ترکیب رسمی این تیم هنوز از منبع مسابقه منتشر نشده است. معمولاً ترکیب نزدیک شروع بازی اعلام می‌شود.</p></div>`;
    const list=await Promise.all(players.map(async p=>({
     name:await resolveAthlete(p),
     position:p.position?.abbreviation||p.position?.name||p.position||"-",
-    number:p.jersey||p.uniformNumber||"-",
-    starter:p.starter===true||p.starter==="true"
+    number:p.jersey||p.uniformNumber||p.athlete?.jersey||"-",
+    starter:p.starter===true||p.starter==="true"||p.isStarter===true
    })));
-   const starters=list.filter(p=>p.starter),subs=list.filter(p=>!p.starter);
+   const hasStarterFlags=players.some(p=>p.starter!==undefined||p.isStarter!==undefined);
    const html=arr=>arr.length?arr.map(p=>`<div class="player-row"><span>${esc(p.number)} · ${esc(p.name)}</span><small>${esc(p.position)}</small></div>`).join(""):"<p>اطلاعات موجود نیست.</p>";
+   if(!hasStarterFlags)return `<div class="detail-panel"><h3>${esc(name)}</h3><h4 style="color:var(--green)">فهرست بازیکنان دریافت‌شده</h4>${html(list)}<p class="muted">منبع، اصلی یا ذخیره بودن بازیکنان را مشخص نکرده است.</p></div>`;
+   const starters=list.filter(p=>p.starter),subs=list.filter(p=>!p.starter);
    return `<div class="detail-panel"><h3>${esc(name)}</h3><h4 style="color:var(--green)">بازیکنان اصلی</h4>${html(starters)}<h4 style="color:var(--green)">بازیکنان ذخیره</h4>${html(subs)}</div>`;
   }
   const [homeHtml,awayHtml]=await Promise.all([renderTeam("home",h),renderTeam("away",a)]);
@@ -588,12 +606,12 @@ async function showMatchDetail(id,leagueId){
     <strong>${esc(hs)} - ${esc(as)}</strong>
     <div>${logoOf(a)?`<img src="${esc(logoOf(a))}" alt="">`:""}<b>${esc(an)}</b></div>
    </div>
-   <h3>ترکیب رسمی تیم‌ها</h3>
+   <h3>ترکیب و فهرست بازیکنان</h3>
    <div class="detail-columns">${homeHtml}${awayHtml}</div>
    <h3>رویدادهای مسابقه</h3><div class="detail-panel">${eventHtml}</div>
    <h3>آمار مسابقه</h3><div class="detail-columns">${statsHtml}</div>`;
  }catch(e){
-  box.innerHTML=`<div class="message error">جزئیات این مسابقه از منبع دریافت نشد. ممکن است هنوز ترکیب رسمی منتشر نشده باشد یا اطلاعات مسابقه در دسترس نباشد.</div>`;
+  box.innerHTML='<div class="message error">جزئیات این مسابقه از منبع دریافت نشد. ممکن است هنوز ترکیب رسمی منتشر نشده باشد یا اطلاعات مسابقه در دسترس نباشد.</div>';
  }
 }
 
