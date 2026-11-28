@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -19,16 +18,19 @@ nav{display:flex;gap:7px;flex-wrap:wrap}
 nav button,.btn{padding:10px 13px;border:1px solid var(--line);border-radius:9px;background:#142d42;color:white;font-size:13px}
 nav button.active,nav button:hover,.btn:hover{border-color:var(--green);color:var(--green)}
 .btn.primary{background:var(--green);color:#08231f;border:0;font-weight:bold}
+
+/* بخش عکس‌های اصلی */
 .hero{width:92%;max-width:1450px;margin:22px auto;border-radius:20px;overflow:hidden;position:relative;background:#102a40;border:1px solid var(--line)}
 .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);height:390px}
-.hero-person{position:relative;overflow:hidden;min-width:0}
-.hero-person img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block}
+.hero-person{position:relative;overflow:hidden;min-width:0;background:#10283a}
+.hero-person img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block}
 .hero-person:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(7,21,33,.9))}
 .hero-person b{position:absolute;z-index:2;bottom:17px;left:5px;right:5px;text-align:center;font-size:13px;text-shadow:0 2px 6px black}
-.hero-copy{position:absolute;z-index:3;top:15px;left:15px;right:15px;text-align:center;text-shadow:0 2px 8px #000}
-.hero-copy h1{font-size:clamp(25px,4vw,43px);margin:8px;color:white}
-.hero-copy p{font-size:14px;color:white}
+.hero-copy{position:relative;z-index:3;padding:14px 12px 16px;text-align:center;background:linear-gradient(135deg,#0b2031,#153449);border-top:1px solid var(--line);text-shadow:none}
+.hero-copy h1{font-size:clamp(25px,4vw,39px);margin:5px;color:white}
+.hero-copy p{font-size:14px;color:var(--muted);margin:7px 0 0}
 .hero-copy strong{color:var(--gold)}
+
 main{width:92%;max-width:1450px;margin:auto}
 .page{display:none}.page.active{display:block}
 .section{margin:22px 0;padding:19px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
@@ -75,15 +77,36 @@ td:first-child,th:first-child{text-align:right}
 .player-row{display:flex;justify-content:space-between;gap:8px;padding:7px 2px;border-bottom:1px solid var(--line)}
 .close{background:#71343b;border:0;color:white;padding:9px 14px;border-radius:8px}
 footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
+
+@media(max-width:750px){
+ .hero-grid{height:300px}
+ .hero-person img{object-position:center 8%}
+ .hero-person b{font-size:10px}
+}
 @media(max-width:650px){
-header{padding:12px 4%}nav{width:100%;overflow:auto;flex-wrap:nowrap}
-nav button{white-space:nowrap}.hero{width:94%}.hero-grid{height:290px}
-.hero-person b{font-size:9px;bottom:9px}.hero-copy{top:8px}
-.hero-copy p{font-size:11px}main{width:94%}.section{padding:13px}
-.detail-columns{grid-template-columns:1fr}.detail-box{padding:12px;margin:4px auto}
+ header{padding:12px 4%}
+ nav{width:100%;overflow:auto;flex-wrap:nowrap}
+ nav button{white-space:nowrap}
+ .hero{width:94%}
+ .hero-grid{height:260px}
+ .hero-person b{font-size:9px;bottom:9px}
+ .hero-copy{padding:12px 8px}
+ .hero-copy h1{font-size:23px}
+ .hero-copy p{font-size:11px}
+ main{width:94%}
+ .section{padding:13px}
+ .detail-columns{grid-template-columns:1fr}
+ .detail-box{padding:12px;margin:4px auto}
+}
+@media(max-width:380px){
+ .hero-grid{height:220px}
+ .hero-person b{font-size:8px}
+ .hero-copy h1{font-size:20px}
+ .hero-copy p{font-size:10px}
 }
 </style>
- <!-- Cloudflare Web Analytics -->
+
+<!-- Cloudflare Web Analytics -->
 <script
   defer
   src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -111,15 +134,15 @@ nav button{white-space:nowrap}.hero{width:94%}.hero-grid{height:290px}
    <b>CRISTIANO RONALDO · 2008</b>
   </div>
   <div class="hero-person">
-   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Messi_2012.jpg?width=900" alt="Lionel Messi">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_close-up.jpg?width=900" alt="Lionel Messi">
    <b>LIONEL MESSI · 2012</b>
   </div>
   <div class="hero-person">
-   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kylian_Mbapp%C3%A9.jpg?width=900" alt="Mbappe">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kylian%20Mbapp%C3%A9.jpg?width=900" alt="Mbappe">
    <b>KYLIAN MBAPPÉ</b>
   </div>
   <div class="hero-person">
-   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lamine_Yamal_in_2025_(cropped).jpg?width=900" alt="Yamal">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lamine%20Yamal%20in%202025%20(cropped).jpg?width=900" alt="Yamal">
    <b>LAMINE YAMAL</b>
   </div>
  </div>
