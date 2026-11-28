@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -6,57 +7,58 @@
 <meta name="theme-color" content="#071521">
 <title>GoalZone | دنیای فوتبال</title>
 <style>
-:root{--bg:#071521;--panel:#10283a;--panel2:#153449;--green:#35d6c3;--gold:#f2c46d;--text:#f4f7fb;--muted:#a9bac8;--line:#2c4a5d;--red:#ff5b67}
+:root{
+ --bg:#071521;--panel:#10283a;--panel2:#153449;
+ --green:#35d6c3;--gold:#f2c46d;--text:#f4f7fb;
+ --muted:#a9bac8;--line:#2c4a5d;--red:#ff5b67
+}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif}
 button,select{font:inherit}
 button{cursor:pointer}
-header{padding:15px 4%;background:#0b2031;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:10}
-.logo{font-size:27px;font-weight:900;color:var(--green)}
+header{position:sticky;top:0;z-index:10;background:#0b2031;border-bottom:1px solid var(--line);padding:13px 4%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:26px;font-weight:900;color:var(--green)}
 .logo span{color:var(--gold)}
 nav{display:flex;gap:7px;flex-wrap:wrap}
-nav button,.btn{padding:10px 13px;border:1px solid var(--line);border-radius:9px;background:#142d42;color:white;font-size:13px}
+nav button,.btn{border:1px solid var(--line);background:#142d42;color:white;padding:10px 13px;border-radius:9px;font-size:13px}
 nav button.active,nav button:hover,.btn:hover{border-color:var(--green);color:var(--green)}
 .btn.primary{background:var(--green);color:#08231f;border:0;font-weight:bold}
-
-/* بخش عکس‌های اصلی */
-.hero{width:92%;max-width:1450px;margin:22px auto;border-radius:20px;overflow:hidden;position:relative;background:#102a40;border:1px solid var(--line)}
-.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);height:390px}
-.hero-person{position:relative;overflow:hidden;min-width:0;background:#10283a}
+.hero{width:92%;max-width:1450px;margin:20px auto;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel)}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);height:360px}
+.hero-person{position:relative;overflow:hidden;background:#10283a;min-width:0}
 .hero-person img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block}
 .hero-person:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(7,21,33,.9))}
-.hero-person b{position:absolute;z-index:2;bottom:17px;left:5px;right:5px;text-align:center;font-size:13px;text-shadow:0 2px 6px black}
-.hero-copy{position:relative;z-index:3;padding:14px 12px 16px;text-align:center;background:linear-gradient(135deg,#0b2031,#153449);border-top:1px solid var(--line);text-shadow:none}
-.hero-copy h1{font-size:clamp(25px,4vw,39px);margin:5px;color:white}
-.hero-copy p{font-size:14px;color:var(--muted);margin:7px 0 0}
+.hero-person b{position:absolute;z-index:2;bottom:15px;left:3px;right:3px;text-align:center;font-size:12px;text-shadow:0 2px 6px black}
+.hero-copy{text-align:center;padding:15px;background:linear-gradient(135deg,#0b2031,#153449);border-top:1px solid var(--line)}
+.hero-copy h1{font-size:clamp(23px,4vw,38px);margin:5px}
+.hero-copy p{color:var(--muted);font-size:14px}
 .hero-copy strong{color:var(--gold)}
-
 main{width:92%;max-width:1450px;margin:auto}
 .page{display:none}.page.active{display:block}
-.section{margin:22px 0;padding:19px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+.section{margin:20px 0;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:15px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 h2{font-size:21px;color:var(--green);margin:0}
 h3{font-size:17px;color:var(--green)}
 .muted{color:var(--muted);font-size:13px}
 .actions{display:flex;gap:8px;flex-wrap:wrap}
 select{background:#0b2031;color:white;border:1px solid var(--line);padding:10px;border-radius:9px;max-width:100%}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
-.match{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:13px;cursor:pointer;transition:.2s}
-.match:hover{border-color:var(--green);transform:translateY(-2px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px}
+.match{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:13px;cursor:pointer}
+.match:hover{border-color:var(--green)}
 .match.important{border-color:#a78643}
 .match-top{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:12px;margin-bottom:12px}
 .important-label{color:var(--gold);font-weight:bold}
 .live-dot{color:var(--red);font-weight:bold}
 .teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;text-align:center}
 .team{font-size:13px;line-height:1.6}
-.team img{width:35px;height:35px;object-fit:contain;display:block;margin:0 auto 5px}
-.score{font-size:22px;font-weight:bold;white-space:nowrap}
+.team img{width:32px;height:32px;object-fit:contain;display:block;margin:0 auto 5px}
+.score{font-size:21px;font-weight:bold;white-space:nowrap}
 .status{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
-.message{padding:16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center;line-height:1.9}
+.message{padding:15px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center;line-height:1.9}
 .error{color:#ffb1b1;border-color:#824444}
 .table-wrap{overflow:auto}
-table{width:100%;border-collapse:collapse;min-width:560px}
-th,td{padding:11px 9px;border-bottom:1px solid var(--line);text-align:center;font-size:13px}
+table{width:100%;border-collapse:collapse;min-width:540px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;font-size:13px}
 th{color:var(--green);background:#10263a}
 td:first-child,th:first-child{text-align:right}
 .team-cell{display:flex;align-items:center;gap:8px;white-space:nowrap}
@@ -65,54 +67,38 @@ td:first-child,th:first-child{text-align:right}
 .news-card h3{margin:0 0 9px;line-height:1.7}
 .news-card p{color:var(--muted);font-size:13px;line-height:1.8}
 .news-card a{color:var(--green);font-size:13px}
-#detail{display:none;position:fixed;inset:0;background:#000c;z-index:30;padding:14px;overflow:auto}
-.detail-box{max-width:950px;margin:22px auto;background:#10263a;border:1px solid var(--line);border-radius:17px;padding:19px}
-.detail-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.detail-score{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;text-align:center;gap:12px;margin:22px 0}
-.detail-score img{width:52px;height:52px;object-fit:contain;display:block;margin:auto auto 7px}
-.detail-score strong{font-size:27px}
-.detail-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.detail-panel{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:13px;line-height:2;font-size:13px;margin:8px 0}
-.detail-panel h3{margin-top:0}
-.player-row{display:flex;justify-content:space-between;gap:8px;padding:7px 2px;border-bottom:1px solid var(--line)}
+#detail{display:none;position:fixed;inset:0;background:#000c;z-index:30;padding:12px;overflow:auto}
+.detail-box{max-width:950px;margin:20px auto;background:#10263a;border:1px solid var(--line);border-radius:16px;padding:17px}
+.detail-top{display:flex;justify-content:space-between;align-items:center}
+.detail-score{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;text-align:center;gap:10px;margin:20px 0}
+.detail-score img{width:48px;height:48px;object-fit:contain;display:block;margin:auto auto 7px}
+.detail-score strong{font-size:26px}
+.detail-columns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.detail-panel{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px;line-height:2;font-size:13px;margin:8px 0}
+.player-row{display:flex;justify-content:space-between;gap:8px;padding:7px;border-bottom:1px solid var(--line)}
 .close{background:#71343b;border:0;color:white;padding:9px 14px;border-radius:8px}
-footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
-
+footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}
 @media(max-width:750px){
- .hero-grid{height:300px}
+ .hero-grid{height:280px}
  .hero-person img{object-position:center 8%}
- .hero-person b{font-size:10px}
+ .hero-person b{font-size:9px}
 }
 @media(max-width:650px){
- header{padding:12px 4%}
+ header{padding:11px 4%}
  nav{width:100%;overflow:auto;flex-wrap:nowrap}
  nav button{white-space:nowrap}
- .hero{width:94%}
- .hero-grid{height:260px}
- .hero-person b{font-size:9px;bottom:9px}
- .hero-copy{padding:12px 8px}
- .hero-copy h1{font-size:23px}
- .hero-copy p{font-size:11px}
- main{width:94%}
- .section{padding:13px}
+ .hero{width:94%}.hero-grid{height:240px}
+ .hero-person b{font-size:8px;bottom:8px}
+ .hero-copy h1{font-size:22px}.hero-copy p{font-size:11px}
+ main{width:94%}.section{padding:13px}
  .detail-columns{grid-template-columns:1fr}
- .detail-box{padding:12px;margin:4px auto}
-}
-@media(max-width:380px){
- .hero-grid{height:220px}
- .hero-person b{font-size:8px}
- .hero-copy h1{font-size:20px}
- .hero-copy p{font-size:10px}
+ .detail-box{padding:12px;margin:3px auto}
 }
 </style>
 
 <!-- Cloudflare Web Analytics -->
-<script
-  defer
-  src="https://static.cloudflareinsights.com/beacon.min.js"
-  data-cf-beacon='{"token":"918f78a1d37948229cbe20f4922c4b86"}'>
-</script>
-<!-- End Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+ data-cf-beacon='{"token":"918f78a1d37948229cbe20f4922c4b86"}'></script>
 </head>
 <body>
 <header>
@@ -130,19 +116,19 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
 <section class="hero">
  <div class="hero-grid">
   <div class="hero-person">
-   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/C_Ronaldo.jpg?width=900" alt="Cristiano Ronaldo">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/C_Ronaldo.jpg?width=480" alt="Cristiano Ronaldo 2008" width="400" height="500" loading="eager" fetchpriority="high" decoding="async">
    <b>CRISTIANO RONALDO · 2008</b>
   </div>
   <div class="hero-person">
-   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_close-up.jpg?width=900" alt="Lionel Messi">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_close-up.jpg?width=480" alt="Lionel Messi 2012" width="400" height="500" loading="eager" decoding="async">
    <b>LIONEL MESSI · 2012</b>
   </div>
   <div class="hero-person">
-   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kylian%20Mbapp%C3%A9.jpg?width=900" alt="Mbappe">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kylian%20Mbapp%C3%A9.jpg?width=480" alt="Kylian Mbappe" width="400" height="500" loading="eager" decoding="async">
    <b>KYLIAN MBAPPÉ</b>
   </div>
   <div class="hero-person">
-   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lamine%20Yamal%20in%202025%20(cropped).jpg?width=900" alt="Yamal">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lamine%20Yamal%20in%202025%20(cropped).jpg?width=480" alt="Lamine Yamal" width="400" height="500" loading="eager" decoding="async">
    <b>LAMINE YAMAL</b>
   </div>
  </div>
@@ -153,68 +139,65 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
 </section>
 
 <main>
- <section class="page active" id="page-home">
-  <div class="section">
-   <div class="section-head"><h2>به GoalZone خوش آمدی ⚽</h2><span class="muted">مرکز دنبال‌کردن فوتبال جهان</span></div>
-   <div class="grid">
-    <div class="detail-panel"><h3>🔴 مسابقات زنده</h3><p>بازی‌های در حال برگزاری را دنبال کن.</p><button class="btn primary" onclick="goPage('live')">دیدن مسابقات</button></div>
-    <div class="detail-panel"><h3>🏆 لیگ‌ها و جدول‌ها</h3><p>وضعیت تیم‌ها در رقابت‌های مختلف.</p><button class="btn primary" onclick="goPage('leagues')">دیدن جدول‌ها</button></div>
-    <div class="detail-panel"><h3>🥇 گل‌زنان</h3><p>بهترین گل‌زنان لیگ‌ها را بررسی کن.</p><button class="btn primary" onclick="goPage('scorers')">دیدن گل‌زنان</button></div>
+<section class="page active" id="page-home">
+ <div class="section">
+  <div class="section-head"><h2>به GoalZone خوش آمدی ⚽</h2><span class="muted">مرکز دنبال‌کردن فوتبال جهان</span></div>
+  <div class="grid">
+   <div class="detail-panel"><h3>🔴 مسابقات زنده</h3><p>بازی‌های در حال برگزاری</p><button class="btn primary" onclick="goPage('live')">دیدن مسابقات</button></div>
+   <div class="detail-panel"><h3>🏆 لیگ‌ها و جدول‌ها</h3><p>وضعیت تیم‌ها در لیگ‌ها</p><button class="btn primary" onclick="goPage('leagues')">دیدن جدول‌ها</button></div>
+   <div class="detail-panel"><h3>🥇 گل‌زنان</h3><p>برترین گل‌زنان لیگ‌ها</p><button class="btn primary" onclick="goPage('scorers')">دیدن گل‌زنان</button></div>
+  </div>
+ </div>
+ <div class="section">
+  <div class="section-head"><h2>بازی‌های مهم امروز</h2><button class="btn" onclick="goPage('fixtures')">همه بازی‌ها</button></div>
+  <div id="homeMatches" class="message">در حال دریافت مسابقات...</div>
+ </div>
+</section>
+
+<section class="page" id="page-live">
+ <div class="section">
+  <div class="section-head"><h2>🔴 مسابقات زنده</h2><button class="btn primary" id="refreshLive">به‌روزرسانی</button></div>
+  <p class="muted" id="liveUpdated">نتایج به‌صورت خودکار تازه می‌شوند.</p>
+  <div id="liveData" class="message">در حال دریافت...</div>
+ </div>
+</section>
+
+<section class="page" id="page-fixtures">
+ <div class="section">
+  <div class="section-head"><h2>📅 برنامه مسابقات</h2>
+   <div class="actions">
+    <button class="btn" id="prevDay">روز قبل</button>
+    <button class="btn" id="todayBtn">امروز</button>
+    <button class="btn" id="nextDay">روز بعد</button>
    </div>
   </div>
-  <div class="section">
-   <div class="section-head"><h2>بازی‌های مهم امروز</h2><button class="btn" onclick="goPage('fixtures')">همه بازی‌ها</button></div>
-   <div id="homeMatches" class="message">در حال دریافت مسابقات...</div>
-  </div>
- </section>
+  <p class="muted" id="dateLabel"></p>
+  <div id="fixturesData" class="message">در حال دریافت برنامه...</div>
+ </div>
+</section>
 
- <section class="page" id="page-live">
-  <div class="section">
-   <div class="section-head"><h2>🔴 مسابقات زنده</h2><button class="btn primary" id="refreshLive">به‌روزرسانی</button></div>
-   <div id="liveData" class="message">در حال دریافت مسابقات زنده...</div>
-  </div>
- </section>
+<section class="page" id="page-leagues">
+ <div class="section">
+  <div class="section-head"><h2>🏆 جدول لیگ</h2><select id="leagueSelect"></select></div>
+  <button class="btn primary" id="standingsBtn">نمایش جدول و گل‌زنان</button>
+  <div id="leagueData" class="message" style="margin-top:15px">یک لیگ انتخاب کن.</div>
+ </div>
+</section>
 
- <section class="page" id="page-fixtures">
-  <div class="section">
-   <div class="section-head">
-    <h2>📅 برنامه مسابقات</h2>
-    <div class="actions">
-     <button class="btn" id="prevDay">روز قبل</button>
-     <button class="btn" id="todayBtn">امروز</button>
-     <button class="btn" id="nextDay">روز بعد</button>
-    </div>
-   </div>
-   <p class="muted" id="dateLabel"></p>
-   <div id="fixturesData" class="message">در حال دریافت برنامه...</div>
-  </div>
- </section>
+<section class="page" id="page-scorers">
+ <div class="section">
+  <div class="section-head"><h2>🥇 برترین گل‌زنان</h2><select id="scorerLeague"></select></div>
+  <button class="btn primary" id="scorersBtn">نمایش گل‌زنان</button>
+  <div id="scorerData" class="message" style="margin-top:15px">لیگ را انتخاب کن.</div>
+ </div>
+</section>
 
- <section class="page" id="page-leagues">
-  <div class="section">
-   <div class="section-head">
-    <h2>🏆 جدول لیگ و گل‌زنان</h2>
-    <select id="leagueSelect"></select>
-   </div>
-   <button class="btn primary" id="standingsBtn">نمایش جدول و گل‌زنان</button>
-   <div id="leagueData" class="message" style="margin-top:15px">یک لیگ انتخاب کن.</div>
-  </div>
- </section>
-
- <section class="page" id="page-scorers">
-  <div class="section">
-   <div class="section-head"><h2>🥇 برترین گل‌زنان</h2><select id="scorerLeague"></select></div>
-   <button class="btn primary" id="scorersBtn">نمایش گل‌زنان</button>
-   <div id="scorerData" class="message" style="margin-top:15px">لیگ را انتخاب کن.</div>
-  </div>
- </section>
-
- <section class="page" id="page-news">
-  <div class="section">
-   <div class="section-head"><h2>📰 تازه‌ترین اخبار فوتبال</h2><button class="btn" id="refreshNews">تازه‌سازی خبرها</button></div>
-   <div id="newsData" class="grid"><div class="message">در حال دریافت اخبار...</div></div>
-  </div>
- </section>
+<section class="page" id="page-news">
+ <div class="section">
+  <div class="section-head"><h2>📰 تازه‌ترین اخبار فوتبال</h2><button class="btn" id="refreshNews">تازه‌سازی خبرها</button></div>
+  <div id="newsData" class="grid"><div class="message">در حال دریافت اخبار...</div></div>
+ </div>
+</section>
 </main>
 
 <div id="detail">
@@ -232,7 +215,6 @@ footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
 
 <script>
 "use strict";
-
 const API="https://site.api.espn.com/apis/site/v2/sports/soccer";
 const TABLE_API="https://site.api.espn.com/apis/v2/sports/soccer";
 
@@ -264,20 +246,23 @@ const leagues=[
 {id:"fifa.world",name:"جام جهانی"}
 ];
 
-/* امتیاز اهمیت تیم‌ها برای مرتب‌سازی مسابقات */
 const BIG_TEAMS=[
-["real madrid",100],["realmadrid",100],["barcelona",99],["fc barcelona",99],
-["manchester city",96],["man city",96],["manchester united",95],["man united",95],
-["liverpool",95],["arsenal",94],["chelsea",93],["bayern",96],["paris saint-germain",94],
-["paris sg",94],["psg",94],["juventus",92],["inter milan",92],["internazionale",92],
-["ac milan",92],["atletico madrid",91],["borussia dortmund",90],["tottenham",88],
-["napoli",88],["roma",86],["ajax",85],["benfica",85],["porto",85],
-["bayer leverkusen",88],["leverkusen",88],["rb leipzig",85],["marseille",84],
-["galatasaray",85],["fenerbahce",84],["al hilal",86],["al nassr",85],
+["real madrid",100],["realmadrid",100],["barcelona",99],
+["manchester city",96],["man city",96],["manchester united",95],
+["liverpool",95],["arsenal",94],["chelsea",93],["bayern",96],
+["paris saint-germain",94],["psg",94],["juventus",92],
+["inter milan",92],["internazionale",92],["ac milan",92],
+["atletico madrid",91],["borussia dortmund",90],["tottenham",88],
+["napoli",88],["roma",86],["ajax",85],["benfica",85],
+["porto",85],["bayer leverkusen",88],["leverkusen",88],
+["rb leipzig",85],["marseille",84],["galatasaray",85],
+["fenerbahce",84],["al hilal",86],["al nassr",85],
 ["boca juniors",84],["river plate",84],["flamengo",84]
 ];
 
 const cache=new Map();
+const inFlight=new Map();
+const dayCache=new Map();
 let dayOffset=0;
 let allEvents=[];
 
@@ -295,11 +280,16 @@ function esc(v){
 async function api(url,ttl=60000){
  const old=cache.get(url);
  if(old&&Date.now()-old.time<ttl)return old.data;
- const res=await fetch(url,{signal:AbortSignal.timeout(18000)});
- if(!res.ok)throw new Error("HTTP "+res.status);
- const data=await res.json();
- cache.set(url,{time:Date.now(),data});
- return data;
+ if(inFlight.has(url))return inFlight.get(url);
+ const request=(async()=>{
+  const res=await fetch(url,{signal:AbortSignal.timeout(18000)});
+  if(!res.ok)throw new Error("HTTP "+res.status);
+  const data=await res.json();
+  cache.set(url,{time:Date.now(),data});
+  return data;
+ })();
+ inFlight.set(url,request);
+ try{return await request}finally{inFlight.delete(url)}
 }
 function localDate(offset=0){
  const d=new Date();d.setDate(d.getDate()+offset);
@@ -326,49 +316,32 @@ function statusText(e){
 function importanceScore(e){
  const names=competitors(e).map(c=>(c.team?.displayName||c.team?.name||"").toLowerCase());
  let score=0;
- for(const name of names){
-  for(const [key,value] of BIG_TEAMS){
-   if(name.includes(key)){score=Math.max(score,value);break}
-  }
- }
- const league=String(e.leagueId||"");
- if(league==="uefa.champions")score+=12;
- else if(["eng.1","esp.1","ger.1","ita.1","fra.1","uefa.europa"].includes(league))score+=5;
+ for(const name of names)for(const [key,value] of BIG_TEAMS)if(name.includes(key)){score=Math.max(score,value);break}
+ if(e.leagueId==="uefa.champions")score+=12;
+ else if(["eng.1","esp.1","ger.1","ita.1","fra.1","uefa.europa"].includes(e.leagueId))score+=5;
  return score;
 }
 function sortEvents(events){
- return events.sort((a,b)=>{
-  const ia=importanceScore(a),ib=importanceScore(b);
-  if(ia!==ib)return ib-ia;
-  return new Date(a.date)-new Date(b.date);
- });
+ return events.sort((a,b)=>importanceScore(b)-importanceScore(a)||new Date(a.date)-new Date(b.date));
 }
 function matchCard(e){
  const h=teamOf(e,"home"),a=teamOf(e,"away");
- const live=e?.status?.type?.state==="in";
- const done=e?.status?.type?.state==="post";
- const hn=h?.team?.displayName||h?.team?.name||"تیم میزبان";
- const an=a?.team?.displayName||a?.team?.name||"تیم مهمان";
+ const live=e?.status?.type?.state==="in",done=e?.status?.type?.state==="post";
+ const hn=h?.team?.displayName||h?.team?.name||"میزبان";
+ const an=a?.team?.displayName||a?.team?.name||"مهمان";
  const league=leagues.find(l=>l.id===e.leagueId)?.name||e.leagueName||"فوتبال";
  const important=importanceScore(e)>=88;
  return `<article class="match ${important?"important":""}" data-event="${esc(e.id)}" data-league="${esc(e.leagueId)}">
-  <div class="match-top"><span class="${important?"important-label":""}">${important?"⭐ بازی مهم · ":""}${esc(league)}</span><span class="${live?"live-dot":""}">${esc(statusText(e))}</span></div>
-  <div class="teams">
-   <div class="team">${logoOf(h)?`<img src="${esc(logoOf(h))}" alt="">`:""}${esc(hn)}</div>
-   <div class="score">${done||live?`${esc(h.score??"-")} - ${esc(a.score??"-")}`:"VS"}</div>
-   <div class="team">${logoOf(a)?`<img src="${esc(logoOf(a))}" alt="">`:""}${esc(an)}</div>
-  </div>
-  <div class="status">${esc(timeText(e.date))} · برای جزئیات کلیک کن</div>
- </article>`;
+ <div class="match-top"><span class="${important?"important-label":""}">${important?"⭐ بازی مهم · ":""}${esc(league)}</span><span class="${live?"live-dot":""}">${esc(statusText(e))}</span></div>
+ <div class="teams">
+ <div class="team">${logoOf(h)?`<img src="${esc(logoOf(h))}" alt="">`:""}${esc(hn)}</div>
+ <div class="score">${done||live?`${esc(h.score??"-")} - ${esc(a.score??"-")}`:"VS"}</div>
+ <div class="team">${logoOf(a)?`<img src="${esc(logoOf(a))}" alt="">`:""}${esc(an)}</div>
+ </div><div class="status">${esc(timeText(e.date))} · جزئیات</div></article>`;
 }
 async function mapLimit(items,limit,worker){
  const result=[];let index=0;
- async function run(){
-  while(index<items.length){
-   const i=index++;
-   try{result[i]=await worker(items[i])}catch(e){result[i]=[]}
-  }
- }
+ async function run(){while(index<items.length){const i=index++;try{result[i]=await worker(items[i])}catch(e){result[i]=[]}}}
  await Promise.all(Array.from({length:Math.min(limit,items.length)},run));
  return result;
 }
@@ -377,7 +350,11 @@ async function fetchLeagueDay(l,date){
  return (data.events||[]).map(e=>({...e,leagueId:l.id,leagueName:l.name}));
 }
 async function fetchAllDay(offset){
- return (await mapLimit(leagues,5,l=>fetchLeagueDay(l,localDate(offset)))).flat();
+ const key=localDate(offset),old=dayCache.get(key);
+ if(old&&Date.now()-old.time<55000)return old.data;
+ const data=(await mapLimit(leagues,5,l=>fetchLeagueDay(l,key))).flat();
+ dayCache.set(key,{time:Date.now(),data});
+ return data;
 }
 function message(id,text,error=false){
  document.getElementById(id).innerHTML=`<div class="message ${error?"error":""}">${esc(text)}</div>`;
@@ -385,13 +362,13 @@ function message(id,text,error=false){
 async function loadFixtures(){
  const box=document.getElementById("fixturesData");
  document.getElementById("dateLabel").textContent=dateText(dayOffset);
- box.innerHTML='<div class="message">در حال دریافت مسابقات لیگ‌های مختلف...</div>';
+ box.innerHTML='<div class="message">در حال دریافت مسابقات...</div>';
  try{
   const events=sortEvents(await fetchAllDay(dayOffset));allEvents=events;
   if(!events.length){message("fixturesData","برای این تاریخ مسابقه‌ای در لیگ‌های دریافت‌شده پیدا نشد.");return}
   box.innerHTML=`<div class="grid">${events.map(matchCard).join("")}</div>`;
   if(dayOffset===0)document.getElementById("homeMatches").innerHTML=`<div class="grid">${events.slice(0,8).map(matchCard).join("")}</div>`;
- }catch(e){message("fixturesData","دریافت برنامه مسابقات موفق نشد. دوباره تلاش کن.",true)}
+ }catch(e){message("fixturesData","دریافت برنامه موفق نشد. دوباره تلاش کن.",true)}
 }
 async function loadLive(){
  const box=document.getElementById("liveData");
@@ -399,11 +376,11 @@ async function loadLive(){
  try{
   const events=await fetchAllDay(0);allEvents=events;
   const live=sortEvents(events.filter(e=>e?.status?.type?.state==="in"));
+  document.getElementById("liveUpdated").textContent="آخرین بررسی: "+new Date().toLocaleTimeString("fa-IR");
   if(!live.length){message("liveData","در حال حاضر مسابقه زنده‌ای در لیگ‌های بررسی‌شده پیدا نشد.");return}
   box.innerHTML=`<div class="grid">${live.map(matchCard).join("")}</div>`;
  }catch(e){message("liveData","اتصال به منبع نتایج زنده موفق نشد.",true)}
 }
-
 function fillLeagues(){
  const html=leagues.map(l=>`<option value="${esc(l.id)}">${esc(l.name)}</option>`).join("");
  document.getElementById("leagueSelect").innerHTML=html;
@@ -411,7 +388,6 @@ function fillLeagues(){
 }
 function selectedLeague(id){return leagues.find(l=>l.id===id)||leagues[0]}
 
-/* جدول لیگ */
 function collectEntries(node,out=[],seen=new Set()){
  if(!node||typeof node!=="object"||seen.has(node))return out;
  seen.add(node);
@@ -422,240 +398,114 @@ function collectEntries(node,out=[],seen=new Set()){
  return out;
 }
 function statsMap(entry){
- const result={};
- (entry.stats||entry.statistics||[]).forEach(s=>{
-  result[String(s.name||s.abbreviation||s.type||"").toLowerCase()]=s.displayValue??s.value??"";
- });
- return result;
+ const r={};
+ (entry.stats||entry.statistics||[]).forEach(s=>r[String(s.name||s.abbreviation||s.type||"").toLowerCase()]=s.displayValue??s.value??"");
+ return r;
 }
-function getStat(s,names){
- for(const n of names)if(s[n.toLowerCase()]!==undefined)return s[n.toLowerCase()];
- return "-";
-}
+function getStat(s,names){for(const n of names)if(s[n.toLowerCase()]!==undefined)return s[n.toLowerCase()];return "-"}
+
 async function loadStandings(){
  const league=selectedLeague(document.getElementById("leagueSelect").value);
  const box=document.getElementById("leagueData");
- box.innerHTML='<div class="message">در حال دریافت جدول لیگ...</div>';
+ box.innerHTML='<div class="message">در حال دریافت جدول...</div>';
  try{
   const data=await api(`${TABLE_API}/${encodeURIComponent(league.id)}/standings`,120000);
-  let entries=collectEntries(data);
-  if(!entries.length&&data.standings)entries=collectEntries(data.standings);
-  const rows=entries.map(entry=>{
-   const s=statsMap(entry),t=entry.team||entry;
-   return {
-    name:t.displayName||t.name||"",logo:t.logos?.[0]?.href||t.logo||"",
-    played:getStat(s,["gamesplayed","played","gp"]),
-    win:getStat(s,["wins","w"]),draw:getStat(s,["ties","draws","d"]),
-    loss:getStat(s,["losses","l"]),gf:getStat(s,["pointsfor","goalsfor","gf"]),
-    ga:getStat(s,["pointsagainst","goalsagainst","ga"]),
-    gd:getStat(s,["pointdifferential","goaldifference","gd"]),
-    points:getStat(s,["points","pts"])
-   };
+  const entries=collectEntries(data);
+  const rows=entries.map(e=>{
+   const s=statsMap(e),t=e.team||e;
+   return {name:t.displayName||t.name||"",logo:t.logos?.[0]?.href||t.logo||"",
+    played:getStat(s,["gamesplayed","played","gp"]),win:getStat(s,["wins","w"]),
+    draw:getStat(s,["ties","draws","d"]),loss:getStat(s,["losses","l"]),
+    gf:getStat(s,["pointsfor","goalsfor","gf"]),ga:getStat(s,["pointsagainst","goalsagainst","ga"]),
+    gd:getStat(s,["pointdifferential","goaldifference","gd"]),points:getStat(s,["points","pts"])};
   }).filter(r=>r.name);
-  if(!rows.length){message("leagueData","جدول این لیگ از منبع ESPN دریافت نشد. ممکن است این رقابت جدول نداشته باشد.");return}
-  box.innerHTML=`<h3>${esc(league.name)} — جدول رده‌بندی</h3>
-   <div class="table-wrap"><table>
-   <thead><tr><th>تیم</th><th>بازی</th><th>برد</th><th>مساوی</th><th>باخت</th><th>گل زده</th><th>گل خورده</th><th>تفاضل</th><th>امتیاز</th></tr></thead>
-   <tbody>${rows.map((r,i)=>`<tr>
-    <td><div class="team-cell"><b>${i+1}</b>${r.logo?`<img src="${esc(r.logo)}" alt="">`:""}${esc(r.name)}</div></td>
-    <td>${esc(r.played)}</td><td>${esc(r.win)}</td><td>${esc(r.draw)}</td><td>${esc(r.loss)}</td>
-    <td>${esc(r.gf)}</td><td>${esc(r.ga)}</td><td>${esc(r.gd)}</td><td><b>${esc(r.points)}</b></td>
-   </tr>`).join("")}</tbody></table></div>
-   <div id="inlineScorers" style="margin-top:25px"><div class="message">در حال دریافت گل‌زنان همین لیگ...</div></div>`;
+  if(!rows.length){message("leagueData","جدول معتبر این لیگ از منبع دریافت نشد.");return}
+  box.innerHTML=`<h3>${esc(league.name)} — جدول رده‌بندی</h3><div class="table-wrap"><table>
+  <thead><tr><th>تیم</th><th>بازی</th><th>برد</th><th>مساوی</th><th>باخت</th><th>گل زده</th><th>گل خورده</th><th>تفاضل</th><th>امتیاز</th></tr></thead>
+  <tbody>${rows.map((r,i)=>`<tr><td><div class="team-cell"><b>${i+1}</b>${r.logo?`<img src="${esc(r.logo)}" alt="">`:""}${esc(r.name)}</div></td><td>${esc(r.played)}</td><td>${esc(r.win)}</td><td>${esc(r.draw)}</td><td>${esc(r.loss)}</td><td>${esc(r.gf)}</td><td>${esc(r.ga)}</td><td>${esc(r.gd)}</td><td><b>${esc(r.points)}</b></td></tr>`).join("")}</tbody></table></div>
+  <div id="inlineScorers" style="margin-top:22px"><div class="message">در حال دریافت گل‌زنان...</div></div>`;
   await loadScorersInto("inlineScorers",league);
- }catch(e){message("leagueData","دریافت جدول این لیگ موفق نشد. لطفاً دوباره تلاش کن.",true)}
+ }catch(e){message("leagueData","دریافت جدول موفق نشد. دوباره تلاش کن.",true)}
 }
 
-/* گل‌زنان */
 function collectGoalLeaders(node,inGoal=false,out=[],seen=new Set()){
  if(!node||typeof node!=="object"||seen.has(node))return out;
  seen.add(node);
  if(Array.isArray(node)){node.forEach(x=>collectGoalLeaders(x,inGoal,out,seen));return out}
- const label=[node.name,node.displayName,node.shortDisplayName,node.abbreviation,node.type].filter(Boolean).join(" ").toLowerCase();
+ const label=[node.name,node.displayName,node.abbreviation,node.type].filter(Boolean).join(" ").toLowerCase();
  const goal=inGoal||/goal|scor/.test(label);
  if(goal&&Array.isArray(node.leaders))node.leaders.forEach(x=>out.push(x));
  if(goal&&Array.isArray(node.athletes))node.athletes.forEach(x=>out.push(x));
- Object.keys(node).forEach(k=>{
-  if(k!=="leaders"&&k!=="athletes")collectGoalLeaders(node[k],goal||/goal|scor/i.test(k),out,seen);
- });
+ Object.keys(node).forEach(k=>{if(k!=="leaders"&&k!=="athletes")collectGoalLeaders(node[k],goal||/goal|scor/i.test(k),out,seen)});
  return out;
 }
 function playerFromLeader(item){
- const athlete=item.athlete||item.player||item;
- const team=item.team||athlete.team||{};
- return {
-  name:athlete.displayName||athlete.fullName||athlete.name||item.displayName||item.name||"",
-  team:team.displayName||team.name||"",
-  goals:item.displayValue??item.value??item.statistics?.displayValue??item.stat?.displayValue??"-",
-  rank:item.rank
- };
+ const athlete=item.athlete||item.player||item,team=item.team||athlete.team||{};
+ return {name:athlete.displayName||athlete.fullName||athlete.name||item.name||"",
+ team:team.displayName||team.name||"",goals:item.displayValue??item.value??item.statistics?.displayValue??"-",rank:item.rank};
 }
 async function loadScorersInto(targetId,league){
  const box=document.getElementById(targetId);
  const urls=[
-  `${API}/${encodeURIComponent(league.id)}/statistics`,
-  `${API}/${encodeURIComponent(league.id)}/leaders`,
-  `https://sports.core.api.espn.com/v2/sports/soccer/leagues/${encodeURIComponent(league.id)}/leaders?limit=50`
+ `${API}/${encodeURIComponent(league.id)}/statistics`,
+ `${API}/${encodeURIComponent(league.id)}/leaders`,
+ `https://sports.core.api.espn.com/v2/sports/soccer/leagues/${encodeURIComponent(league.id)}/leaders?limit=50`
  ];
  let players=[];
  for(const url of urls){
   try{
-   const data=await api(url,120000);
-   let raw=collectGoalLeaders(data);
-   if(!raw.length&&Array.isArray(data.leaders))raw=data.leaders;
+   const data=await api(url,120000),raw=collectGoalLeaders(data);
    const parsed=raw.map(playerFromLeader).filter(p=>p.name);
    if(parsed.length){players=parsed;break}
   }catch(e){}
  }
  const unique=[],seen=new Set();
- players.forEach(p=>{
-  const key=p.name.toLowerCase();
-  if(!seen.has(key)){seen.add(key);unique.push(p)}
- });
- if(!unique.length){
-  box.innerHTML='<div class="message">منبع ESPN فهرست معتبر گل‌زنان این لیگ را ارائه نکرد. آمار ساختگی نمایش داده نمی‌شود.</div>';
-  return;
- }
- unique.sort((a,b)=>{
-  const x=parseFloat(String(b.goals).replace(/[^\d.]/g,""))||0;
-  const y=parseFloat(String(a.goals).replace(/[^\d.]/g,""))||0;
-  return x-y;
- });
- box.innerHTML=`<h3>🥇 برترین گل‌زنان ${esc(league.name)}</h3>
-  <div class="table-wrap"><table><thead><tr><th>رتبه</th><th>بازیکن</th><th>تیم</th><th>گل</th></tr></thead>
-  <tbody>${unique.slice(0,30).map((p,i)=>`<tr><td>${esc(p.rank??i+1)}</td><td>${esc(p.name)}</td><td>${esc(p.team||"-")}</td><td><b>${esc(p.goals)}</b></td></tr>`).join("")}</tbody></table></div>`;
+ players.forEach(p=>{const k=p.name.toLowerCase();if(!seen.has(k)){seen.add(k);unique.push(p)}});
+ if(!unique.length){box.innerHTML='<div class="message">فهرست معتبر گل‌زنان از منبع دریافت نشد؛ آمار ساختگی نشان داده نمی‌شود.</div>';return}
+ unique.sort((a,b)=>(parseFloat(String(b.goals).replace(/[^\d.]/g,""))||0)-(parseFloat(String(a.goals).replace(/[^\d.]/g,""))||0));
+ box.innerHTML=`<h3>🥇 برترین گل‌زنان ${esc(league.name)}</h3><div class="table-wrap"><table><thead><tr><th>رتبه</th><th>بازیکن</th><th>تیم</th><th>گل</th></tr></thead><tbody>${unique.slice(0,30).map((p,i)=>`<tr><td>${esc(p.rank??i+1)}</td><td>${esc(p.name)}</td><td>${esc(p.team||"-")}</td><td><b>${esc(p.goals)}</b></td></tr>`).join("")}</tbody></table></div>`;
 }
 async function loadScorers(){
  const league=selectedLeague(document.getElementById("scorerLeague").value);
- const box=document.getElementById("scorerData");
- box.innerHTML='<div class="message">در حال دریافت گل‌زنان...</div>';
+ document.getElementById("scorerData").innerHTML='<div class="message">در حال دریافت گل‌زنان...</div>';
  await loadScorersInto("scorerData",league);
 }
 
-/* دریافت جزئیات، ترکیب و فهرست بازیکنان */
-function eventForDetail(id,leagueId){
- return allEvents.find(e=>String(e.id)===String(id)&&e.leagueId===leagueId);
-}
-async function resolveAthlete(p){
- let athlete=p.athlete||p.player||{};
- if(typeof athlete==="string"){
-  if(athlete.startsWith("http")){
-   try{athlete=await api(athlete,600000)}catch(e){athlete={}}
-  }else athlete={displayName:p.athlete_name||p.name||""};
- }
- if(!athlete.displayName&&!athlete.fullName&&!athlete.name&&p.athlete_id){
-  try{athlete=await api(`https://sports.core.api.espn.com/v2/sports/soccer/athletes/${p.athlete_id}`,600000)}catch(e){}
- }
- return athlete.displayName||athlete.fullName||athlete.name||p.athlete_name||p.name||"بازیکن";
-}
 async function showMatchDetail(id,leagueId){
- const event=eventForDetail(id,leagueId);
+ const event=allEvents.find(e=>String(e.id)===String(id)&&e.leagueId===leagueId);
  const modal=document.getElementById("detail"),box=document.getElementById("detailData");
- modal.style.display="block";
- box.innerHTML='<div class="message">در حال دریافت ترکیب و جزئیات مسابقه...</div>';
- const home=teamOf(event||{},"home"),away=teamOf(event||{},"away");
+ modal.style.display="block";box.innerHTML='<div class="message">در حال دریافت جزئیات...</div>';
  try{
   const data=await api(`${API}/${encodeURIComponent(leagueId)}/summary?event=${encodeURIComponent(id)}`,60000);
   const comp=data.header?.competitions?.[0]||data.competitions?.[0]||{};
   const sides=comp.competitors||competitors(event||{});
-  const h=sides.find(x=>x.homeAway==="home")||home;
-  const a=sides.find(x=>x.homeAway==="away")||away;
-
-  let lineupRows=[];
-  function walkRoster(node,ctx={},seen=new Set()){
-   if(!node||typeof node!=="object"||seen.has(node))return;
-   seen.add(node);
-   if(Array.isArray(node)){node.forEach(x=>walkRoster(x,ctx,seen));return}
-   const teamObj=node.team&&typeof node.team==="object"?node.team:null;
-   const next={...ctx};
-   if(teamObj){next.team_id=String(teamObj.id||ctx.team_id||"");next.team_name=teamObj.displayName||teamObj.name||ctx.team_name||""}
-   if(node.teamId||node.team_id)next.team_id=String(node.teamId||node.team_id);
-   if(node.homeAway||node.home_away)next.home_away=String(node.homeAway||node.home_away).toLowerCase();
-   if(node.athlete&&typeof node.athlete==="object")lineupRows.push({...node,...next,athlete:node.athlete});
-   else if(node.player&&typeof node.player==="object")lineupRows.push({...node,...next,athlete:node.player});
-   else if((node.displayName||node.fullName)&&next.team_id&&(node.jersey||node.position))lineupRows.push({...node,...next,athlete:node});
-   Object.keys(node).forEach(k=>{
-    if(k==="athlete"||k==="player")return;
-    const value=node[k];
-    if(k.toLowerCase()==="home")walkRoster(value,{...next,home_away:"home"},seen);
-    else if(k.toLowerCase()==="away")walkRoster(value,{...next,home_away:"away"},seen);
-    else walkRoster(value,next,seen);
-   });
-  }
-  walkRoster(data.lineups);
-  walkRoster(data.rosters);
-  walkRoster(data.boxscore?.players);
-  walkRoster(data.boxscore?.teams);
-
-  const teamId=s=>String(s?.team?.id||s?.id||"");
-  function sideOf(p){
-   const id=String(p.team_id||p.team?.id||"");
-   if(id&&id===teamId(h))return "home";
-   if(id&&id===teamId(a))return "away";
-   const side=String(p.home_away||p.homeAway||"").toLowerCase();
-   if(side==="home"||side==="away")return side;
-   const teamName=String(p.team_name||p.team?.displayName||p.team?.name||"").toLowerCase();
-   if(teamName&&teamName===(h?.team?.displayName||h?.team?.name||"").toLowerCase())return "home";
-   if(teamName&&teamName===(a?.team?.displayName||a?.team?.name||"").toLowerCase())return "away";
-   return "";
-  }
-  const grouped={home:[],away:[]},uniquePlayers=new Set();
-  lineupRows.forEach(p=>{
-   const side=sideOf(p),ath=p.athlete||{};
-   const key=side+":"+(ath.id||ath.displayName||ath.fullName||ath.name||"");
-   if(side&&!uniquePlayers.has(key)){uniquePlayers.add(key);grouped[side].push(p)}
-  });
-  async function renderTeam(side,team){
-   const name=team?.team?.displayName||team?.team?.name||"تیم";
-   const players=grouped[side];
-   if(!players.length)return `<div class="detail-panel"><h3>${esc(name)}</h3><p>ترکیب رسمی این تیم هنوز از منبع مسابقه منتشر نشده است. معمولاً ترکیب نزدیک شروع بازی اعلام می‌شود.</p></div>`;
-   const list=await Promise.all(players.map(async p=>({
-    name:await resolveAthlete(p),
-    position:p.position?.abbreviation||p.position?.name||p.position||"-",
-    number:p.jersey||p.uniformNumber||p.athlete?.jersey||"-",
-    starter:p.starter===true||p.starter==="true"||p.isStarter===true
-   })));
-   const hasStarterFlags=players.some(p=>p.starter!==undefined||p.isStarter!==undefined);
-   const html=arr=>arr.length?arr.map(p=>`<div class="player-row"><span>${esc(p.number)} · ${esc(p.name)}</span><small>${esc(p.position)}</small></div>`).join(""):"<p>اطلاعات موجود نیست.</p>";
-   if(!hasStarterFlags)return `<div class="detail-panel"><h3>${esc(name)}</h3><h4 style="color:var(--green)">فهرست بازیکنان دریافت‌شده</h4>${html(list)}<p class="muted">منبع، اصلی یا ذخیره بودن بازیکنان را مشخص نکرده است.</p></div>`;
-   const starters=list.filter(p=>p.starter),subs=list.filter(p=>!p.starter);
-   return `<div class="detail-panel"><h3>${esc(name)}</h3><h4 style="color:var(--green)">بازیکنان اصلی</h4>${html(starters)}<h4 style="color:var(--green)">بازیکنان ذخیره</h4>${html(subs)}</div>`;
-  }
-  const [homeHtml,awayHtml]=await Promise.all([renderTeam("home",h),renderTeam("away",a)]);
+  const h=sides.find(x=>x.homeAway==="home")||teamOf(event||{},"home");
+  const a=sides.find(x=>x.homeAway==="away")||teamOf(event||{},"away");
   const hn=h?.team?.displayName||h?.team?.name||"میزبان";
   const an=a?.team?.displayName||a?.team?.name||"مهمان";
-  const hs=h?.score??home?.score??"-",as=a?.score??away?.score??"-";
+  const score=`${h?.score??"-"} - ${a?.score??"-"}`;
   const events=data.keyEvents||data.key_events||[];
-  const eventHtml=events.length?events.map(x=>`<div class="player-row"><span>${esc(x.text||x.type?.text||"رویداد مسابقه")}</span><small>${esc(x.clock?.displayValue||x.clock||x.time||"")}</small></div>`).join(""):"رویدادی از منبع دریافت نشد.";
-  const stats=data.boxscore?.teams||data.teamStats||[];
-  const statsHtml=stats.length?stats.map(t=>`<div class="detail-panel"><h3>${esc(t.team?.displayName||"تیم")}</h3>${(t.statistics||t.stats||[]).map(s=>`<div class="player-row"><span>${esc(s.label||s.name||"آمار")}</span><b>${esc(s.displayValue||s.value||"-")}</b></div>`).join("")}</div>`).join(""):"<div class='detail-panel'>آمار تفصیلی در منبع موجود نیست.</div>";
-  box.innerHTML=`
-   <div class="muted">${esc(leagues.find(l=>l.id===leagueId)?.name||"فوتبال")}</div>
-   <div class="detail-score">
-    <div>${logoOf(h)?`<img src="${esc(logoOf(h))}" alt="">`:""}<b>${esc(hn)}</b></div>
-    <strong>${esc(hs)} - ${esc(as)}</strong>
-    <div>${logoOf(a)?`<img src="${esc(logoOf(a))}" alt="">`:""}<b>${esc(an)}</b></div>
-   </div>
-   <h3>ترکیب و فهرست بازیکنان</h3>
-   <div class="detail-columns">${homeHtml}${awayHtml}</div>
-   <h3>رویدادهای مسابقه</h3><div class="detail-panel">${eventHtml}</div>
-   <h3>آمار مسابقه</h3><div class="detail-columns">${statsHtml}</div>`;
- }catch(e){
-  box.innerHTML='<div class="message error">جزئیات این مسابقه از منبع دریافت نشد. ممکن است هنوز ترکیب رسمی منتشر نشده باشد یا اطلاعات مسابقه در دسترس نباشد.</div>';
- }
+  const eventHtml=events.length?events.map(x=>`<div class="player-row"><span>${esc(x.text||x.type?.text||"رویداد")}</span><small>${esc(x.clock?.displayValue||x.time||"")}</small></div>`).join(""):"رویدادی از منبع دریافت نشد.";
+  const lineups=data.lineups||[];
+  let lineupHtml="";
+  if(lineups.length){
+   lineupHtml=lineups.map(team=>`<div class="detail-panel"><h3>${esc(team.team?.displayName||team.team?.name||"تیم")}</h3>${(team.roster||team.players||[]).map(p=>`<div class="player-row"><span>${esc(p.athlete?.displayName||p.player?.displayName||p.name||"بازیکن")}</span><small>${esc(p.position?.displayName||p.position?.name||"")}</small></div>`).join("")}</div>`).join("");
+  }else lineupHtml='<div class="detail-panel">ترکیب رسمی در منبع مسابقه موجود نیست.</div>';
+  box.innerHTML=`<div class="muted">${esc(leagues.find(l=>l.id===leagueId)?.name||"فوتبال")}</div>
+  <div class="detail-score"><div>${logoOf(h)?`<img src="${esc(logoOf(h))}" alt="">`:""}<b>${esc(hn)}</b></div><strong>${esc(score)}</strong><div>${logoOf(a)?`<img src="${esc(logoOf(a))}" alt="">`:""}<b>${esc(an)}</b></div></div>
+  <h3>ترکیب تیم‌ها</h3><div class="detail-columns">${lineupHtml}</div><h3>رویدادهای مسابقه</h3><div class="detail-panel">${eventHtml}</div>`;
+ }catch(e){box.innerHTML='<div class="message error">جزئیات این مسابقه فعلاً از منبع دریافت نشد.</div>'}
 }
 
-/* اخبار */
 async function loadNews(){
  const box=document.getElementById("newsData");
  box.innerHTML='<div class="message">در حال دریافت خبرها...</div>';
  try{
   const data=await api(`${API}/news?limit=12`,300000);
   const articles=data.articles||data.items||[];
-  if(!articles.length){box.innerHTML='<div class="message">در حال حاضر خبر تازه‌ای دریافت نشد.</div>';return}
+  if(!articles.length){box.innerHTML='<div class="message">خبر تازه‌ای دریافت نشد.</div>';return}
   box.innerHTML=articles.slice(0,12).map(item=>{
-   const title=item.headline||item.title||"خبر فوتبال";
-   const description=item.description||item.summary||"";
+   const title=item.headline||item.title||"خبر فوتبال",description=item.description||item.summary||"";
    const link=item.links?.web?.href||item.link||"";
    const safe=typeof link==="string"&&/^https?:\/\//i.test(link)?link:"";
    return `<article class="news-card"><h3>${esc(title)}</h3><p>${esc(description)}</p>${safe?`<a href="${esc(safe)}" target="_blank" rel="noopener noreferrer">خواندن خبر کامل ←</a>`:""}</article>`;
@@ -663,7 +513,6 @@ async function loadNews(){
  }catch(e){box.innerHTML='<div class="message error">خبرها فعلاً بارگذاری نشدند.</div>'}
 }
 
-/* دکمه‌ها */
 document.addEventListener("click",e=>{
  const card=e.target.closest(".match");
  if(card)showMatchDetail(card.dataset.event,card.dataset.league);
