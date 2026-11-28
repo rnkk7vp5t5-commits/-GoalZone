@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -88,8 +89,11 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:11px 7px;
   <section id="home" class="page">
 
     <div class="section-title">
-      <h2>⚽ مسابقات امروز</h2>
-      <span class="badge">API Football</span>
+      <h2>⚽ مسابقات</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <input id="fixturesDate" type="date" class="search" style="max-width:170px;margin:0;padding:9px" aria-label="تاریخ مسابقات" onchange="loadFixtures(this.value)">
+        <button onclick="loadFixtures(document.getElementById('fixturesDate').value)">🔄 تازه‌سازی</button>
+      </div>
     </div>
 
     <div id="apiMessage" class="message">
@@ -114,7 +118,8 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:11px 7px;
 
   <section id="matches" class="page hidden">
     <div class="section-title">
-      <h2>تمام مسابقات امروز</h2>
+      <h2>مسابقات انتخاب‌شده</h2>
+      <button onclick="loadFixtures(document.getElementById('fixturesDate').value)">🔄 تازه‌سازی</button>
     </div>
 
     <div class="grid" id="allMatches"></div>
@@ -538,15 +543,20 @@ function matchCard(match) {
   `;
 }
 
-async function loadFixtures() {
+async function loadFixtures(selectedDate) {
   const message = document.getElementById("apiMessage");
+  const date = selectedDate || getToday();
 
-  message.textContent = "در حال دریافت مسابقات امروز...";
+  message.textContent = "در حال دریافت مسابقات " + date + "...";
 
   try {
     const data = await fetchFootball(
-      "/fixtures?date=" + getToday()
+      "/fixtures?date=" + encodeURIComponent(date)
     );
+
+    if (data && data.error) {
+      throw new Error(data.details || data.error);
+    }
 
     const matches = Array.isArray(data.response)
       ? data.response
@@ -554,7 +564,7 @@ async function loadFixtures() {
 
     if (matches.length === 0) {
       message.textContent =
-        "برای امروز مسابقه‌ای پیدا نشد.";
+        "برای تاریخ " + date + " مسابقه‌ای پیدا نشد.";
 
       document.getElementById("homeMatches").innerHTML = "";
       document.getElementById("allMatches").innerHTML = "";
@@ -568,13 +578,13 @@ async function loadFixtures() {
     document.getElementById("allMatches").innerHTML = html;
 
     message.textContent =
-      "مسابقات امروز دریافت شد. تعداد: " + matches.length;
+      "مسابقات " + date + " دریافت شد؛ تعداد: " + matches.length;
 
   } catch (error) {
     console.error("Fixtures error:", error);
 
     message.textContent =
-      "دریافت مسابقات ناموفق بود. صفحه را تازه کنید.";
+      "خطا در دریافت مسابقات: " + (error.message || "اتصال ناموفق");
   }
 }
 
@@ -585,6 +595,10 @@ async function loadLive() {
 
   try {
     const data = await fetchFootball("/live");
+
+    if (data && data.error) {
+      throw new Error(data.details || data.error);
+    }
 
     const matches = Array.isArray(data.response)
       ? data.response
@@ -609,7 +623,7 @@ async function loadLive() {
     console.error("Live error:", error);
 
     message.textContent =
-      "دریافت مسابقات زنده ناموفق بود.";
+      "خطای مسابقات زنده: " + (error.message || "اتصال ناموفق");
   }
 }
 
@@ -627,6 +641,9 @@ function searchSite() {
 }
 
 function startSite() {
+  const dateInput = document.getElementById("fixturesDate");
+  if (dateInput) dateInput.value = getToday();
+
   renderLeagues();
   renderTeams();
   renderNews();
