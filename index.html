@@ -1,566 +1,393 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07111d">
+<meta name="description" content="GoalZone؛ نتایج زنده، مسابقات امروز، جدول لیگ‌ها و آمار فوتبال جهان">
 <title>GoalZone | مرکز فوتبال جهان</title>
-
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap');
-
-:root{
-  --bg:#07111d;
-  --panel:#101f30;
-  --panel2:#14283d;
-  --line:#263d53;
-  --text:#f4f8fc;
-  --muted:#a2b5c8;
-  --green:#c8ff36;
-  --red:#ff5268;
-}
-
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:radial-gradient(circle at 80% 0,#183b58,transparent 35%),var(--bg);
-  color:var(--text);
-  font-family:Vazirmatn,Arial,sans-serif;
-}
-a{color:inherit;text-decoration:none}
-button,input,select{font:inherit}
-button{cursor:pointer}
-.wrap{max-width:1250px;margin:auto;padding:0 15px}
-
-header{
-  position:sticky;top:0;z-index:20;
-  background:#07111df2;
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--line);
-}
-.nav{
-  min-height:65px;display:flex;align-items:center;
-  gap:20px;flex-wrap:wrap;
-}
-.logo{font-size:24px;font-weight:900}
-.logo span{color:var(--green)}
-nav{display:flex;gap:18px;font-size:13px;color:#cbd9e7}
-nav a:hover{color:var(--green)}
-.livebtn{
-  margin-right:auto;background:#172b3e;
-  border:1px solid var(--line);border-radius:30px;
-  padding:9px 14px;font-size:12px;
-}
-.livebtn b{color:var(--red)}
-
-.hero{
-  margin:22px 0 30px;min-height:390px;
-  border:1px solid #38536c;border-radius:25px;
-  overflow:hidden;position:relative;
-  background:
-  linear-gradient(90deg,#07111d 0%,#07111ddc 40%,#07111d35 100%),
-  url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=85")
-  center/cover;
-}
-.hero:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(0deg,#07111d,transparent 65%);
-}
-.heroText{position:relative;z-index:2;padding:45px;max-width:700px}
-.eyebrow{color:var(--green);font-weight:800}
-.hero h1{font-size:clamp(35px,5vw,62px);line-height:1.3;margin:15px 0}
-.hero p{line-height:2;color:#d4e1ed;font-size:14px}
-.cta{
-  display:inline-block;background:var(--green);color:#07111d;
-  padding:12px 20px;border-radius:12px;font-weight:900;
-}
-.legendrow{
-  position:absolute;z-index:3;bottom:15px;left:15px;
-  display:flex;gap:8px;flex-wrap:wrap;
-}
-.legend{
-  background:#07111ddd;border:1px solid #ffffff35;
-  border-radius:12px;padding:8px 12px;font-size:12px;
-}
-.legend b{color:var(--green)}
-
-section{margin:30px 0}
-.head{
-  display:flex;justify-content:space-between;align-items:end;
-  gap:12px;margin-bottom:15px;flex-wrap:wrap;
-}
-.head h2{margin:0;font-size:23px}
-.head p{margin:5px 0 0;color:var(--muted);font-size:12px}
-.refresh{border:0;background:none;color:var(--green);font-size:12px}
-
-.panel{
-  background:linear-gradient(145deg,#142940,#0b1725);
-  border:1px solid var(--line);border-radius:17px;padding:15px;
-}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-
-.meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:10px}
-.live{color:var(--red);font-weight:900}
-.teams{
-  display:grid;grid-template-columns:1fr auto 1fr;
-  align-items:center;gap:8px;margin:17px 0;
-  font-size:12px;font-weight:800;text-align:center;
-}
-.score{color:var(--green);font-size:20px;white-space:nowrap}
-.small{font-size:11px;color:var(--muted);line-height:1.8}
-.search,.select{
-  width:100%;padding:12px;margin:8px 0 14px;
-  border-radius:12px;background:#091725;
-  border:1px solid var(--line);color:white;
-}
-.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:8px}
-.tab{
-  white-space:nowrap;border:1px solid var(--line);
-  background:#102237;color:#d4e1ed;
-  border-radius:25px;padding:9px 14px;font-size:12px;
-}
-.tab.active{background:var(--green);color:#07111d;font-weight:900}
-
-.league{
-  cursor:pointer;transition:.2s;position:relative;
-}
-.league:hover{transform:translateY(-3px);border-color:var(--green)}
-.leagueTop{display:flex;align-items:center;gap:12px}
-.flag{
-  width:43px;height:43px;border-radius:13px;
-  background:#20374c;display:grid;place-items:center;font-size:23px;
-}
-.league h3{margin:0;font-size:13px}
-.league small{color:var(--muted);font-size:10px}
-.tag{
-  display:inline-block;margin-top:12px;
-  background:#1b3045;border-radius:20px;
-  padding:5px 9px;color:#b9cddd;font-size:10px;
-}
-.rows .row{
-  display:grid;grid-template-columns:28px 1fr auto;
-  gap:8px;align-items:center;padding:11px 0;
-  border-bottom:1px solid #20364a;font-size:12px;
-}
-.rows .row:last-child{border:0}
-.rows a{color:var(--green)}
-
-.tablewrap{overflow:auto}
-table{width:100%;border-collapse:collapse;font-size:12px;min-width:450px}
-th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center}
-th{color:var(--green);background:#14283d}
-td:first-child,th:first-child{text-align:right}
-tr:hover{background:#ffffff08}
-
-.newsCard{overflow:hidden;padding:0}
-.newsImg{
-  height:130px;display:grid;place-items:center;
-  font-size:42px;background:linear-gradient(135deg,#1b3c58,#0b1725);
-}
-.newsText{padding:14px}
-.newsText h3{font-size:13px;margin:0 0 8px}
-.newsText p{font-size:11px;color:var(--muted);line-height:1.8;margin:0}
-
-footer{
-  border-top:1px solid var(--line);padding:24px 0;
-  margin-top:40px;color:var(--muted);font-size:11px;
-  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-}
-.notice{padding:15px;color:var(--muted);font-size:12px;line-height:2}
-.error{color:#ff8795}
-.hidden{display:none!important}
-
-#detail{
-  position:fixed;inset:0;z-index:50;
-  background:#030911eF;overflow:auto;padding:20px;
-}
-.detailbox{max-width:900px;margin:25px auto;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:20px}
-.close{float:left;background:#263b50;color:white;border:0;border-radius:10px;padding:8px 13px}
-
-@media(max-width:850px){
-  .grid4{grid-template-columns:repeat(2,1fr)}
-  .grid3{grid-template-columns:repeat(2,1fr)}
-  .grid2{grid-template-columns:1fr}
-}
-@media(max-width:560px){
-  .nav{min-height:58px}
-  nav{display:none}
-  .logo{font-size:21px}
-  .hero{min-height:400px;background-position:60%}
-  .heroText{padding:30px 20px}
-  .hero h1{font-size:36px}
-  .legendrow{right:10px;left:10px}
-  .grid3{grid-template-columns:1fr}
-  .head h2{font-size:20px}
-}
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#07111d;--panel:#101f30;--panel2:#14283d;--line:#263d53;--text:#f4f8fc;--muted:#a2b5c8;--green:#c8ff36;--red:#ff5268;--gold:#ffcf63;--blue:#6db8ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#173b57 0,transparent 34%),var(--bg);color:var(--text);font-family:Vazirmatn,Arial,sans-serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:1280px;margin:auto;padding:0 16px}
+header{position:sticky;top:0;z-index:20;background:#07111df2;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{min-height:68px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}.logo{font-size:25px;font-weight:900;white-space:nowrap}.logo span{color:var(--green)}nav{display:flex;gap:17px;font-size:13px;color:#d4e1ed;flex-wrap:wrap}nav a:hover{color:var(--green)}.livebtn{margin-right:auto;background:#172b3e;border:1px solid var(--line);border-radius:30px;padding:9px 15px;font-size:12px}.livebtn b{color:var(--red)}
+.hero{margin:22px 0 30px;min-height:390px;border:1px solid #38536c;border-radius:25px;overflow:hidden;position:relative;background:linear-gradient(90deg,#07111d 0%,#07111ddc 40%,#07111d30 100%),url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=85') center/cover}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#07111d 0%,transparent 70%)}.heroText{position:relative;z-index:2;padding:44px;max-width:720px}.eyebrow{color:var(--green);font-weight:900}.hero h1{font-size:clamp(35px,5vw,62px);line-height:1.28;margin:14px 0}.hero p{line-height:2;color:#d4e1ed;font-size:14px}.cta{display:inline-block;background:var(--green);color:#07111d;padding:12px 20px;border-radius:12px;font-weight:900}.legends{position:absolute;z-index:3;bottom:15px;left:15px;display:flex;gap:8px;flex-wrap:wrap}.legend{background:#07111ddd;border:1px solid #ffffff35;border-radius:12px;padding:8px 12px;font-size:12px}.legend b{color:var(--green)}
+section{margin:32px 0}.head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:15px;flex-wrap:wrap}.head h2{margin:0;font-size:23px}.head p{margin:5px 0 0;color:var(--muted);font-size:12px}.refresh{border:1px solid var(--line);background:#14283d;color:var(--green);border-radius:10px;padding:8px 12px;font-size:12px}.refresh:disabled{opacity:.55;cursor:wait}.panel{background:linear-gradient(145deg,#142940,#0b1725);border:1px solid var(--line);border-radius:17px;padding:15px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.muted{color:var(--muted)}.small{font-size:11px;color:var(--muted);line-height:1.8}.notice{padding:16px;color:var(--muted);font-size:12px;line-height:2}.error{color:#ff8795}.live{color:var(--red);font-weight:900}.meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:10px}.teams{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;margin:17px 0;font-size:12px;font-weight:800;text-align:center}.teamname{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0}.teamname span{overflow:hidden;text-overflow:ellipsis}.teamlogo{width:26px;height:26px;object-fit:contain;flex:0 0 26px}.score{color:var(--green);font-size:21px;white-space:nowrap}.match{cursor:pointer;transition:transform .18s,border-color .18s}.match:hover,.league:hover{transform:translateY(-3px);border-color:var(--green)}.matchfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font-size:10px}.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:8px;margin-bottom:10px}.tab{white-space:nowrap;border:1px solid var(--line);background:#102237;color:#d4e1ed;border-radius:25px;padding:9px 14px;font-size:12px}.tab.active{background:var(--green);color:#07111d;font-weight:900}.search,.select{width:100%;padding:12px;margin:8px 0 14px;border-radius:12px;background:#091725;border:1px solid var(--line);color:white;outline:none}.search:focus,.select:focus{border-color:var(--green)}.league{cursor:pointer;transition:.18s}.leagueTop{display:flex;align-items:center;gap:12px}.flag{width:43px;height:43px;border-radius:13px;background:#20374c;display:grid;place-items:center;font-size:23px;flex:0 0 43px}.league h3{margin:0;font-size:13px}.league small{color:var(--muted);font-size:10px}.tag{display:inline-block;margin-top:12px;background:#1b3045;border-radius:20px;padding:5px 9px;color:#b9cddd;font-size:10px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px;min-width:470px}th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}th{color:var(--green);background:#14283d}td:first-child,th:first-child{text-align:right}tr:hover{background:#ffffff08}.player{display:flex;align-items:center;gap:8px;text-align:right}.player img{width:32px;height:32px;object-fit:cover;border-radius:50%;background:#21384e}.newsCard{overflow:hidden;padding:0;display:block}.newsImg{height:125px;display:grid;place-items:center;font-size:40px;background:linear-gradient(135deg,#1b3c58,#0b1725)}.newsText{padding:14px}.newsText h3{font-size:13px;margin:0 0 8px}.newsText p{font-size:11px;color:var(--muted);line-height:1.8;margin:0}.newsText small{display:block;color:var(--green);margin-top:8px}.empty{grid-column:1/-1}.badge{display:inline-block;padding:4px 8px;background:#20374c;border-radius:20px;font-size:10px;color:#c7d7e6}.statusline{margin:10px 0 0;color:var(--muted);font-size:11px;line-height:1.8}
+footer{border-top:1px solid var(--line);padding:24px 0;margin-top:40px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}#detail{position:fixed;inset:0;z-index:50;background:#030911ee;overflow:auto;padding:15px}.detailbox{max-width:950px;margin:20px auto;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:20px;min-height:220px}.close{float:left;background:#263b50;color:white;border:0;border-radius:10px;padding:8px 13px}.hidden{display:none!important}.detailTitle{clear:both;padding-top:20px}.detailTeams{margin:20px 0;padding:20px}.detailTeams .teamlogo{width:44px;height:44px;flex-basis:44px}.detailTeams .score{font-size:30px}.eventline{padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;display:flex;gap:12px;align-items:center}.eventmin{color:var(--green);font-weight:800;min-width:42px}.broadcast{display:inline-block;margin:4px;padding:7px 10px;border:1px solid var(--line);border-radius:9px;font-size:11px}
+@media(max-width:900px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}nav{gap:10px}}
+@media(max-width:600px){.nav{min-height:60px;gap:12px}.logo{font-size:21px}nav{display:none}.hero{min-height:390px;background-position:60%}.heroText{padding:28px 20px}.hero h1{font-size:36px}.legends{right:10px;left:10px}.grid3,.grid2{grid-template-columns:1fr}.grid4{grid-template-columns:1fr}.head h2{font-size:20px}.detailbox{padding:14px;margin:5px auto}.teams{font-size:11px}}
 </style>
 </head>
-
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="logo">GOAL<span>ZONE</span> ⚽</a>
-    <nav>
-      <a href="#live">زنده</a>
-      <a href="#today">امروز</a>
-      <a href="#leagues">لیگ‌ها</a>
-      <a href="#tables">جدول‌ها</a>
-      <a href="#players">بازیکنان</a>
-      <a href="#awards">جوایز</a>
-    </nav>
-    <a class="livebtn" href="#live">● <b>LIVE</b> | فوتبال جهان</a>
-  </div>
-</header>
-
-<main class="wrap">
-
-<div class="hero">
-  <div class="heroText">
+<header><div class="wrap nav">
+  <a class="logo" href="#top">GOAL<span>ZONE</span> ⚽</a>
+  <nav><a href="#live">زنده</a><a href="#today">امروز</a><a href="#leagues">لیگ‌ها</a><a href="#tables">جدول‌ها</a><a href="#players">بازیکنان</a><a href="#awards">جوایز</a></nav>
+  <a class="livebtn" href="#live">● <b>LIVE</b> | فوتبال جهان</a>
+</div></header>
+<main class="wrap" id="top">
+  <div class="hero"><div class="heroText">
     <div class="eyebrow">⚡ مرکز فوتبال جهان</div>
-    <h1>فوتبال را<br>در <span style="color:var(--green)">GoalZone</span> دنبال کن</h1>
-    <p>نتایج زنده، بازی‌های امروز، لیگ‌ها، جدول‌ها، گل‌زنان و آمار فوتبال در یک‌جا.</p>
+    <h1>فوتبال را در<br><span style="color:var(--green)">GoalZone</span> دنبال کن</h1>
+    <p>نتایج مسابقات، بازی‌های امروز، رقابت‌های بزرگ، جدول لیگ‌ها و آمار بازیکنان؛ همه در یک‌جا.</p>
     <a class="cta" href="#live">دیدن مسابقات ←</a>
-  </div>
-  <div class="legendrow">
-    <div class="legend">🐐 <b>Messi</b></div>
-    <div class="legend">👑 <b>Ronaldo</b></div>
-    <div class="legend">✨ <b>Pelé</b></div>
-    <div class="legend">🎩 <b>Ronaldinho</b></div>
-  </div>
-</div>
+  </div><div class="legends"><div class="legend">🐐 <b>Messi</b></div><div class="legend">👑 <b>Ronaldo</b></div><div class="legend">✨ <b>Pelé</b></div><div class="legend">🎩 <b>Ronaldinho</b></div></div></div>
 
-<section id="live">
-  <div class="head">
-    <div><h2>🔴 مسابقات زنده</h2><p>نتیجهٔ واقعی مسابقات در حال جریان</p></div>
-    <button class="refresh" onclick="loadLive()">تازه‌سازی ↻</button>
-  </div>
-  <div id="liveCards" class="grid4">
-    <div class="panel">در حال دریافت...</div>
-  </div>
-</section>
+  <section id="live"><div class="head"><div><h2>🔴 مسابقات زنده</h2><p>مسابقات در حال جریان از رقابت‌های تحت پوشش منبع</p></div><button class="refresh" id="refreshAll">تازه‌سازی مسابقات ↻</button></div><div id="liveCards" class="grid4"><div class="panel notice">در حال دریافت برنامهٔ مسابقات...</div></div><div class="statusline" id="dataStatus">اطلاعات از منبع آنلاین دریافت می‌شود.</div></section>
 
-<section id="today">
-  <div class="head">
-    <div><h2>📅 بازی‌های امروز و آینده</h2><p>برنامهٔ مسابقات و زمان شروع</p></div>
-    <button class="refresh" onclick="loadToday()">تازه‌سازی ↻</button>
-  </div>
-  <div class="tabs">
-    <button class="tab active" onclick="loadToday(0,this)">امروز</button>
-    <button class="tab" onclick="loadToday(1,this)">فردا</button>
-    <button class="tab" onclick="loadToday(2,this)">پس‌فردا</button>
-  </div>
-  <div id="todayCards" class="grid4"><div class="panel">در حال دریافت...</div></div>
-</section>
+  <section id="today"><div class="head"><div><h2>📅 بازی‌های امروز و آینده</h2><p>تاریخ و ساعت مطابق منطقهٔ زمانی دستگاهت نمایش داده می‌شود</p></div></div>
+    <div class="tabs"><button class="tab active" data-day="0">امروز</button><button class="tab" data-day="1">فردا</button><button class="tab" data-day="2">پس‌فردا</button></div>
+    <div id="todayCards" class="grid4"><div class="panel notice">در حال دریافت...</div></div>
+  </section>
 
-<section id="leagues">
-  <div class="head">
-    <div><h2>🏆 لیگ‌ها و رقابت‌ها</h2><p>لیگ‌ها را جست‌وجو کن و جدول‌شان را ببین</p></div>
-    <span id="leagueCount" class="small"></span>
-  </div>
-  <input id="leagueSearch" class="search" placeholder="🔎 جست‌وجوی لیگ یا کشور..." oninput="renderLeagues()">
-  <div id="leagueGrid" class="grid4"></div>
-</section>
+  <section id="leagues"><div class="head"><div><h2>🏆 لیگ‌ها و رقابت‌ها</h2><p>رقابت را انتخاب کن تا جدول و آمار موجود آن باز شود</p></div><span id="leagueCount" class="small"></span></div>
+    <input id="leagueSearch" class="search" placeholder="🔎 جست‌وجوی لیگ یا کشور..." autocomplete="off"><div id="leagueGrid" class="grid4"></div>
+  </section>
 
-<section id="tables">
-  <div class="head">
-    <div><h2>📊 جدول و آمار لیگ‌ها</h2><p>انتخاب لیگ برای دریافت جدول فصل جاری</p></div>
-  </div>
-  <select id="tableLeague" class="select" onchange="loadStandings()"></select>
-  <div class="panel tablewrap" id="standings"><div class="notice">یک لیگ انتخاب کن.</div></div>
-</section>
+  <section id="tables"><div class="head"><div><h2>📊 جدول لیگ‌ها</h2><p>جدول رسمی منبع؛ نمایش در صورت موجودبودن اطلاعات</p></div></div>
+    <select id="tableLeague" class="select" aria-label="انتخاب لیگ برای جدول"></select><div class="panel tablewrap" id="standings"><div class="notice">یک لیگ انتخاب کن.</div></div>
+  </section>
 
-<section id="players">
-  <div class="head">
-    <div><h2>🌟 آمار بازیکنان</h2><p>گل‌زنان و بازیکنان برتر فصل</p></div>
-  </div>
-  <select id="playerLeague" class="select" onchange="loadPlayers()"></select>
-  <div class="panel tablewrap" id="playerStats"><div class="notice">لیگ را انتخاب کن تا آمار دریافت شود.</div></div>
-</section>
+  <section id="players"><div class="head"><div><h2>🌟 آمار بازیکنان</h2><p>گل‌زنان و آمار بازیکنان، فقط در صورت برگشت داده از منبع</p></div></div>
+    <select id="playerLeague" class="select" aria-label="انتخاب لیگ برای بازیکنان"></select><div class="panel tablewrap" id="playerStats"><div class="notice">یک لیگ انتخاب کن تا آمار موجود بررسی شود.</div></div>
+  </section>
 
-<section id="awards">
-  <div class="head">
-    <div><h2>🏅 جوایز و افتخارات</h2><p>صفحهٔ رسمی جوایز؛ بدون آمار یا برندهٔ ساختگی</p></div>
-  </div>
-  <div class="grid3">
-    <a class="panel league" target="_blank" rel="noopener" href="https://www.laliga.com/en-GB">
-      <div class="leagueTop"><div class="flag">🇪🇸</div><div><h3>بازیکن ماه لالیگا</h3><small>La Liga Player of the Month</small></div></div>
-      <span class="tag">صفحهٔ رسمی لالیگا ←</span>
-    </a>
-    <a class="panel league" target="_blank" rel="noopener" href="https://www.uefa.com/uefachampionsleague/">
-      <div class="leagueTop"><div class="flag">⭐</div><div><h3>جوایز لیگ قهرمانان</h3><small>UEFA Champions League</small></div></div>
-      <span class="tag">اخبار و جوایز رسمی ←</span>
-    </a>
-    <a class="panel league" target="_blank" rel="noopener" href="https://www.fifa.com/">
-      <div class="leagueTop"><div class="flag">🌍</div><div><h3>جوایز جهانی فوتبال</h3><small>FIFA Awards</small></div></div>
-      <span class="tag">صفحهٔ رسمی فیفا ←</span>
-    </a>
-  </div>
-</section>
+  <section id="awards"><div class="head"><div><h2>🏅 جوایز و افتخارات</h2><p>پیوند به صفحه‌های رسمی برگزارکنندگان</p></div></div><div class="grid3">
+    <a class="panel league" target="_blank" rel="noopener" href="https://www.laliga.com/en-GB"><div class="leagueTop"><div class="flag">🇪🇸</div><div><h3>بازیکن ماه لالیگا</h3><small>LaLiga Player of the Month</small></div></div><span class="tag">صفحهٔ رسمی لالیگا ←</span></a>
+    <a class="panel league" target="_blank" rel="noopener" href="https://www.uefa.com/uefachampionsleague/"><div class="leagueTop"><div class="flag">⭐</div><div><h3>جوایز لیگ قهرمانان</h3><small>UEFA Champions League</small></div></div><span class="tag">صفحهٔ رسمی یوفا ←</span></a>
+    <a class="panel league" target="_blank" rel="noopener" href="https://www.fifa.com/"><div class="leagueTop"><div class="flag">🌍</div><div><h3>جوایز جهانی فوتبال</h3><small>FIFA Awards</small></div></div><span class="tag">صفحهٔ رسمی فیفا ←</span></a>
+  </div></section>
 
-<section id="news">
-  <div class="head"><div><h2>📰 فوتبال جهان</h2><p>صفحه‌های معتبر مسابقات و اخبار</p></div></div>
-  <div class="grid3">
-    <a class="panel newsCard" href="https://www.uefa.com/" target="_blank" rel="noopener">
-      <div class="newsImg">🏟️</div><div class="newsText"><h3>فوتبال اروپا</h3><p>رقابت‌های مهم و اخبار رسمی UEFA</p></div>
-    </a>
-    <a class="panel newsCard" href="https://www.fifa.com/" target="_blank" rel="noopener">
-      <div class="newsImg">🌍</div><div class="newsText"><h3>فوتبال جهان</h3><p>تورنمنت‌ها و خبرهای جهانی FIFA</p></div>
-    </a>
-    <a class="panel newsCard" href="https://www.laliga.com/" target="_blank" rel="noopener">
-      <div class="newsImg">⚽</div><div class="newsText"><h3>لالیگا</h3><p>مسابقات و خبرهای رسمی اسپانیا</p></div>
-    </a>
-  </div>
-</section>
-
-<footer>
-  <b style="color:var(--green)">GOALZONE ⚽</b>
-  <span>نتایج و آمار از منابع آنلاین دریافت می‌شود. این سایت پخش زندهٔ ویدیویی ندارد.</span>
-</footer>
+  <section id="news"><div class="head"><div><h2>📰 تازه‌های فوتبال</h2><p>خبرهای قابل دریافت از منبع ESPN</p></div><button class="refresh" id="refreshNews">تازه‌سازی خبرها ↻</button></div><div class="grid3" id="newsCards"><div class="panel notice">در حال دریافت خبرها...</div></div></section>
 </main>
+<footer class="wrap"><b style="color:var(--green)">GOALZONE ⚽</b><span>منبع داده: ESPN. پوشش لیگ‌ها و آمار در همهٔ رقابت‌ها یکسان نیست. این سایت پخش زندهٔ ویدیویی ارائه نمی‌کند.</span></footer>
 
-<div id="detail" class="hidden">
-  <div class="detailbox">
-    <button class="close" onclick="closeDetail()">بستن ✕</button>
-    <div id="detailContent" style="clear:both;padding-top:20px"></div>
-  </div>
-</div>
+<div id="detail" class="hidden" role="dialog" aria-modal="true"><div class="detailbox"><button class="close" id="closeDetail">بستن ✕</button><div id="detailContent" class="detailTitle"></div></div></div>
 
 <script>
-"use strict";
+'use strict';
 
-/* منبع اول: Worker خود GoalZone
-   منبع دوم: ESPN public data API */
-const WORKER = "https://shy-rain-e3fc.hassanhussaine692.workers.dev";
-const ESPN = "https://site.api.espn.com/apis/site/v2/sports/soccer";
+// منبع عمومی اطلاعات مسابقات ESPN؛ برای جدول لیگ مسیر جداگانهٔ v2 استفاده می‌شود.
+const SCORE_API = 'https://site.api.espn.com/apis/site/v2/sports/soccer';
+const TABLE_API = 'https://site.api.espn.com/apis/v2/sports/soccer';
+const NEWS_API = 'https://site.api.espn.com/apis/site/v2/sports/soccer/news';
+const CACHE_MS = 90 * 1000;
 
 const leagues = [
- {name:"لیگ برتر انگلیس",en:"Premier League",country:"انگلیس",flag:"🏴",id:"eng.1"},
- {name:"لالیگا اسپانیا",en:"La Liga",country:"اسپانیا",flag:"🇪🇸",id:"esp.1"},
- {name:"بوندسلیگا آلمان",en:"Bundesliga",country:"آلمان",flag:"🇩🇪",id:"ger.1"},
- {name:"سری آ ایتالیا",en:"Serie A",country:"ایتالیا",flag:"🇮🇹",id:"ita.1"},
- {name:"لیگ یک فرانسه",en:"Ligue 1",country:"فرانسه",flag:"🇫🇷",id:"fra.1"},
- {name:"لیگ قهرمانان اروپا",en:"Champions League",country:"اروپا",flag:"⭐",id:"uefa.champions"},
- {name:"لیگ اروپا",en:"Europa League",country:"اروپا",flag:"🟠",id:"uefa.europa"},
- {name:"لیگ کنفرانس اروپا",en:"Conference League",country:"اروپا",flag:"🏆",id:"uefa.europa.conf"},
- {name:"اردیویسه هالند",en:"Eredivisie",country:"هالند",flag:"🇳🇱",id:"ned.1"},
- {name:"لیگ پرتگال",en:"Primeira Liga",country:"پرتگال",flag:"🇵🇹",id:"por.1"},
- {name:"لیگ بلجیم",en:"Belgian Pro League",country:"بلجیم",flag:"🇧🇪",id:"bel.1"},
- {name:"سوپرلیگ ترکیه",en:"Super Lig",country:"ترکیه",flag:"🇹🇷",id:"tur.1"},
- {name:"لیگ عربستان",en:"Saudi Pro League",country:"عربستان",flag:"🇸🇦",id:"ksa.1"},
- {name:"لیگ آمریکا",en:"MLS",country:"آمریکا",flag:"🇺🇸",id:"usa.1"},
- {name:"لیگ برازیل",en:"Brazil Serie A",country:"برازیل",flag:"🇧🇷",id:"bra.1"},
- {name:"لیگ ارجنتاین",en:"Argentina",country:"ارجنتاین",flag:"🇦🇷",id:"arg.1"},
- {name:"لیگ جاپان",en:"J1 League",country:"جاپان",flag:"🇯🇵",id:"jpn.1"},
- {name:"لیگ کوریای جنوبی",en:"K League",country:"کوریا",flag:"🇰🇷",id:"kor.1"},
- {name:"لیگ استرالیا",en:"A-League",country:"استرالیا",flag:"🇦🇺",id:"aus.1"},
- {name:"جام جهانی",en:"World Cup",country:"جهانی",flag:"🌐",id:"fifa.world"},
- {name:"جام ملت‌های اروپا",en:"UEFA Euro",country:"اروپا",flag:"🏆",id:"uefa.euro"},
- {name:"کوپا آمریکا",en:"Copa America",country:"آمریکا",flag:"🌎",id:"conmebol.america"}
+ {name:'لیگ برتر انگلیس',en:'Premier League',country:'انگلیس',flag:'🏴',id:'eng.1'},
+ {name:'لالیگا اسپانیا',en:'LaLiga',country:'اسپانیا',flag:'🇪🇸',id:'esp.1'},
+ {name:'بوندسلیگا آلمان',en:'Bundesliga',country:'آلمان',flag:'🇩🇪',id:'ger.1'},
+ {name:'سری آ ایتالیا',en:'Serie A',country:'ایتالیا',flag:'🇮🇹',id:'ita.1'},
+ {name:'لیگ یک فرانسه',en:'Ligue 1',country:'فرانسه',flag:'🇫🇷',id:'fra.1'},
+ {name:'لیگ قهرمانان اروپا',en:'UEFA Champions League',country:'اروپا',flag:'⭐',id:'uefa.champions'},
+ {name:'لیگ اروپا',en:'UEFA Europa League',country:'اروپا',flag:'🟠',id:'uefa.europa'},
+ {name:'لیگ کنفرانس اروپا',en:'UEFA Conference League',country:'اروپا',flag:'🏆',id:'uefa.europa.conf'},
+ {name:'اردیویسه هالند',en:'Eredivisie',country:'هالند',flag:'🇳🇱',id:'ned.1'},
+ {name:'لیگ پرتگال',en:'Primeira Liga',country:'پرتگال',flag:'🇵🇹',id:'por.1'},
+ {name:'لیگ بلجیم',en:'Belgian Pro League',country:'بلجیم',flag:'🇧🇪',id:'bel.1'},
+ {name:'سوپرلیگ ترکیه',en:'Süper Lig',country:'ترکیه',flag:'🇹🇷',id:'tur.1'},
+ {name:'لیگ عربستان',en:'Saudi Pro League',country:'عربستان',flag:'🇸🇦',id:'ksa.1'},
+ {name:'لیگ آمریکا',en:'MLS',country:'آمریکا',flag:'🇺🇸',id:'usa.1'},
+ {name:'لیگ برازیل',en:'Brasileirão',country:'برازیل',flag:'🇧🇷',id:'bra.1'},
+ {name:'لیگ ارجنتاین',en:'Liga Profesional',country:'ارجنتاین',flag:'🇦🇷',id:'arg.1'},
+ {name:'لیگ جاپان',en:'J1 League',country:'جاپان',flag:'🇯🇵',id:'jpn.1'},
+ {name:'لیگ کوریای جنوبی',en:'K League 1',country:'کوریا',flag:'🇰🇷',id:'kor.1'},
+ {name:'لیگ استرالیا',en:'A-League',country:'استرالیا',flag:'🇦🇺',id:'aus.1'},
+ {name:'جام جهانی',en:'FIFA World Cup',country:'جهانی',flag:'🌐',id:'fifa.world'},
+ {name:'جام ملت‌های اروپا',en:'UEFA European Championship',country:'اروپا',flag:'🏆',id:'uefa.euro'},
+ {name:'کوپا آمریکا',en:'Copa América',country:'آمریکا',flag:'🌎',id:'conmebol.america'}
 ];
 
+const dayCache = new Map();
+const eventStore = new Map();
+let selectedDay = 0;
+
 function esc(value){
- return String(value ?? "").replace(/[&<>"']/g,c=>({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
+ return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
-
-function dateString(offset=0){
- const d=new Date();
+function localDate(offset=0){
+ const d = new Date();
  d.setDate(d.getDate()+offset);
- return d.toISOString().slice(0,10).replace(/-/g,"");
+ const y=d.getFullYear();
+ const m=String(d.getMonth()+1).padStart(2,'0');
+ const day=String(d.getDate()).padStart(2,'0');
+ return `${y}${m}${day}`;
 }
-
-async function getJSON(url){
- const r=await fetch(url,{cache:"no-store"});
- if(!r.ok) throw new Error("HTTP "+r.status);
- return r.json();
+function dateLabel(offset=0){
+ const d=new Date(); d.setDate(d.getDate()+offset);
+ try{return new Intl.DateTimeFormat('fa-AF',{weekday:'long',year:'numeric',month:'long',day:'numeric'}).format(d)}
+ catch{return d.toLocaleDateString();}
 }
-
-function teamName(team){
- return team?.displayName || team?.name || "نام تیم";
+function timeLabel(value){
+ if(!value) return 'زمان نامشخص';
+ const d=new Date(value); if(Number.isNaN(d.getTime())) return String(value);
+ try{return new Intl.DateTimeFormat('fa-AF',{hour:'2-digit',minute:'2-digit'}).format(d)}catch{return d.toLocaleTimeString();}
 }
-
-function eventCard(event){
- const comp=event.competitions?.[0];
- const competitors=comp?.competitors||[];
- const home=competitors.find(t=>t.homeAway==="home")||competitors[0]||{};
- const away=competitors.find(t=>t.homeAway==="away")||competitors[1]||{};
- const state=event.status?.type?.state;
- const live=state==="in";
- const completed=state==="post";
- const homeScore=home.score ?? "-";
- const awayScore=away.score ?? "-";
- const time=event.status?.type?.shortDetail ||
-            event.date?.slice(11,16) || "زمان نامشخص";
- const league=event.season?.name||event.name||"فوتبال";
-
- return `<article class="panel" onclick="showMatch('${esc(event.id)}','${esc(event.name)}')">
-  <div class="meta"><span>${esc(league)}</span>
-  <span class="${live?'live':''}">${live?'● زنده':completed?'پایان':'برنامه'}</span></div>
-  <div class="teams">
-   <span>${esc(teamName(home.team))}</span>
-   <span class="score">${esc(homeScore)} - ${esc(awayScore)}</span>
-   <span>${esc(teamName(away.team))}</span>
-  </div>
-  <div class="meta"><span>${esc(time)}</span><span>جزئیات ←</span></div>
+function cacheRead(key){
+ try{const item=JSON.parse(localStorage.getItem('goalzone:'+key)||'null'); if(item && Date.now()-item.time<CACHE_MS) return item.data;}catch{}
+ return null;
+}
+function cacheWrite(key,data){
+ try{localStorage.setItem('goalzone:'+key,JSON.stringify({time:Date.now(),data}));}catch{}
+}
+async function getJSON(url,force=false){
+ const key=url;
+ if(!force){const cached=cacheRead(key); if(cached!==null) return cached;}
+ const controller=new AbortController();
+ const timer=setTimeout(()=>controller.abort(),15000);
+ try{
+  const response=await fetch(url,{method:'GET',headers:{'Accept':'application/json'},signal:controller.signal,cache:'no-store'});
+  if(!response.ok) throw new Error('HTTP '+response.status);
+  const data=await response.json();
+  cacheWrite(key,data); return data;
+ }finally{clearTimeout(timer);}
+}
+async function parallelMap(items,limit,fn,onProgress){
+ const results=new Array(items.length); let next=0,done=0;
+ const workers=Array.from({length:Math.min(limit,items.length)},async()=>{
+  while(true){const i=next++; if(i>=items.length) break;
+   try{results[i]=await fn(items[i],i);}catch(error){results[i]={error};}
+   done++; if(onProgress) onProgress(done,items.length);
+  }
+ });
+ await Promise.all(workers); return results;
+}
+function eventStatus(event){return event?.status?.type || event?.competitions?.[0]?.status?.type || {};}
+function eventTeams(event){
+ const competitors=event?.competitions?.[0]?.competitors || [];
+ const home=competitors.find(t=>t.homeAway==='home') || competitors[0] || {};
+ const away=competitors.find(t=>t.homeAway==='away') || competitors[1] || {};
+ return {home,away};
+}
+function teamLogo(team){return team?.logo || team?.logos?.[0]?.href || '';}
+function teamMarkup(team){
+ const name=team?.displayName || team?.name || 'تیم نامشخص';
+ const logo=teamLogo(team);
+ return `<div class="teamname">${logo?`<img class="teamlogo" src="${esc(logo)}" alt="" loading="lazy" onerror="this.style.display='none'">`:''}<span>${esc(name)}</span></div>`;
+}
+function eventCard(event,league){
+ const {home,away}=eventTeams(event); const state=eventStatus(event).state;
+ const live=state==='in'; const done=state==='post';
+ const hs=home.score ?? '-'; const as=away.score ?? '-';
+ const eventTime=event.date || event.competitions?.[0]?.date;
+ const status=eventStatus(event).shortDetail || eventStatus(event).detail || (live?'زنده':done?'پایان':'برنامه');
+ const leagueName=league?.name || event.league?.name || event.season?.name || 'فوتبال';
+ eventStore.set(String(event.id),{event,league});
+ return `<article class="panel match" data-event="${esc(event.id)}" role="button" tabindex="0">
+  <div class="meta"><span>${esc(leagueName)}</span><span class="${live?'live':''}">${live?'● زنده':done?'پایان':'برنامه'}</span></div>
+  <div class="teams">${teamMarkup(home.team)}<span class="score">${esc(hs)} - ${esc(as)}</span>${teamMarkup(away.team)}</div>
+  <div class="matchfoot"><span>${esc(live?status:done?status:timeLabel(eventTime))}</span><span>جزئیات ←</span></div>
  </article>`;
 }
-
-async function loadLive(){
- const box=document.getElementById("liveCards");
- box.innerHTML='<div class="panel">در حال دریافت مسابقات زنده...</div>';
-
- try{
-  let data;
-  try{
-   data=await getJSON(WORKER+"/live");
-   const list=data.response||data.events||data.data;
-   if(!Array.isArray(list)) throw new Error("Worker format");
-   if(list.length){
-    box.innerHTML=list.slice(0,16).map(m=>{
-     const h=m.teams?.home?.name||m.homeTeam||m.home||"میزبان";
-     const a=m.teams?.away?.name||m.awayTeam||m.away||"مهمان";
-     const hs=m.goals?.home??m.score?.home??"-";
-     const as=m.goals?.away??m.score?.away??"-";
-     return `<article class="panel">
-      <div class="meta"><span>${esc(m.league?.name||m.competition||"فوتبال")}</span><span class="live">● LIVE</span></div>
-      <div class="teams"><span>${esc(h)}</span><span class="score">${esc(hs)} - ${esc(as)}</span><span>${esc(a)}</span></div>
-      <div class="meta"><span>${esc(m.fixture?.status?.short||"زنده")}</span><span>GoalZone</span></div>
-     </article>`;
-    }).join("");
-    return;
-   }
-  }catch(e){}
-
-  const fallback=await getJSON(ESPN+"/scoreboard");
-  const events=fallback.events||[];
-  const live=events.filter(e=>e.status?.type?.state==="in");
-  box.innerHTML=live.length?live.map(eventCard).join(""):'<div class="panel notice">در حال حاضر مسابقهٔ زنده‌ای در منبع دریافت نشد. بازی‌های امروز را در بخش پایین ببین.</div>';
- }catch(e){
-  box.innerHTML='<div class="panel notice error">منبع مسابقات زنده فعلاً پاسخ نداد. لطفاً بعداً دوباره تازه‌سازی کن.</div>';
- }
+function attachEventClicks(root){
+ root.querySelectorAll('[data-event]').forEach(card=>{
+  const open=()=>showMatch(card.getAttribute('data-event'));
+  card.addEventListener('click',open);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+ });
 }
-
-async function loadToday(offset=0,button){
- if(button){
-  document.querySelectorAll("#today .tab").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
- }
- const box=document.getElementById("todayCards");
- box.innerHTML='<div class="panel">در حال دریافت برنامه...</div>';
-
- try{
-  const data=await getJSON(ESPN+"/scoreboard?dates="+dateString(offset));
-  const events=data.events||[];
-  box.innerHTML=events.length?events.map(eventCard).join(""):'<div class="panel notice">برای این تاریخ بازی در منبع پیدا نشد.</div>';
- }catch(e){
-  box.innerHTML='<div class="panel notice error">برنامهٔ مسابقات فعلاً دریافت نشد.</div>';
- }
+async function getDayEvents(offset=0,force=false){
+ const key=String(offset);
+ const old=dayCache.get(key);
+ if(!force && old && Date.now()-old.time<CACHE_MS) return old;
+ const date=localDate(offset);
+ const results=await parallelMap(leagues,4,async league=>{
+  const url=`${SCORE_API}/${encodeURIComponent(league.id)}/scoreboard?dates=${date}&limit=100`;
+  const data=await getJSON(url,force);
+  const events=Array.isArray(data.events)?data.events:[];
+  return {league,events};
+ });
+ const packs=results.filter(x=>x && !x.error);
+ const failed=results.length-packs.length;
+ const events=[];
+ packs.forEach(pack=>pack.events.forEach(event=>events.push({event,league:pack.league})));
+ const result={time:Date.now(),date,events,failed,total:leagues.length};
+ dayCache.set(key,result); return result;
 }
-
+function renderEvents(items,box,emptyText){
+ if(!items.length){box.innerHTML=`<div class="panel notice empty">${esc(emptyText)}</div>`;return;}
+ box.innerHTML=items.map(x=>eventCard(x.event,x.league)).join(''); attachEventClicks(box);
+}
+async function loadDay(offset=0,force=false){
+ selectedDay=offset;
+ const todayBox=document.getElementById('todayCards');
+ const liveBox=document.getElementById('liveCards');
+ if(offset===0){liveBox.innerHTML='<div class="panel notice">در حال بررسی مسابقات زنده در لیگ‌ها...</div>';}
+ todayBox.innerHTML=`<div class="panel notice empty">در حال دریافت مسابقات ${esc(dateLabel(offset))}...</div>`;
+ const btn=document.getElementById('refreshAll');btn.disabled=true;btn.textContent='در حال دریافت...';
+ const status=document.getElementById('dataStatus');
+ try{
+  const data=await getDayEvents(offset,force);
+  const sorted=[...data.events].sort((a,b)=>new Date(a.event.date)-new Date(b.event.date));
+  renderEvents(sorted.map(x=>({event:x.event,league:x.league})),todayBox,'برای این تاریخ، مسابقه‌ای در داده‌های دریافت‌شده پیدا نشد.');
+  if(offset===0){
+   const live=sorted.filter(x=>eventStatus(x.event).state==='in');
+   renderEvents(live,liveBox,'در حال حاضر مسابقهٔ زنده‌ای در لیگ‌های پاسخ‌داده‌شده پیدا نشد.');
+  }
+  const leagueCount=leagues.length-data.failed;
+  status.textContent=`تاریخ ${dateLabel(offset)} · ${sorted.length} مسابقه از ${leagueCount} رقابت پاسخ گرفت${data.failed?` · اطلاعات ${data.failed} رقابت دریافت نشد`:''}.`;
+ }catch(error){
+  todayBox.innerHTML='<div class="panel notice error empty">دریافت مسابقات ناموفق شد. اتصال اینترنت را بررسی و دوباره تازه‌سازی کن.</div>';
+  if(offset===0)liveBox.innerHTML='<div class="panel notice error empty">اطلاعات زنده فعلاً دریافت نشد. دوباره تازه‌سازی کن.</div>';
+  status.textContent='اتصال به منبع مسابقات برقرار نشد.';
+ }finally{btn.disabled=false;btn.textContent='تازه‌سازی مسابقات ↻';}
+}
 function renderLeagues(){
- const q=document.getElementById("leagueSearch").value.toLowerCase();
- const list=leagues.filter(l=>(l.name+" "+l.en+" "+l.country).toLowerCase().includes(q));
- document.getElementById("leagueCount").textContent=list.length+" رقابت";
- document.getElementById("leagueGrid").innerHTML=list.map(l=>`
-  <article class="panel league" onclick="selectLeague('${l.id}')">
-   <div class="leagueTop"><div class="flag">${l.flag}</div>
-   <div><h3>${esc(l.name)}</h3><small>${esc(l.en)}</small></div></div>
-   <span class="tag">${esc(l.country)} · جدول و آمار ←</span>
-  </article>`).join("");
+ const q=document.getElementById('leagueSearch').value.trim().toLowerCase();
+ const list=leagues.filter(l=>(l.name+' '+l.en+' '+l.country).toLowerCase().includes(q));
+ document.getElementById('leagueCount').textContent=`${list.length} رقابت`;
+ const grid=document.getElementById('leagueGrid');
+ grid.innerHTML=list.map(l=>`<article class="panel league" data-league="${esc(l.id)}" role="button" tabindex="0"><div class="leagueTop"><div class="flag">${l.flag}</div><div><h3>${esc(l.name)}</h3><small>${esc(l.en)}</small></div></div><span class="tag">${esc(l.country)} · جدول و آمار ←</span></article>`).join('');
+ grid.querySelectorAll('[data-league]').forEach(card=>{
+  const open=()=>selectLeague(card.getAttribute('data-league'));
+  card.addEventListener('click',open);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+ });
 }
-
 function fillLeagueSelects(){
- const options=leagues.map(l=>`<option value="${l.id}">${esc(l.name)}</option>`).join("");
- document.getElementById("tableLeague").innerHTML=options;
- document.getElementById("playerLeague").innerHTML=options;
+ const opts=leagues.map(l=>`<option value="${esc(l.id)}">${esc(l.name)}</option>`).join('');
+ document.getElementById('tableLeague').innerHTML=opts;
+ document.getElementById('playerLeague').innerHTML=opts;
 }
-
 function selectLeague(id){
- document.getElementById("tableLeague").value=id;
- document.getElementById("playerLeague").value=id;
- document.getElementById("tables").scrollIntoView({behavior:"smooth"});
- loadStandings();
- loadPlayers();
+ document.getElementById('tableLeague').value=id;
+ document.getElementById('playerLeague').value=id;
+ document.getElementById('tables').scrollIntoView({behavior:'smooth'});
+ loadStandings();loadPlayers();
 }
-
+function collectStandings(node,groups=[],label=''){
+ if(!node || typeof node!=='object') return groups;
+ if(node.standings && Array.isArray(node.standings.entries) && node.standings.entries.length){
+  groups.push({name:node.name || node.abbreviation || label,entries:node.standings.entries});
+ }
+ if(node.standings && Array.isArray(node.standings.groups)){
+  node.standings.groups.forEach(g=>collectStandings(g,groups,g.name||label));
+ }
+ if(Array.isArray(node.children)) node.children.forEach(child=>collectStandings(child,groups,child.name||label));
+ return groups;
+}
+function statVal(stats,names){
+ const wanted=names.map(s=>s.toLowerCase());
+ const stat=(stats||[]).find(s=>wanted.includes(String(s.name||s.abbreviation||'').toLowerCase()));
+ if(!stat) return '-';
+ return stat.displayValue ?? stat.value ?? '-';
+}
 async function loadStandings(){
- const id=document.getElementById("tableLeague").value;
- const box=document.getElementById("standings");
+ const id=document.getElementById('tableLeague').value;
+ const league=leagues.find(l=>l.id===id);
+ const box=document.getElementById('standings');
  box.innerHTML='<div class="notice">در حال دریافت جدول...</div>';
  try{
-  const data=await getJSON(ESPN+"/"+id+"/standings");
-  const entries=data.children?.[0]?.standings?.entries||
-               data.standings?.entries||[];
-  if(!entries.length) throw new Error("No standings");
-  box.innerHTML=`<table><thead><tr>
-   <th>تیم</th><th>بازی</th><th>برد</th><th>مساوی</th><th>باخت</th><th>امتیاز</th>
-  </tr></thead><tbody>${entries.map((e,i)=>{
-   const s=e.stats||[];
-   const val=k=>s.find(x=>x.name===k)?.value??"-";
-   return `<tr><td>${i+1}. ${esc(e.team?.displayName||e.team?.name)}</td>
-    <td>${val("gamesPlayed")}</td><td>${val("wins")}</td>
-    <td>${val("ties")}</td><td>${val("losses")}</td><td>${val("points")}</td></tr>`;
-  }).join("")}</tbody></table>`;
- }catch(e){
-  box.innerHTML='<div class="notice error">جدول این رقابت از منبع فعلی دریافت نشد؛ ممکن است منبع آن لیگ را پوشش ندهد.</div>';
+  const data=await getJSON(`${TABLE_API}/${encodeURIComponent(id)}/standings`);
+  const groups=collectStandings(data);
+  if(!groups.length) throw new Error('No standings entries');
+  box.innerHTML=groups.map(group=>`<div style="margin-bottom:20px">${group.name?`<h3 style="font-size:14px">${esc(group.name)}</h3>`:''}<table><thead><tr><th>#</th><th>تیم</th><th>بازی</th><th>برد</th><th>مساوی</th><th>باخت</th><th>تفاضل</th><th>امتیاز</th></tr></thead><tbody>${group.entries.map((entry,index)=>{
+   const s=entry.stats||[];const t=entry.team||{};
+   return `<tr><td>${esc(statVal(s,['rank','playoffSeed'])==='-'?index+1:statVal(s,['rank','playoffSeed']))}</td><td style="text-align:right">${esc(t.displayName||t.name||'تیم')}</td><td>${esc(statVal(s,['gamesPlayed','games']))}</td><td>${esc(statVal(s,['wins']))}</td><td>${esc(statVal(s,['ties','draws']))}</td><td>${esc(statVal(s,['losses']))}</td><td>${esc(statVal(s,['pointDifferential','goalDifference','differential']))}</td><td><b>${esc(statVal(s,['points']))}</b></td></tr>`;
+  }).join('')}</tbody></table></div>`).join('');
+ }catch(error){
+  box.innerHTML=`<div class="notice error">جدول ${esc(league?.name||'این رقابت')} در منبع فعلی دریافت نشد. ممکن است ESPN برای این لیگ جدول قابل‌دسترسی ارائه نکند.</div>`;
  }
 }
-
+function extractGoalLeaders(data){
+ const players=new Map();
+ const events=Array.isArray(data.events)?data.events:[];
+ events.forEach(event=>{
+  (event.competitions||[]).forEach(comp=>{
+   (comp.competitors||[]).forEach(competitor=>{
+    (competitor.leaders||[]).forEach(category=>{
+     const name=String(category.name||category.displayName||'').toLowerCase();
+     if(!name.includes('goal')) return;
+     (category.leaders||[]).forEach(item=>{
+      const a=item.athlete||{};if(!a.id&&!a.displayName) return;
+      const key=String(a.id||a.displayName);const value=Number(item.value??item.displayValue??0);
+      const old=players.get(key);
+      if(!old||value>old.value) players.set(key,{id:a.id,name:a.displayName||a.fullName||'بازیکن',team:item.team?.displayName||competitor.team?.displayName||'-',value,display:item.displayValue??item.value??'-'});
+     });
+    });
+   });
+  });
+ });
+ return [...players.values()].sort((a,b)=>b.value-a.value).slice(0,20);
+}
 async function loadPlayers(){
- const id=document.getElementById("playerLeague").value;
- const box=document.getElementById("playerStats");
- box.innerHTML='<div class="notice">در حال دریافت آمار بازیکنان...</div>';
+ const id=document.getElementById('playerLeague').value;
+ const league=leagues.find(l=>l.id===id);const box=document.getElementById('playerStats');
+ box.innerHTML='<div class="notice">در حال بررسی آمار بازیکنان در داده‌های مسابقات...</div>';
  try{
-  const data=await getJSON(ESPN+"/"+id+"/leaders");
-  const categories=data.categories||[];
-  const scorers=categories.find(c=>/goal/i.test(c.name||c.displayName))||categories[0];
-  const leaders=scorers?.leaders||[];
-  if(!leaders.length) throw new Error("No leaders");
-  box.innerHTML=`<table><thead><tr><th>بازیکن</th><th>تیم</th><th>آمار</th></tr></thead><tbody>
-  ${leaders.slice(0,20).map(p=>`<tr>
-   <td>${esc(p.athlete?.displayName||p.athlete?.fullName)}</td>
-   <td>${esc(p.team?.displayName||"-")}</td>
-   <td>${esc(p.value??p.displayValue??"-")}</td>
-  </tr>`).join("")}</tbody></table>`;
- }catch(e){
-  box.innerHTML='<div class="notice error">آمار گل‌زنان این لیگ در منبع فعلی قابل دریافت نیست.</div>';
+  const data=await getJSON(`${SCORE_API}/${encodeURIComponent(id)}/scoreboard?limit=100`);
+  const players=extractGoalLeaders(data);
+  if(!players.length) throw new Error('No player leaders');
+  box.innerHTML=`<div class="notice">بازیکنان شاخصی که ESPN همراه برنامهٔ مسابقات این رقابت برگردانده است؛ این فهرست لزوماً جدول کامل گل‌زنان تمام فصل نیست.</div><table><thead><tr><th>#</th><th>بازیکن</th><th>تیم</th><th>گل</th></tr></thead><tbody>${players.map((p,i)=>`<tr><td>${i+1}</td><td><div class="player">${p.id?`<img src="https://a.espncdn.com/i/headshots/soccer/players/full/${encodeURIComponent(p.id)}.png" alt="" loading="lazy" onerror="this.style.display='none'">`:''}<b>${esc(p.name)}</b></div></td><td>${esc(p.team)}</td><td><b>${esc(p.display)}</b></td></tr>`).join('')}</tbody></table>`;
+ }catch(error){
+  box.innerHTML=`<div class="notice error">آمار گل‌زنان ${esc(league?.name||'این لیگ')} از دادهٔ عمومی فعلی قابل دریافت نشد؛ برای جلوگیری از نمایش آمار نادرست، جدول ساختگی نشان داده نمی‌شود.</div>`;
  }
 }
-
-async function showMatch(id,title){
- const modal=document.getElementById("detail");
- const content=document.getElementById("detailContent");
- modal.classList.remove("hidden");
- content.innerHTML=`<h2>${esc(title)}</h2><div class="notice">در حال دریافت جزئیات مسابقه...</div>`;
+function playText(play){return play?.text||play?.type?.text||play?.type?.name||'رویداد مسابقه';}
+function renderPlays(data){
+ const plays=Array.isArray(data.plays)?data.plays:[];
+ const scoring=plays.filter(p=>p.scoringPlay || /goal|penalty scored|own goal/i.test(playText(p)));
+ if(!scoring.length) return '<div class="notice">رویدادهای گل در گزارش این مسابقه موجود نیست.</div>';
+ return scoring.slice(-12).reverse().map(p=>`<div class="eventline"><span class="eventmin">${esc(p.clock?.displayValue||p.period?.number||'⚽')}</span><span>⚽ ${esc(playText(p))}</span></div>`).join('');
+}
+function renderTeamStats(data){
+ const teams=data.boxscore?.teams||[];
+ if(!teams.length) return '<div class="notice">آمار مقایسه‌ای تیم‌ها برای این مسابقه در منبع موجود نیست.</div>';
+ const left=teams[0]?.statistics||[];const right=teams[1]?.statistics||[];
+ const keys=new Set([...left.map(x=>x.name||x.label),...right.map(x=>x.name||x.label)].filter(Boolean));
+ if(!keys.size) return '<div class="notice">آمار مقایسه‌ای تیم‌ها برای این مسابقه در منبع موجود نیست.</div>';
+ const find=(arr,key)=>arr.find(x=>(x.name||x.label)===key)?.displayValue||arr.find(x=>(x.name||x.label)===key)?.value||'-';
+ return `<div class="tablewrap"><table><thead><tr><th>${esc(teams[0]?.team?.displayName||'تیم اول')}</th><th>آمار</th><th>${esc(teams[1]?.team?.displayName||'تیم دوم')}</th></tr></thead><tbody>${[...keys].map(k=>`<tr><td>${esc(find(left,k))}</td><td>${esc(k)}</td><td>${esc(find(right,k))}</td></tr>`).join('')}</tbody></table></div>`;
+}
+async function showMatch(id){
+ const saved=eventStore.get(String(id));if(!saved)return;
+ const {event,league}=saved;const modal=document.getElementById('detail');const content=document.getElementById('detailContent');
+ modal.classList.remove('hidden');document.body.style.overflow='hidden';
+ const {home,away}=eventTeams(event);const status=eventStatus(event);
+ content.innerHTML=`<h2>${esc(league.name)}</h2><div class="panel detailTeams"><div class="teams">${teamMarkup(home.team)}<span class="score">${esc(home.score??'-')} - ${esc(away.score??'-')}</span>${teamMarkup(away.team)}</div><div class="meta"><span>${esc(status.detail||status.shortDetail||'وضعیت نامشخص')}</span><span>${esc(timeLabel(event.date))}</span></div></div><div class="notice">در حال دریافت گزارش مسابقه...</div>`;
  try{
-  const data=await getJSON(ESPN+"/summary?event="+encodeURIComponent(id));
-  const comp=data.header?.competitions?.[0];
-  const teams=comp?.competitors||[];
-  const stats=data.boxscore?.players||[];
-  content.innerHTML=`<h2>${esc(title)}</h2>
-  <div class="panel"><div class="teams">
-   <span>${esc(teamName(teams[0]?.team))}</span>
-   <span class="score">${esc(teams[0]?.score??"-")} - ${esc(teams[1]?.score??"-")}</span>
-   <span>${esc(teamName(teams[1]?.team))}</span>
-  </div></div>
-  <h3>آمار مسابقه</h3>
-  <div class="notice">${stats.length?"آمار بازیکنان در منبع موجود است.":"جزئیات بیشتر برای این مسابقه ارائه نشده است."}</div>`;
- }catch(e){
-  content.innerHTML=`<h2>${esc(title)}</h2><div class="notice error">جزئیات این مسابقه در منبع فعلی در دسترس نیست.</div>`;
+  const data=await getJSON(`${SCORE_API}/${encodeURIComponent(league.id)}/summary?event=${encodeURIComponent(event.id)}`,true);
+  const headerComp=data.header?.competitions?.[0];const comps=headerComp?.competitors||[];
+  const h=comps.find(t=>t.homeAway==='home')||comps[0]||home;const a=comps.find(t=>t.homeAway==='away')||comps[1]||away;
+  const broadcasts=(headerComp?.geoBroadcasts||[]).map(b=>b.media?.shortName||b.type?.shortName).filter(Boolean);
+  content.innerHTML=`<h2>${esc(league.name)} · ${esc(event.name||'گزارش مسابقه')}</h2>
+   <div class="panel detailTeams"><div class="teams">${teamMarkup(h.team)}<span class="score">${esc(h.score??'-')} - ${esc(a.score??'-')}</span>${teamMarkup(a.team)}</div><div class="meta"><span>${esc(headerComp?.status?.type?.detail||status.detail||'')}</span><span>${esc(timeLabel(event.date))}</span></div></div>
+   <h3>⚽ رویدادهای مهم</h3>${renderPlays(data)}<h3>📊 آمار مسابقه</h3>${renderTeamStats(data)}
+   ${broadcasts.length?`<h3>📺 شبکه‌های اعلام‌شده در منبع</h3><div>${[...new Set(broadcasts)].map(b=>`<span class="broadcast">${esc(b)}</span>`).join('')}</div>`:''}
+   <p class="small">جزئیات فقط به اندازهٔ اطلاعاتی نمایش داده می‌شود که منبع برای این مسابقه ارائه کرده باشد.</p>`;
+ }catch(error){
+  content.innerHTML=`<h2>${esc(league.name)} · ${esc(event.name||'گزارش مسابقه')}</h2><div class="panel detailTeams"><div class="teams">${teamMarkup(home.team)}<span class="score">${esc(home.score??'-')} - ${esc(away.score??'-')}</span></div></div><div class="notice error">گزارش کامل این مسابقه از منبع دریافت نشد. نتیجهٔ موجود در کارت مسابقه همچنان از اطلاعات برنامهٔ مسابقات است.</div>`;
  }
 }
-function closeDetail(){document.getElementById("detail").classList.add("hidden");}
+function closeDetail(){document.getElementById('detail').classList.add('hidden');document.body.style.overflow='';}
+async function loadNews(force=false){
+ const box=document.getElementById('newsCards');box.innerHTML='<div class="panel notice">در حال دریافت خبرها...</div>';
+ try{
+  const data=await getJSON(NEWS_API+'?limit=9',force);
+  const articles=data.articles||data.feed||[];
+  if(!articles.length) throw new Error('No news');
+  box.innerHTML=articles.slice(0,9).map(article=>{
+   const headline=article.headline||article.title||'خبر فوتبال';
+   const description=article.description||article.summary||'';
+   const link=article.links?.web?.href||article.links?.api?.news?.href||'#';
+   const image=article.images?.[0]?.url||article.image?.href||'';
+   return `<a class="panel newsCard" href="${esc(link)}" target="_blank" rel="noopener">${image?`<img class="newsImg" style="width:100%;object-fit:cover" src="${esc(image)}" alt="" loading="lazy">`:'<div class="newsImg">⚽</div>'}<div class="newsText"><h3>${esc(headline)}</h3><p>${esc(description)}</p><small>ادامهٔ خبر ←</small></div></a>`;
+  }).join('');
+ }catch(error){box.innerHTML='<div class="panel notice error empty">خبرها در حال حاضر از منبع دریافت نشدند. بخش مسابقات و جدول‌ها جداگانه کار می‌کنند.</div>';}
+}
 
-fillLeagueSelects();
-renderLeagues();
-loadLive();
-loadToday(0);
-loadStandings();
-loadPlayers();
+// رویدادهای صفحه؛ مسابقات در شروع یک بار دریافت می‌شوند و تازه‌سازی خودکار دقیقه‌ای وجود ندارد.
+document.querySelectorAll('#today .tab').forEach(button=>button.addEventListener('click',()=>{
+ document.querySelectorAll('#today .tab').forEach(b=>b.classList.remove('active'));
+ button.classList.add('active');loadDay(Number(button.dataset.day),false);
+}));
+document.getElementById('refreshAll').addEventListener('click',()=>loadDay(selectedDay,true));
+document.getElementById('leagueSearch').addEventListener('input',renderLeagues);
+document.getElementById('tableLeague').addEventListener('change',loadStandings);
+document.getElementById('playerLeague').addEventListener('change',loadPlayers);
+document.getElementById('closeDetail').addEventListener('click',closeDetail);
+document.getElementById('detail').addEventListener('click',e=>{if(e.target.id==='detail')closeDetail();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});
+document.getElementById('refreshNews').addEventListener('click',()=>loadNews(true));
+fillLeagueSelects();renderLeagues();loadDay(0,false);loadNews(false);
 </script>
 </body>
 </html>
