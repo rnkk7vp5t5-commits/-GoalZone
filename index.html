@@ -6,6 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GoalZone | دنیای فوتبال</title>
 
+<!-- اتصال برنامه به فایل نصب -->
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#07111d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GoalZone">
+
+<!-- فعال‌سازی Service Worker -->
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => console.log("GoalZone is ready"))
+      .catch(error => console.error("GoalZone SW:", error));
+  });
+}
+</script>
+
 <style>
 *{box-sizing:border-box}
 :root{--bg:#07111d;--panel:#101e2d;--line:#24384a;--green:#20d98b;--muted:#9aafc2;--text:#edf5fa}
